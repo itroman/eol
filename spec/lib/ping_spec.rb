@@ -1,13 +1,19 @@
 require 'spec_helper'
 
 describe "A Ping" do
+  VCR.use_cassette('ping/api_status') do
+  results = Ping.api_status
     
     describe "#api_status" do
+      
       it "returns a Ping object" do
-        VCR.use_cassette('ping/api_status') do
-          results = Ping.api_status
-          expect(results.class).to eq(Ping)
-        end
+        expect(results.class).to eq(Ping)
       end
+      
+      it "returns the API state" do
+        expect(results.message).to eq("Success")
+      end
+      
     end
+  end
 end

@@ -17,6 +17,14 @@ describe "A Search" do
         expect(results[0].link).to be_a(String)
         expect(results[0].content).to be_a(String)
       end
+      
+      it "title contains the search query" do
+        expect(results[0].title).to include "Tolumnia"
+      end
+      
+      it "links to a website" do
+        expect(results[0].link).to include "http:"
+      end
         
     end
   end
