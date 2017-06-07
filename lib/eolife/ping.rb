@@ -16,7 +16,7 @@ class Ping
       if response["response"].is_a?(Hash)
         Ping.new(response["response"]["message"])
       else
-        raise response.response
+        puts response.code #is this more/as viable than raise response.response
       end
   end
 end
