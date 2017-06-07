@@ -14,12 +14,12 @@ class Search
     @content = response["content"]
   end
   
-  def self.search(query)
-      response = get("/search/#{query}.json")
+  def self.search(query, query_options = {})
+      response = get("/search/#{query}.json", :query => query_options)
       if response["results"].is_a?(Array)
         response["results"].map{|item| Search.new(item)}
       else
-        raise response.response
+        puts response.code
       end 
   end
   
@@ -28,7 +28,9 @@ end
 # puts "What would you like to search for?"
 # query = gets.chomp
 
-# s = Search.search(query)
+
+
+# s = Search.search(query, "exact=true")
 # s.sort_by! { |x| x.id } # sorts so smallest id integer is first
 # s.map { |x| puts x.id } # listing of all ids, in above ordering
 # s.each { |x| puts x.link} #listing of all links, in above ordering

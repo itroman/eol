@@ -14,17 +14,17 @@ class Pages
     @dataObjects = response["dataObjects"]
   end
 
-  def self.get_pages(id)
-      response = get("/pages/1.0.json?batch=false&id=#{id}")
+  def self.get_pages(id, query_options = {})
+      response = get("/pages/1.0.json?batch=false&id=#{id}", :query => query_options)
       if response != nil
         Pages.new(response)
       else
-        raise response.response
+         puts response.code
       end 
   end
 end
 
-p = Pages.get_pages('1045608')
+# p = Pages.get_pages('1045608')
 # puts p.scientificName
 # puts p.richness_score
 # puts p.taxonConcepts[0]["taxonRank"]

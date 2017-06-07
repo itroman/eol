@@ -18,12 +18,12 @@ class Collections
     @collection_items = response["collection_items"]
   end
   
-  def self.get_collections(id)
-    response = get("/collections/1.0/#{id}.json?")
+  def self.get_collections(id, query_options = {})
+    response = get("/collections/1.0/#{id}.json?", :query => query_options)
       if response != nil
         Collections.new(response)
       else
-        raise response.response
+        puts response.code
       end 
   end
 

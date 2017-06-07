@@ -16,12 +16,12 @@ class DataObjects
     @dataObjects = response["dataObjects"]
   end
 
-  def self.get_data_objects(id)
-      response = get("/data_objects/1.0/#{id}.json?")
+  def self.get_data_objects(id, query_options = {})
+      response = get("/data_objects/1.0/#{id}.json?", :query => query_options)
       if response != nil
         DataObjects.new(response)
       else
-        raise response.response
+         puts response.code
       end 
   end
 end
