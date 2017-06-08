@@ -56,6 +56,15 @@ module Eolife
     end
   end
 
+  def self.hierarchy_entries(id, query_options ={})
+    response = get("hierarchy_entries/1.0/#{id}.json?", query: query_options)
+    if response.code == 200
+      Eolife::HierarchyEntries.new(response)
+    else
+      bad_response(response)
+    end
+  end
+
   def self.bad_response(response)
     raise ResponseError, response if response.class == HTTParty::Response
     raise StandardError, 'Unknown error'

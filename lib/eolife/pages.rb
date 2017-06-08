@@ -2,7 +2,7 @@ module Eolife
 
   class Pages
 
-    attr_reader :scientificName, :richness_score, :taxonConcepts, :dataObjects
+    attr_accessor :scientificName, :richness_score, :taxonConcepts, :dataObjects
   
     def initialize(response)
       @scientificName = response["scientificName"]
