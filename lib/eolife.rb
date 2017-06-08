@@ -4,6 +4,7 @@ require_relative 'eolife/ping'
 require_relative 'eolife/pages'
 require_relative 'eolife/collections'
 require_relative 'eolife/data_objects'
+require_relative 'eolife/hierarchy_entries'
 require 'httparty'
 
 module Eolife
@@ -57,7 +58,7 @@ module Eolife
   end
 
   def self.hierarchy_entries(id, query_options ={})
-    response = get("hierarchy_entries/1.0/#{id}.json?", query: query_options)
+    response = get("/hierarchy_entries/1.0/#{id}.json?", query: query_options)
     if response.code == 200
       Eolife::HierarchyEntries.new(response)
     else
