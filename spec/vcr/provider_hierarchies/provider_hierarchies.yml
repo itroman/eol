@@ -1,0 +1,72 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://eol.org/api/provider_hierarchies/1.0.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.10.2
+      Content-Type:
+      - application/json; charset=utf-8
+      Status:
+      - 200 OK
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - '"966cd9e338e6a9cf3385b29dc0c185bd"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - adcafe55c8022c4d660526fbe56ecd3f
+      X-Runtime:
+      - '0.019299'
+      X-Rack-Cache:
+      - miss
+      Vary:
+      - Origin
+      Content-Length:
+      - '1101'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Thu, 08 Jun 2017 09:48:45 GMT
+      X-Varnish:
+      - '1825713153'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '[{"id":121,"label":"AntWeb (Ant Species)"},{"id":123,"label":"WORMS
+        Species Information (Marine Species)"},{"id":143,"label":"FishBase (Fish Species)"},{"id":144,"label":"IUCN
+        Red List (Species Assessed for Global Conservation)"},{"id":596,"label":"Index
+        Fungorum"},{"id":752,"label":"Cephaloleia LifeDesk resource"},{"id":787,"label":"The
+        Reptile Database"},{"id":860,"label":"Avibase - IOC World Bird Names (2011)"},{"id":903,"label":"Integrated
+        Taxonomic Information System (ITIS)"},{"id":967,"label":"Paleobiology Database"},{"id":1128,"label":"Clements
+        Checklist resource"},{"id":1139,"label":"Taxonomic Hierarchy of COL-China
+        2012"},{"id":1162,"label":"South African Vertebrates"},{"id":1163,"label":"Continenticola
+        Classification"},{"id":1172,"label":"NCBI Taxonomy"},{"id":1188,"label":"Species
+        2000 & ITIS Catalogue of Life: April 2013"},{"id":1192,"label":"Metalmark
+        Moths of the World"},{"id":1274,"label":"Rotifers of the World"},{"id":1280,"label":"Algeabase
+        resource"},{"id":1281,"label":"Algae"},{"id":1347,"label":"Extant & Habitat
+        resource"},{"id":1380,"label":"FALO Classification"}]'
+    http_version: 
+  recorded_at: Thu, 08 Jun 2017 09:48:45 GMT
+recorded_with: VCR 3.0.3
