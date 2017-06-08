@@ -26,7 +26,7 @@ module Eolife
   def self.search(query, query_options = {})
     response = get("/search/#{query}.json", query: query_options)
     if response.code == 200
-      response['results'].map { |item| Eolife::Search.new(item) }
+      response['results'].map { |item| Eolife::Search.new(item) } # figure out pagination
     else
       bad_response(response)
     end
