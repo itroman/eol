@@ -2,13 +2,13 @@ require 'spec_helper'
 
 describe "A Search" do
   VCR.use_cassette('search/search') do
-  results = Search.search("tolumnia")
+  results = Eolife.search("tolumnia")
     
     describe "#search" do
         
       it "returns an Array of Search objects" do
         expect(results.class).to eq(Array)
-        expect(results[0].class).to eq(Search)
+        expect(results[0].class).to eq(Eolife::Search)
       end
       
       it "each Search object has four attributes" do

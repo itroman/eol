@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 describe "A Ping" do
-  VCR.use_cassette('ping/api_status') do
-  results = Ping.api_status
+  VCR.use_cassette('ping/ping') do
+  results = Eolife.ping
     
     describe "#api_status" do
       
       it "returns a Ping object" do
-        expect(results.class).to eq(Ping)
+        expect(results.class).to eq(Eolife::Ping)
       end
       
       it "returns the API state" do

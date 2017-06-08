@@ -1,24 +1,15 @@
-require 'httparty'
+module Eolife
 
-class Ping
-  include HTTParty
+  class Ping
 
-  base_uri 'eol.org/api'
+    attr_accessor :message
   
-  attr_accessor :message
-  
-  def initialize(response)
-    @message = response
-  end 
-  
-  def self.api_status
-    response = get('/ping/1.0.json')
-      if response["response"].is_a?(Hash)
-        Ping.new(response["response"]["message"])
-      else
-        puts response.code #is this more/as viable than raise response.response
-      end
+    def initialize(response)
+      @message = response
+    end 
+
   end
+
 end
 
 # s = Ping.api_status

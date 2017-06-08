@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://eol.org/api/pages/1.0.json?batch=false&id=1045608
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.10.2
+      Content-Type:
+      - application/json; charset=utf-8
+      Status:
+      - 200 OK
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - '"1fba1b8256faa41057b5414365d415ae"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 118b984ed272af5bd01a2cd3bc2c56be
+      X-Runtime:
+      - '0.935291'
+      X-Rack-Cache:
+      - miss
+      Vary:
+      - Origin
+      Content-Length:
+      - '3293'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Thu, 08 Jun 2017 07:23:22 GMT
+      X-Varnish:
+      - '1825296310'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"identifier":1045608,"scientificName":"Apis mellifera Linnaeus 1758","richness_score":400.0,"taxonConcepts":[{"identifier":52191458,"scientificName":"Apis
+        mellifera Linnaeus 1758","nameAccordingTo":"Species 2000 & ITIS Catalogue
+        of Life: April 2013","canonicalForm":"Apis mellifera","sourceIdentifier":"6845885","taxonRank":"Species"},{"identifier":59534038,"scientificName":"Apis
+        (Apis) mellifera Linnaeus 1758","nameAccordingTo":"Paleobiology Database","canonicalForm":"Apis
+        mellifera","sourceIdentifier":"235173","taxonRank":"Species"},{"identifier":49121298,"scientificName":"Apis
+        (Apis) mellifera Linnaeus 1758","nameAccordingTo":"Paleobiology Database","canonicalForm":"Apis
+        mellifera","sourceIdentifier":"urn:paleodb:tn235173","taxonRank":"Species"},{"identifier":49379619,"scientificName":"Apis
+        (Apis) mellifera Linnaeus 1758","nameAccordingTo":"Paleobiology Database","canonicalForm":"Apis
+        mellifera","sourceIdentifier":"urn:paleodb:tn235173","taxonRank":"Species"},{"identifier":55789671,"scientificName":"Apis
+        mellifera Linnaeus 1758","nameAccordingTo":"Integrated Taxonomic Information
+        System (ITIS)","canonicalForm":"Apis mellifera","sourceIdentifier":"154396","taxonRank":"Species"},{"identifier":59631096,"scientificName":"Apis
+        mellifera Linnaeus 1758","nameAccordingTo":"Paleobiology Database","canonicalForm":"Apis
+        mellifera","sourceIdentifier":"283625","taxonRank":"Species"},{"identifier":50293009,"scientificName":"Apis
+        mellifera","nameAccordingTo":"Taxonomic Hierarchy of COL-China 2012","canonicalForm":"Apis
+        mellifera","sourceIdentifier":"44bde209-1a83-48bc-bacf-877b39463c35","taxonRank":"Species"},{"identifier":51183343,"scientificName":"Apis
+        mellifera","nameAccordingTo":"NCBI Taxonomy","canonicalForm":"Apis mellifera","sourceIdentifier":"7460","taxonRank":"Species"},{"identifier":46497385,"scientificName":"Apis
+        mellifera Linnaeus 1758","nameAccordingTo":"Integrated Taxonomic Information
+        System (ITIS)","canonicalForm":"Apis mellifera","sourceIdentifier":"154396","taxonRank":"Species"}],"dataObjects":[{"identifier":"715fac20e20b012e4c4f1e6699c0ad5e","dataObjectVersionID":13451158,"dataType":"http://purl.org/dc/dcmitype/Text","dataSubtype":"","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":0,"4":3,"5":3},"dataRating":4.5,"subject":"http://rs.tdwg.org/ontology/voc/SPMInfoItems#TaxonBiology"},{"identifier":"bdffbd8b1e34d1c41282689eccf89261","dataObjectVersionID":31920917,"dataType":"http://purl.org/dc/dcmitype/StillImage","dataSubtype":"","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":3,"4":3,"5":7},"dataRating":4.30769},{"identifier":"e70cb321fd2933d4db48b6c41271068b","dataObjectVersionID":30108960,"dataType":"http://purl.org/dc/dcmitype/MovingImage","dataSubtype":"","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":7,"4":3,"5":0},"dataRating":3.3},{"identifier":"8787bca9f242f06fada02c341ab577d7","dataObjectVersionID":31506435,"dataType":"http://purl.org/dc/dcmitype/Sound","dataSubtype":"","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":0,"4":0,"5":0},"dataRating":2.5},{"identifier":"cad9dcc72cd30bdb185416e5a35fbc01","dataObjectVersionID":21108489,"dataType":"http://purl.org/dc/dcmitype/StillImage","dataSubtype":"Map","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":0,"4":3,"5":0},"dataRating":4.0}]}'
+    http_version: 
+  recorded_at: Thu, 08 Jun 2017 07:23:22 GMT
+recorded_with: VCR 3.0.3

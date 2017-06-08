@@ -1,27 +1,18 @@
-require 'httparty'
+module Eolife
 
-class Pages
-  include HTTParty
+  class Pages
 
-  base_uri 'eol.org/api'
+    attr_reader :scientificName, :richness_score, :taxonConcepts, :dataObjects
   
-  attr_reader :scientificName, :richness_score, :taxonConcepts, :dataObjects
-  
-  def initialize(response)
-    @scientificName = response["scientificName"]
-    @richness_score = response["richness_score"]
-    @taxonConcepts = response["taxonConcepts"]
-    @dataObjects = response["dataObjects"]
+    def initialize(response)
+      @scientificName = response["scientificName"]
+      @richness_score = response["richness_score"]
+      @taxonConcepts = response["taxonConcepts"]
+      @dataObjects = response["dataObjects"]
+    end
+
   end
 
-  def self.get_pages(id, query_options = {})
-      response = get("/pages/1.0.json?batch=false&id=#{id}", :query => query_options)
-      if response != nil
-        Pages.new(response)
-      else
-         puts response.code
-      end 
-  end
 end
 
 # p = Pages.get_pages('1045608')
