@@ -18,10 +18,3 @@ module Eolife
   end
 
 end
-
-# c = Collections.get_collections(176)
-
-# puts c.name
-# puts c.description
-# puts c.collection_items
-# puts c.collection_items[2]
