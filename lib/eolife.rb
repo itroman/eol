@@ -14,7 +14,7 @@ module Eolife
   def self.ping
     response = get('/ping/1.0.json')
     if response.code == 200
-      Eolife::Ping.new(response["response"]["message"])
+      Eolife::Ping.new(response['response']['message'])
     else
       bad_response(response)
     end
@@ -37,9 +37,9 @@ module Eolife
       bad_response(response)
     end
   end
-  
+
   def self.collections(id, query_options = {})
-    response = get("/collections/1.0/#{id}.json?", :query => query_options)
+    response = get("/collections/1.0/#{id}.json?", query: query_options)
     if response.code == 200
       Eolife::Collections.new(response)
     else
@@ -48,7 +48,7 @@ module Eolife
   end
 
   def self.data_objects(id, query_options = {})
-    response = get("/data_objects/1.0/#{id}.json?", :query => query_options)
+    response = get("/data_objects/1.0/#{id}.json?", query: query_options)
     if response.code == 200
       Eolife::DataObjects.new(response)
     else
@@ -60,9 +60,7 @@ module Eolife
     raise ResponseError, response if response.class == HTTParty::Response
     raise StandardError, 'Unknown error'
   end
-  
 end
-
 
 # s = Eolife.search("tolumnia")
 # puts s
