@@ -5,6 +5,8 @@ require_relative 'eolife/pages'
 require_relative 'eolife/collections'
 require_relative 'eolife/data_objects'
 require_relative 'eolife/hierarchy_entries'
+require_relative 'eolife/hierarchies'
+require_relative 'eolife/provider_hierarchies'
 require 'httparty'
 
 module Eolife
@@ -57,10 +59,28 @@ module Eolife
     end
   end
 
-  def self.hierarchy_entries(id, query_options ={})
+  def self.hierarchy_entries(id, query_options = {})
     response = get("/hierarchy_entries/1.0/#{id}.json?", query: query_options)
     if response.code == 200
       Eolife::HierarchyEntries.new(response)
+    else
+      bad_response(response)
+    end
+  end
+
+  def self.hierarchies(id, query_options = {})
+    response = get("/hierarchies/1.0/#{id}.json?", query: query_options)
+    if response.code == 200
+      Eolife::Hierarchies.new(response)
+    else
+      bad_response(response)
+    end
+  end
+
+  def self.provider_hierarchies
+    response = get('/provider_hierarchies/1.0.json')
+    if response.code == 200
+      response.map { |item| Eolife::ProviderHierarchies.new(item) }
     else
       bad_response(response)
     end
@@ -70,4 +90,5 @@ module Eolife
     raise ResponseError, response if response.class == HTTParty::Response
     raise StandardError, 'Unknown error'
   end
+  
 end
