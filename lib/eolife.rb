@@ -1,5 +1,5 @@
 require_relative 'eolife/version'
-require_relative 'eolife/search'
+require_relative 'eolife/search_all'
 require_relative 'eolife/ping'
 require_relative 'eolife/pages'
 require_relative 'eolife/collections'
@@ -23,10 +23,25 @@ module Eolife
     end
   end
 
+  def self.search_all(query, query_options = {})
+    @query = query
+    response = get("/search/#{@query}.json", query_options: query_options) # add validation or something to stop them from specifying page number, or take out second method param
+    if response.code == 200
+      @n = 0
+      total = (response['totalResults'] / 30.to_f).ceil
+      total.times.collect {
+        response = get("/search/#{@query}.json", query: query_options = "page=#{@n += 1}")
+        response['results'].map { |item| Eolife::SearchAll.new(item) }
+        }.flatten
+    else
+      bad_response(response)
+    end
+  end
+
   def self.search(query, query_options = {})
     response = get("/search/#{query}.json", query: query_options)
     if response.code == 200
-      response['results'].map { |item| Eolife::Search.new(item) } # figure out pagination
+      Eolife::Search.new(response)
     else
       bad_response(response)
     end
@@ -90,5 +105,4 @@ module Eolife
     raise ResponseError, response if response.class == HTTParty::Response
     raise StandardError, 'Unknown error'
   end
-  
 end

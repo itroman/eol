@@ -1,6 +1,6 @@
 module Eolife
 
-  class Search
+  class SearchAll
 
     attr_accessor :id, :title, :link, :content
   
