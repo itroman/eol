@@ -1,5 +1,5 @@
 require_relative 'eolife/version'
-require_relative 'eolife/search_all'
+require_relative 'eolife/search'
 require_relative 'eolife/ping'
 require_relative 'eolife/pages'
 require_relative 'eolife/collections'
@@ -13,7 +13,11 @@ module Eolife
   include HTTParty
 
   base_uri 'eol.org/api'
-
+  
+  # Pings the API
+  #
+  # @see http://www.eol.org/api/docs/ping
+  # @return [Eolife::Ping] Success or failure results
   def self.ping
     response = get('/ping/1.0.json')
     if response.code == 200
@@ -31,17 +35,25 @@ module Eolife
       total = (response['totalResults'] / 30.to_f).ceil
       total.times.collect {
         response = get("/search/#{@query}.json", query: query_options = "page=#{@n += 1}")
-        response['results'].map { |item| Eolife::SearchAll.new(item) }
+        response['results'].map { |item| Eolife::Search.new(item) }
         }.flatten
     else
       bad_response(response)
     end
   end
-
+  
+  # Searches EOL
+  #
+  # @see http://www.eol.org/api/docs/search
+  # @param [String] query The species you're looking for.
+  # @param [Hash] query_options The QUERY_STRING as a hash
+  # @option query_options [String] :page a maximum of 30 results are returned per page. This parameter allows you to fetch more pages of results if there are more than 30 matches
+  # @option query_options [String] :exact will find taxon pages if the preferred name or any synonym or common name exactly matches the search term, `true` or `false`
+  # @return [Eolife::Search] object results
   def self.search(query, query_options = {})
     response = get("/search/#{query}.json", query: query_options)
     if response.code == 200
-      Eolife::Search.new(response)
+      response['results'].map { |item| Eolife::Search.new(item) }
     else
       bad_response(response)
     end
