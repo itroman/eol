@@ -35,13 +35,12 @@ module Eolife
       total = (response['totalResults'] / 30.to_f).ceil
       total.times.collect {
         response = get("/search/#{@query}.json", query: query_options = "page=#{@n += 1}")
-        response['results'].map { |item| Eolife::Search.new(item) }
-        }.flatten
+        response['results'].map { |item| Eolife::Search.new(item) } }.flatten
     else
       bad_response(response)
     end
   end
-  
+ 
   # Searches EOL
   #
   # @see http://www.eol.org/api/docs/search

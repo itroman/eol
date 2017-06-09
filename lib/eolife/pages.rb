@@ -1,16 +1,13 @@
 module Eolife
-
   class Pages
+    attr_accessor :scientific_name, :richness_score, :taxon_concepts,
+                  :data_objects
 
-    attr_accessor :scientificName, :richness_score, :taxonConcepts, :dataObjects
-  
     def initialize(response)
-      @scientificName = response["scientificName"]
-      @richness_score = response["richness_score"]
-      @taxonConcepts = response["taxonConcepts"]
-      @dataObjects = response["dataObjects"]
+      @scientific_name = response['scientificName']
+      @richness_score = response['richness_score']
+      @taxon_concepts = response['taxonConcepts']
+      @data_objects = response['dataObjects']
     end
-
   end
-
 end
