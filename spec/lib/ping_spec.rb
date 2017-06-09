@@ -10,7 +10,7 @@ describe "A Ping" do
         expect(results.class).to eq(Eolife::Ping)
       end
       
-      it "returns the API state" do
+      it "returns the state of the API" do
         expect(results.message).to eq("Success")
       end
       
