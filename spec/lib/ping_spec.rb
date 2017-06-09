@@ -4,7 +4,7 @@ describe "A Ping" do
   VCR.use_cassette('ping/ping') do
   results = Eolife.ping
     
-    describe "#api_status" do
+    describe "#ping" do
       
       it "returns a Ping object" do
         expect(results.class).to eq(Eolife::Ping)
