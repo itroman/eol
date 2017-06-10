@@ -169,13 +169,17 @@ module Eolife
   # about the object as submitted to EOL by the contributing content partner
   #
   # @see http://eol.org/api/docs/data_objects
-  # @param [String] the ID parameter can either be an integer (a DataObject
+  # @param [String] id the ID parameter can either be an integer (a DataObject
   #   version ID) or a 16 character GUID which will return the latest version of
   #   that object
   # @param [Hash] query_options The QUERY_STRING as a hash
   # @option query_options [Boolean] :taxonomy (true) return any taxonomy details
   #   from different taxon hierarchy providers, in an array named
   #   "taxonConcepts"
+  # @opation query_options [ms, de, en, es, fr, gl, it, nl, nb, oc, pt-BR, sv,
+  #   tl, mk, sr, uk, ar, zh-Hans, zh-Hant, ko] :language	(en) provides the
+  #   results in the specified language
+  # @return <Eolife::DataObjects>
   def self.data_objects(id, query_options = {})
     response = get("/data_objects/1.0/#{id}.json?", query: query_options)
     if response.code == 200
