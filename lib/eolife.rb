@@ -14,7 +14,7 @@ module Eolife
 
   base_uri 'eol.org/api'
   
-  # Pings the API
+  # Pings the EOL API
   #
   # @see http://www.eol.org/api/docs/ping
   # @return [Eolife::Ping] Success or failure results
@@ -26,7 +26,12 @@ module Eolife
       bad_response(response)
     end
   end
-
+  
+  # Returns all results from an EOL API search
+  # 
+  # @see http://www.eol.org/api/docs/search
+  # @param (see #search)
+  # @return (see #search)
   def self.search_all(query, query_options = {})
     @query = query
     response = get("/search/#{@query}.json", query_options: query_options) # add validation or something to stop them from specifying page number, or take out second method param
@@ -40,15 +45,27 @@ module Eolife
       bad_response(response)
     end
   end
- 
-  # Searches EOL
+
+  # Returns one page of results from the EOL API search
   #
   # @see http://www.eol.org/api/docs/search
   # @param [String] query The species you're looking for.
   # @param [Hash] query_options The QUERY_STRING as a hash
-  # @option query_options [String] :page a maximum of 30 results are returned per page. This parameter allows you to fetch more pages of results if there are more than 30 matches
-  # @option query_options [String] :exact will find taxon pages if the preferred name or any synonym or common name exactly matches the search term, `true` or `false`
-  # @return [Eolife::Search] object results
+  # @option query_options [String] :page a maximum of 30 results are returned
+  #   per page. This parameter allows you to fetch more pages of results if
+  #   there are more than 30 matches
+  # @option query_options [String] :exact will find taxon pages if the preferred
+  #  name or any synonym or common name exactly matches the search term, `true`
+  #  or `false`
+  # @option query_options [Integer] :filter_by_taxon_concept_id given an EOL
+  #   page ID, search results will be limited to members of that taxonomic group
+  # @option query_options [Integer] :filter_by_hierarchy_entry_id given a
+  #   Hierarchy Entry ID, search results will be limited to members of that
+  #   taxonomic group
+  # @option query_options [String] :filter_by_string given a search term, an 
+  #   exact search will be made and that matching page will be used as the 
+  #   taxonomic group against which to filter search results
+  # @return Array<Eolife::Search>
   def self.search(query, query_options = {})
     response = get("/search/#{query}.json", query: query_options)
     if response.code == 200
