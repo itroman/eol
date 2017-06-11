@@ -7,6 +7,7 @@ require_relative 'eolife/data_objects'
 require_relative 'eolife/hierarchy_entries'
 require_relative 'eolife/hierarchies'
 require_relative 'eolife/provider_hierarchies'
+require_relative 'eolife/search_by_provider'
 require 'httparty'
 
 module Eolife
@@ -46,6 +47,8 @@ module Eolife
   # @option query_options [String] :filter_by_string given a search term, an
   #   exact search will be made and that matching page will be used as the
   #   taxonomic group against which to filter search results
+  # @option query_options [Integer] :cache_ttl the number of seconds you wish to
+  #   have the response cached
   # @return [Array<Eolife::Search>]
   def self.search(query, query_options = {})
     response = get("/search/#{query}.json", query: query_options)
@@ -64,7 +67,7 @@ module Eolife
   # @return (see search)
   def self.search_all(query, query_options = {})
     @query = query
-    response = get("/search/#{@query}.json", query_options: query_options) # add validation or something to stop them from specifying page number, or take out second method param
+    response = get("/search/#{@query}.json", query: query_options) # add validation or something to stop them from specifying page number, or take out second method param
     if response.code == 200
       @n = 0
       total = (response['totalResults'] / 30.to_f).ceil
@@ -123,6 +126,8 @@ module Eolife
   #   content will not be returned). If 'vetted' is '3', then only unreviewed
   #   content will be returned. If 'vetted' is '4', then only untrusted content
   #   will be returned.The default is to return all content.
+  # @option query_options [Integer] :cache_ttl the number of seconds you wish to
+  #   have the response cached
   # @option query_options [ms, de, en, es, fr, gl, it, nl, nb, oc, pt-BR, sv,
   #   tl, mk, sr, uk, ar, zh-Hans, zh-Hant, ko] :language (en) provides the
   #   results in the specified language.
@@ -140,7 +145,7 @@ module Eolife
   # about the collection and the items it contains.
   #
   # @see http://eol.org/api/docs/collections
-  # @param [Integer] any integer
+  # @param [Integer] id any integer
   # @param [Hash] query_options The QUERY_STRING as a hash
   # @option query_options [Integer] :page (1) fetches page of results
   # @option query_options [0-500] :per_page (50) sets number of results per page
@@ -152,6 +157,8 @@ module Eolife
   # @option query_options [String] :sort_field If a sort_field parameter is
   #   included, only collection items whose sort field exactly matches the given
   #   string will be returned
+  # @option query_options [Integer] :cache_ttl the number of seconds you wish to
+  #   have the response cached
   # @option query_options [ms, de, en, es, fr, gl, it, nl, nb, oc, pt-BR, sv,
   #   tl, mk, sr, uk, ar, zh-Hans, zh-Hant, ko] :language (en) provides the
   #   results in the specified language.
@@ -176,6 +183,8 @@ module Eolife
   # @option query_options [Boolean] :taxonomy (true) return any taxonomy details
   #   from different taxon hierarchy providers, in an array named
   #   "taxonConcepts"
+  # @option query_options [Integer] :cache_ttl the number of seconds you wish to
+  #   have the response cached
   # @opation query_options [ms, de, en, es, fr, gl, it, nl, nb, oc, pt-BR, sv,
   #   tl, mk, sr, uk, ar, zh-Hans, zh-Hant, ko] :language	(en) provides the
   #   results in the specified language
@@ -189,6 +198,21 @@ module Eolife
     end
   end
 
+  # Gives access to a single hierarchy and its internal relationships
+  #
+  # @see http://eol.org/api/docs/hierarchy_entries
+  # @param [Integer] id any integer
+  # @param [Hash] query_options
+  # @option query_options [Boolean] :common_names (false) return all common
+  #   names for this taxon
+  # @option query_options [Boolean] :synonyms (false) return all synonyms for
+  #   this taxon
+  # @option query_options [Integer] :cache_ttl the number of seconds you wish to
+  #   have the response cached
+  # @option query_options [ms, de, en, es, fr, gl, it, nl, nb, oc, pt-BR, sv,
+  #   tl, mk, sr, uk, ar, zh-Hans, zh-Hant, ko] :language (en) provides the
+  #   results in the specified language
+  # @return <Eolife::HierarchyEntries>
   def self.hierarchy_entries(id, query_options = {})
     response = get("/hierarchy_entries/1.0/#{id}.json?", query: query_options)
     if response.code == 200
@@ -198,6 +222,18 @@ module Eolife
     end
   end
 
+  # Lists metadata about a hierarchy such as the provider name and source URL,
+  # as well as lists all the taxa which are the root taxa of the taxonomic tree
+  #
+  # @see http://eol.org/api/docs/hierarchies
+  # @param [Integer] id any integer
+  # @param [Hash] query_options
+  # @option query_options [Integer] :cache_ttl the number of seconds you wish to
+  #   have the response cached
+  # @option query_options [ms, de, en, es, fr, gl, it, nl, nb, oc, pt-BR, sv,
+  #   tl, mk, sr, uk, ar, zh-Hans, zh-Hant, ko] :language (en) provides the
+  #   results in the specified language
+  # @return <Eolife::Hierarchies>
   def self.hierarchies(id, query_options = {})
     response = get("/hierarchies/1.0/#{id}.json?", query: query_options)
     if response.code == 200
@@ -207,6 +243,12 @@ module Eolife
     end
   end
 
+  # This method will return references to all hierarchies supplied by EOL
+  # Content Partners. The response will include the label of the hierarchy and
+  # the EOL unique ID representing the hierarchy
+  #
+  # @see http://eol.org/api/docs/provider_hierarchies
+  # @return <Eolife::ProviderHierarchies>
   def self.provider_hierarchies
     response = get('/provider_hierarchies/1.0.json')
     if response.code == 200
@@ -214,6 +256,22 @@ module Eolife
     else
       bad_response(response)
     end
+  end
+
+  # This method takes an integer or string which is the unique identifier for a
+  # taxon from some provider's database, and a hierarchy_id which represents the
+  # provider and returns the EOL page ID for that taxon.
+  #
+  # @see http://eol.org/api/docs/search_by_provider
+  # @param [String] id any string
+  # @param [Integer] hierarchy_id the ID of the provider's hierarchy you are
+  #   searching within.
+  # @param [Hash] query_options
+  # @option query_options [Boolean] :batch (false) returns either a batch or not
+  # @option query_options [Integer] :cache_ttl the number of seconds you wish to
+  #   have the response cached
+  # @return <Eolife::SearchByProvider>
+  def self.search_by_provider(id, hierarchy_id, query_options = {})
   end
 
   def self.bad_response(response)
