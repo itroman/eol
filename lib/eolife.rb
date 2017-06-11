@@ -21,11 +21,7 @@ module Eolife
   # @return [Eolife::Ping] Success or failure results
   def self.ping
     response = get('/ping/1.0.json')
-    if response.code == 200
-      Eolife::Ping.new(response['response']['message'])
-    else
-      bad_response(response)
-    end
+    create(Eolife::Ping.new(response['response']['message']), response)
   end
 
   # Returns one page of results from the EOL API search
@@ -52,11 +48,8 @@ module Eolife
   # @return [Array<Eolife::Search>]
   def self.search(q, query_options = {})
     response = get("/search/1.0/#{q}.json", query: query_options)
-    if response.code == 200
-      response['results'].map { |item| Eolife::Search.new(item) }
-    else
-      bad_response(response)
-    end
+    create(response['results'].map { |item| Eolife::Search.new(item) }, 
+           response)
   end
 
   # Returns all results from an EOL API search
@@ -134,11 +127,7 @@ module Eolife
   # @return <Eolife::Pages>
   def self.pages(id, query_options = {})
     response = get("/pages/1.0/#{id}.json", query: query_options)
-    if response.code == 200
-      Eolife::Pages.new(response)
-    else
-      bad_response(response)
-    end
+    create(Eolife::Pages.new(response), response)
   end
 
   # Given the identifier for a collection this API will return all metadata
@@ -165,11 +154,7 @@ module Eolife
   # @return <Eolife::Collections>
   def self.collections(id, query_options = {})
     response = get("/collections/1.0/#{id}.json", query: query_options)
-    if response.code == 200
-      Eolife::Collections.new(response)
-    else
-      bad_response(response)
-    end
+    create(Eolife::Collections.new(response), response)
   end
 
   # Given the identifier for a data object this API will return all metadata
@@ -191,11 +176,7 @@ module Eolife
   # @return <Eolife::DataObjects>
   def self.data_objects(id, query_options = {})
     response = get("/data_objects/1.0/#{id}.json", query: query_options)
-    if response.code == 200
-      Eolife::DataObjects.new(response)
-    else
-      bad_response(response)
-    end
+    create(Eolife::DataObjects.new(response), response)
   end
 
   # Gives access to a single hierarchy and its internal relationships
@@ -215,11 +196,7 @@ module Eolife
   # @return <Eolife::HierarchyEntries>
   def self.hierarchy_entries(id, query_options = {})
     response = get("/hierarchy_entries/1.0/#{id}.json", query: query_options)
-    if response.code == 200
-      Eolife::HierarchyEntries.new(response)
-    else
-      bad_response(response)
-    end
+    create(Eolife::HierarchyEntries.new(response), response)
   end
 
   # Lists metadata about a hierarchy such as the provider name and source URL,
@@ -236,11 +213,7 @@ module Eolife
   # @return <Eolife::Hierarchies>
   def self.hierarchies(id, query_options = {})
     response = get("/hierarchies/1.0/#{id}.json", query: query_options)
-    if response.code == 200
-      Eolife::Hierarchies.new(response)
-    else
-      bad_response(response)
-    end
+    create(Eolife::Hierarchies.new(response), response)
   end
 
   # This method will return references to all hierarchies supplied by EOL
@@ -251,11 +224,8 @@ module Eolife
   # @return <Eolife::ProviderHierarchies>
   def self.provider_hierarchies
     response = get('/provider_hierarchies/1.0.json')
-    if response.code == 200
-      response.map { |item| Eolife::ProviderHierarchies.new(item) }
-    else
-      bad_response(response)
-    end
+    create(response.map { |item| Eolife::ProviderHierarchies.new(item) }, 
+           response)
   end
 
   # This method takes an integer or string which is the unique identifier for a
@@ -275,8 +245,15 @@ module Eolife
     response =
       get("/search_by_provider/1.0.json?id=#{id}&hierarchy_id=#{hierarchy_id}",
           query: query_options)
+    create(response.map { |item| Eolife::SearchByProvider.new(item) }, 
+           response)
+  end
+  
+  private 
+  
+  def self.create(instance, response)
     if response.code == 200
-      response.map { |item| Eolife::SearchByProvider.new(item) }
+      (instance)
     else
       bad_response(response)
     end
