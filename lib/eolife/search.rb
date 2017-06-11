@@ -1,6 +1,14 @@
 module Eolife
+  # Contains search results from the Encyclopedia of Life database.
   class Search
-    attr_accessor :id, :title, :link, :content
+    # @return [Integer] the id of the species
+    attr_accessor :id
+    # @return [String] title of the entry
+    attr_accessor :title
+    # @return [String] link to article on the EOL homepage
+    attr_accessor :link
+    # @return [String] classification content
+    attr_accessor :content
 
     def initialize(response)
       @id = response['id']

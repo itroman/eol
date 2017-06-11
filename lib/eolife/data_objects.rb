@@ -1,7 +1,7 @@
 module Eolife
   class DataObjects
-    attr_reader :identifier, :scientific_name, :exemplar, :richness_score,
-                :taxon_concepts, :data_objects
+    attr_accessor :identifier, :scientific_name, :exemplar, :richness_score,
+                  :taxon_concepts, :data_objects
 
     def initialize(response)
       @identifier = response['identifier']

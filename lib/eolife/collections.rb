@@ -1,7 +1,7 @@
 module Eolife
   class Collections
-    attr_reader :name, :description, :logo_url, :created, :modified,
-                :total_items, :item_types, :collection_items
+    attr_accessor :name, :description, :logo_url, :created, :modified,
+                  :total_items, :item_types, :collection_items
 
     def initialize(response)
       @name = response['name']

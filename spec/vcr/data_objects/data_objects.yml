@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://eol.org/api/data_objects/1.0.json?id=30073527
+    uri: http://eol.org/api/data_objects/1.0/30073527.json
     body:
       encoding: US-ASCII
       string: ''
@@ -31,9 +31,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 0540c5abacc628f577176df0eecae110
+      - 4ddf22829abfc825e6df7aa80240a7dd
       X-Runtime:
-      - '0.527780'
+      - '0.430550'
       X-Rack-Cache:
       - miss
       Vary:
@@ -43,9 +43,9 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Sun, 11 Jun 2017 07:39:54 GMT
+      - Sun, 11 Jun 2017 09:21:27 GMT
       X-Varnish:
-      - '1835918414'
+      - '1836098835'
       Age:
       - '0'
       Via:
@@ -86,5 +86,5 @@ http_interactions:
         Baker","homepage":"http://www.flickr.com/photos/38875278@N08","role":"photographer"},{"full_name":"Flickr:
         EOL Images","homepage":"http://www.flickr.com/groups/encyclopedia_of_life","role":"provider"}],"references":[]}]}'
     http_version: 
-  recorded_at: Sun, 11 Jun 2017 07:39:54 GMT
+  recorded_at: Sun, 11 Jun 2017 09:21:27 GMT
 recorded_with: VCR 3.0.3
