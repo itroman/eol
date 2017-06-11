@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://eol.org/api/search_by_provider/1.0.json?hierarchy_id=903&id=180542
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.12.0
+      Content-Type:
+      - application/json; charset=utf-8
+      Status:
+      - 200 OK
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - '"45d3cf925e54f73ed937e3498ed6014a"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 1e382b8b6670be4253dda830b1266602
+      X-Runtime:
+      - '0.070992'
+      X-Rack-Cache:
+      - miss
+      Vary:
+      - Origin
+      Content-Length:
+      - '65'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Sun, 11 Jun 2017 05:05:06 GMT
+      X-Varnish:
+      - '1835633290'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '[{"eol_page_id":328580},{"eol_page_link":"eol.org/pages/328580"}]'
+    http_version: 
+  recorded_at: Sun, 11 Jun 2017 05:05:06 GMT
+recorded_with: VCR 3.0.3
