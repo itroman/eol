@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Server:
-      - nginx/1.10.2
+      - nginx/1.12.0
       Content-Type:
       - application/json; charset=utf-8
       Status:
@@ -31,9 +31,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - f9e88d345fecb7e5cc8822a1b164cc78
+      - b211ac936ef3e87ff3f3179267889099
       X-Runtime:
-      - '0.005298'
+      - '0.005721'
       X-Rack-Cache:
       - miss
       Vary:
@@ -43,9 +43,9 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Thu, 08 Jun 2017 07:22:00 GMT
+      - Sun, 11 Jun 2017 07:37:47 GMT
       X-Varnish:
-      - '1825293268'
+      - '1835914390'
       Age:
       - '0'
       Via:
@@ -56,5 +56,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"response":{"message":"Success"}}'
     http_version: 
-  recorded_at: Thu, 08 Jun 2017 07:22:00 GMT
+  recorded_at: Sun, 11 Jun 2017 07:37:47 GMT
 recorded_with: VCR 3.0.3

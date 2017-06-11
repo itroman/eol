@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://eol.org/api/pages/1.0.json?batch=false&id=1045608
+    uri: http://eol.org/api/pages/1.0.json?id=1045608
     body:
       encoding: US-ASCII
       string: ''
@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Server:
-      - nginx/1.10.2
+      - nginx/1.12.0
       Content-Type:
       - application/json; charset=utf-8
       Status:
@@ -31,9 +31,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 118b984ed272af5bd01a2cd3bc2c56be
+      - 93fe9de70520d80936cac81553028389
       X-Runtime:
-      - '0.935291'
+      - '0.909530'
       X-Rack-Cache:
       - miss
       Vary:
@@ -43,9 +43,9 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Thu, 08 Jun 2017 07:23:22 GMT
+      - Sun, 11 Jun 2017 07:39:55 GMT
       X-Varnish:
-      - '1825296310'
+      - '1835918440'
       Age:
       - '0'
       Via:
@@ -73,5 +73,5 @@ http_interactions:
         mellifera Linnaeus 1758","nameAccordingTo":"Integrated Taxonomic Information
         System (ITIS)","canonicalForm":"Apis mellifera","sourceIdentifier":"154396","taxonRank":"Species"}],"dataObjects":[{"identifier":"715fac20e20b012e4c4f1e6699c0ad5e","dataObjectVersionID":13451158,"dataType":"http://purl.org/dc/dcmitype/Text","dataSubtype":"","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":0,"4":3,"5":3},"dataRating":4.5,"subject":"http://rs.tdwg.org/ontology/voc/SPMInfoItems#TaxonBiology"},{"identifier":"bdffbd8b1e34d1c41282689eccf89261","dataObjectVersionID":31920917,"dataType":"http://purl.org/dc/dcmitype/StillImage","dataSubtype":"","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":3,"4":3,"5":7},"dataRating":4.30769},{"identifier":"e70cb321fd2933d4db48b6c41271068b","dataObjectVersionID":30108960,"dataType":"http://purl.org/dc/dcmitype/MovingImage","dataSubtype":"","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":7,"4":3,"5":0},"dataRating":3.3},{"identifier":"8787bca9f242f06fada02c341ab577d7","dataObjectVersionID":31506435,"dataType":"http://purl.org/dc/dcmitype/Sound","dataSubtype":"","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":0,"4":0,"5":0},"dataRating":2.5},{"identifier":"cad9dcc72cd30bdb185416e5a35fbc01","dataObjectVersionID":21108489,"dataType":"http://purl.org/dc/dcmitype/StillImage","dataSubtype":"Map","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":0,"4":3,"5":0},"dataRating":4.0}]}'
     http_version: 
-  recorded_at: Thu, 08 Jun 2017 07:23:22 GMT
+  recorded_at: Sun, 11 Jun 2017 07:39:56 GMT
 recorded_with: VCR 3.0.3

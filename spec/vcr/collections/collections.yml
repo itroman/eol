@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://eol.org/api/collections/1.0/176.json
+    uri: http://eol.org/api/collections/1.0.json?id=176
     body:
       encoding: US-ASCII
       string: ''
@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Server:
-      - nginx/1.10.2
+      - nginx/1.12.0
       Content-Type:
       - application/json; charset=utf-8
       Status:
@@ -31,9 +31,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - f9ad85c4f4ff9da35444bca310a69b79
+      - e0e6383cd1f18b82b105bea76d2ddb5a
       X-Runtime:
-      - '0.575548'
+      - '0.549742'
       X-Rack-Cache:
       - miss
       Vary:
@@ -43,9 +43,9 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Thu, 08 Jun 2017 07:22:00 GMT
+      - Sun, 11 Jun 2017 07:39:54 GMT
       X-Varnish:
-      - '1825293270'
+      - '1835918401'
       Age:
       - '0'
       Via:
@@ -125,5 +125,5 @@ http_interactions:
         flava","created":"2008-12-09T23:47:01Z","updated":"2016-03-12T19:46:40Z","annotation":"","sort_field":null,"references":[],"richness_score":200.0},{"name":"Nolidae
         Chloephorinae>Armactica columbina DSCF70251","object_type":"Image","object_id":32640951,"title":"Image","created":"2015-05-20T10:25:03Z","updated":"2015-05-20T10:25:03Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"a59e30d7c89667658f316170e67558a2","source":"http://media.eol.org/content/2014/09/05/00/78411_orig.jpg"}]}'
     http_version: 
-  recorded_at: Thu, 08 Jun 2017 07:22:00 GMT
+  recorded_at: Sun, 11 Jun 2017 07:39:54 GMT
 recorded_with: VCR 3.0.3

@@ -32,7 +32,7 @@ module Eolife
   #
   # @see http://www.eol.org/api/docs/search
   # @param [String] query The species you're looking for.
-  # @param [Hash] query_options The QUERY_STRING as a hash
+  # @param [Hash] query_options
   # @option query_options [Integer] :page a maximum of 30 results are returned
   #   per page. This parameter allows you to fetch more pages of results if
   #   there are more than 30 matches
@@ -51,7 +51,8 @@ module Eolife
   #   have the response cached
   # @return [Array<Eolife::Search>]
   def self.search(query, query_options = {})
-    response = get("/search/#{query}.json", query: query_options)
+    response = get("/search/1.0.json", 
+                   query: { q: query, query_options: query_options })
     if response.code == 200
       response['results'].map { |item| Eolife::Search.new(item) }
     else
@@ -67,12 +68,13 @@ module Eolife
   # @return (see search)
   def self.search_all(query, query_options = {})
     @query = query
-    response = get("/search/#{@query}.json", query: query_options) # add validation or something to stop them from specifying page number, or take out second method param
+    response = get("/search/1.0.json", 
+                   query: {q: query, query_options: query_options }) # add validation or something to stop them from specifying page number, or take out second method param
     if response.code == 200
       @n = 0
       total = (response['totalResults'] / 30.to_f).ceil
       total.times.collect {
-        response = get("/search/#{@query}.json", query: query_options = "page=#{@n += 1}")
+        response = get("/search/1.0.json", query: { query: query, query_options: "page=#{@n += 1}" })
         response['results'].map { |item| Eolife::Search.new(item) }
       }.flatten
     else
@@ -87,7 +89,7 @@ module Eolife
   #
   # @see http://eol.org/api/docs/pages
   # @param [String] id identifier for node in hierarchies which EOL indexes
-  # @param [Hash] query_options The QUERY_STRING as a hash
+  # @param [Hash] query_options
   # @option query_options [Boolean] :batch (False) returns either a batch or not
   # @option query_options [0-75] :images_per_page limits the number of returned
   #   image objects
@@ -133,7 +135,8 @@ module Eolife
   #   results in the specified language.
   # @return <Eolife::Pages>
   def self.pages(id, query_options = {})
-    response = get("/pages/1.0.json?batch=false&id=#{id}", query: query_options)
+    response = get("/pages/1.0.json", 
+                   query: {id: id, query_options: query_options })
     if response.code == 200
       Eolife::Pages.new(response)
     else
@@ -146,7 +149,7 @@ module Eolife
   #
   # @see http://eol.org/api/docs/collections
   # @param [Integer] id any integer
-  # @param [Hash] query_options The QUERY_STRING as a hash
+  # @param [Hash] query_options
   # @option query_options [Integer] :page (1) fetches page of results
   # @option query_options [0-500] :per_page (50) sets number of results per page
   # @option query_options [articles, collections, communities, images, sounds,
@@ -164,7 +167,8 @@ module Eolife
   #   results in the specified language.
   # @return <Eolife::Collections>
   def self.collections(id, query_options = {})
-    response = get("/collections/1.0/#{id}.json?", query: query_options)
+    response = get("/collections/1.0.json", 
+                   query: { id: id, query_options: query_options })
     if response.code == 200
       Eolife::Collections.new(response)
     else
@@ -179,7 +183,7 @@ module Eolife
   # @param [String] id the ID parameter can either be an integer (a DataObject
   #   version ID) or a 16 character GUID which will return the latest version of
   #   that object
-  # @param [Hash] query_options The QUERY_STRING as a hash
+  # @param [Hash] query_options
   # @option query_options [Boolean] :taxonomy (true) return any taxonomy details
   #   from different taxon hierarchy providers, in an array named
   #   "taxonConcepts"
@@ -190,7 +194,8 @@ module Eolife
   #   results in the specified language
   # @return <Eolife::DataObjects>
   def self.data_objects(id, query_options = {})
-    response = get("/data_objects/1.0/#{id}.json?", query: query_options)
+    response = get("/data_objects/1.0.json", 
+                   query: { id: id, query_options: query_options })
     if response.code == 200
       Eolife::DataObjects.new(response)
     else
@@ -236,7 +241,8 @@ module Eolife
   #   results in the specified language
   # @return <Eolife::Hierarchies>
   def self.hierarchies(id, query_options = {})
-    response = get("/hierarchies/1.0.json", query: { id: id, query_options: query_options })
+    response = get('/hierarchies/1.0.json',
+                   query: { id: id, query_options: query_options })
     if response.code == 200
       Eolife::Hierarchies.new(response)
     else
@@ -273,7 +279,10 @@ module Eolife
   #   have the response cached
   # @return <Eolife::SearchByProvider>
   def self.search_by_provider(id, hierarchy_id, query_options = {})
-    response = get('/search_by_provider/1.0.json', query: { id: id, hierarchy_id: hierarchy_id, query_options: query_options })
+    response =
+      get('/search_by_provider/1.0.json',
+          query: { id: id, hierarchy_id: hierarchy_id,
+                   query_options: query_options })
     if response.code == 200
       response.map { |item| Eolife::SearchByProvider.new(item) }
     else

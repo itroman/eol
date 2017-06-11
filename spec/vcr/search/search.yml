@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://eol.org/api/search/tolumnia.json
+    uri: http://eol.org/api/search/1.0.json?q=tolumnia
     body:
       encoding: US-ASCII
       string: ''
@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Server:
-      - nginx/1.10.2
+      - nginx/1.12.0
       Content-Type:
       - application/json; charset=utf-8
       Status:
@@ -31,9 +31,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 504c2d168bdfa2b7f177cabc4598d801
+      - 3f55f1fcad9431a6c9fba3f65c218e04
       X-Runtime:
-      - '0.121505'
+      - '0.222685'
       X-Rack-Cache:
       - miss
       Vary:
@@ -43,9 +43,9 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 06 Jun 2017 06:53:53 GMT
+      - Sun, 11 Jun 2017 07:39:53 GMT
       X-Varnish:
-      - '1817995603'
+      - '1835918379'
       Age:
       - '0'
       Via:
@@ -196,5 +196,5 @@ http_interactions:
         (Sw.) Nir; Tolumnia triquetra (Sw.) Nir (1994); Cymbidium triquetrum Sw.;
         Jamaiciella triquetra Braem; Olgasis triquetra Raf."}],"first":"http://eol.org/api/search/tolumnia.json?page=1","self":"http://eol.org/api/search/tolumnia.json?page=1","next":"http://eol.org/api/search/tolumnia.json?page=2","last":"http://eol.org/api/search/tolumnia.json?page=3"}'
     http_version: 
-  recorded_at: Tue, 06 Jun 2017 06:53:53 GMT
+  recorded_at: Sun, 11 Jun 2017 07:39:53 GMT
 recorded_with: VCR 3.0.3
