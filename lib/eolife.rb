@@ -66,13 +66,13 @@ module Eolife
   # @option (see search)
   # @return (see search)
   def self.search_all(query, query_options = {})
-    response = get("/search/1.0/#{query}.json", query: query_options) 
+    response = get("/search/1.0/#{query}.json", query: query_options)
     if response.code == 200
       @n = 0
       total = (response['totalResults'] / 30.to_f).ceil
       total.times.collect {
-        response = get("/search/1.0/#{query}.json", 
-                       query: { 'page':"#{@n += 1}" } )
+        response = get("/search/1.0/#{query}.json",
+                       query: { 'page': "#{@n += 1}" })
         response['results'].map { |item| Eolife::Search.new(item) }
       }.flatten
     else
@@ -133,8 +133,7 @@ module Eolife
   #   results in the specified language.
   # @return <Eolife::Pages>
   def self.pages(id, query_options = {})
-    response = get("/pages/1.0/#{id}.json", 
-                   query: query_options)
+    response = get("/pages/1.0/#{id}.json", query: query_options)
     if response.code == 200
       Eolife::Pages.new(response)
     else
@@ -274,7 +273,7 @@ module Eolife
   # @return <Eolife::SearchByProvider>
   def self.search_by_provider(id, hierarchy_id, query_options = {})
     response =
-      get("/search_by_provider/1.0.json?id=#{id}&hierarchy_id=#{hierarchy_id}", 
+      get("/search_by_provider/1.0.json?id=#{id}&hierarchy_id=#{hierarchy_id}",
           query: query_options)
     if response.code == 200
       response.map { |item| Eolife::SearchByProvider.new(item) }
