@@ -214,7 +214,8 @@ module Eolife
   #   results in the specified language
   # @return <Eolife::HierarchyEntries>
   def self.hierarchy_entries(id, query_options = {})
-    response = get("/hierarchy_entries/1.0/#{id}.json?", query: query_options)
+    response = get('/hierarchy_entries/1.0.json',
+                   query: { id: id, query_options: query_options })
     if response.code == 200
       Eolife::HierarchyEntries.new(response)
     else
@@ -235,7 +236,7 @@ module Eolife
   #   results in the specified language
   # @return <Eolife::Hierarchies>
   def self.hierarchies(id, query_options = {})
-    response = get("/hierarchies/1.0/#{id}.json?", query: query_options)
+    response = get("/hierarchies/1.0.json", query: { id: id, query_options: query_options })
     if response.code == 200
       Eolife::Hierarchies.new(response)
     else
@@ -272,6 +273,12 @@ module Eolife
   #   have the response cached
   # @return <Eolife::SearchByProvider>
   def self.search_by_provider(id, hierarchy_id, query_options = {})
+    response = get('/search_by_provider/1.0.json', query: { id: id, hierarchy_id: hierarchy_id, query_options: query_options })
+    if response.code == 200
+      response.map { |item| Eolife::SearchByProvider.new(item) }
+    else
+      bad_response(response)
+    end
   end
 
   def self.bad_response(response)
