@@ -10,6 +10,8 @@ require_relative 'eolife/provider_hierarchies'
 require_relative 'eolife/search_by_provider'
 require 'httparty'
 
+# The eolife namespace holds all methods and classes that interact with the
+# Encyclopedia of Life API.
 module Eolife
   include HTTParty
 
@@ -60,17 +62,7 @@ module Eolife
   # @return (see search)
   def self.search_all(query, query_options = {})
     response = get("/search/1.0/#{query}.json", query: query_options)
-    if response.code == 200
-      @n = 0
-      total = (response['totalResults'] / 30.to_f).ceil
-      total.times.collect {
-        response = get("/search/1.0/#{query}.json",
-                       query: { 'page': "#{@n += 1}" })
-        response['results'].map { |item| Eolife::Search.new(item) }
-      }.flatten
-    else
-      bad_response(response)
-    end
+    create(all_pages(query, response), response)
   end
 
   # This method takes an EOL page identifier and returns the scientific name for
@@ -250,6 +242,16 @@ module Eolife
   end
   
   private 
+  
+  def self.all_pages(query, response)
+      @n = 0
+      total = (response['totalResults'] / 30.to_f).ceil
+      total.times.collect {
+        response = get("/search/1.0/#{query}.json",
+                       query: { 'page': "#{@n += 1}" })
+        response['results'].map { |item| Eolife::Search.new(item) }
+      }.flatten
+  end
   
   def self.create(instance, response)
     if response.code == 200

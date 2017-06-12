@@ -1,7 +1,22 @@
 module Eolife
+  # Contains metadata about the collection and the items it contains
   class Collections
-    attr_accessor :name, :description, :logo_url, :created, :modified,
-                  :total_items, :item_types, :collection_items
+    # @return [String]
+    attr_accessor :name
+    # @return [String]
+    attr_accessor :description
+    # @return [String] a hyperlink to the logo
+    attr_accessor :logo_url
+    # @return [String] created timestamp
+    attr_accessor :created
+    # @return [String] modified timestamp
+    attr_accessor :modified
+    # @return [Integer]
+    attr_accessor :total_items
+    # @return [Array] An Array of Hashes
+    attr_accessor :item_types
+    # @return [Array] An Array of Hashes
+    attr_accessor :collection_items
 
     def initialize(response)
       @name = response['name']

@@ -1,8 +1,26 @@
 module Eolife
+  # Contains data on a single hierarchy and its internal relationships
   class HierarchyEntries
-    attr_accessor :source_identifier, :parent_name_usage_id, :taxon_concept_id,
-                  :scientific_name, :source, :name_according_to,
-                  :vernacular_names, :synonyms, :ancestors, :children
+    # @return [String]
+    attr_accessor :source_identifier
+    # @return [Integer]
+    attr_accessor :parent_name_usage_id
+    # @return [Integer]
+    attr_accessor :taxon_concept_id
+    # @return [String] binomial nomenclature in zoology
+    attr_accessor :scientific_name
+    # @return [String] a link
+    attr_accessor :source
+    # @return [Array]
+    attr_accessor :name_according_to
+    # @return [Array]
+    attr_accessor :vernacular_names
+    # @return [Array]
+    attr_accessor :synonyms
+    # @return [Array]
+    attr_accessor :ancestors
+    # @return [Array]
+    attr_accessor :children
 
     def initialize(response)
       @source_identifier = response['sourceIdentifier']
