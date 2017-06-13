@@ -2,6 +2,14 @@ require 'spec_helper'
 
 describe Eolife::Search do
   
+  describe "initialize" do
+    
+    it "should error when called with no arguments" do
+       expect { Eolife::Search.new}.to raise_error(ArgumentError)
+    end
+    
+  end
+  
   subject(:search) { Eolife::Search.new( {id: id, title: title, link: link, 
                       content: content }) }
   
@@ -35,13 +43,14 @@ describe Eolife::Search do
       
       it { is_expected.to have_attributes(:id => Integer) }
       it { is_expected.to have_attributes(:title => String) }
-      it { is_expected.to have_attributes(:link => String) }
+      it { is_expected.to have_attributes(:link => 
+           a_string_starting_with('http:') )}
       it { is_expected.to have_attributes(:content => String) }
       
       
-      it "links to a website" do
-        expect(search.link).to include "http:"
-      end
+      # it "links to a website" do
+       # expect(search.link).to include "http:"
+      # end
   end
 
 end
