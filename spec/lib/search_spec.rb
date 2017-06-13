@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe Eolife::Search do
   
-  describe "initialize" do
+  describe "#initialize" do
     
-    it "should error when called with no arguments" do
+    it "should raise an error when called with no arguments" do
        expect { Eolife::Search.new}.to raise_error(ArgumentError)
     end
     
