@@ -47,10 +47,6 @@ describe Eolife::Search do
            a_string_starting_with('http:') )}
       it { is_expected.to have_attributes(:content => String) }
       
-      
-      # it "links to a website" do
-       # expect(search.link).to include "http:"
-      # end
   end
 
 end
