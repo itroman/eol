@@ -20,12 +20,12 @@ module Eolife
     attr_accessor :data_objects
 
     def initialize(response)
-      @identifier = response['identifier']
-      @scientific_name = response['scientificName']
-      @exemplar = response['exemplar']
-      @richness_score = response['richness_score']
-      @taxon_concepts = response['taxonConcepts']
-      @data_objects = response['dataObjects']
+      @identifier = response[:identifier]
+      @scientific_name = response[:scientificName]
+      @exemplar = response[:exemplar]
+      @richness_score = response[:richness_score]
+      @taxon_concepts = response[:taxonConcepts]
+      @data_objects = response[:dataObjects]
     end
   end
 end

@@ -23,16 +23,16 @@ module Eolife
     attr_accessor :children
 
     def initialize(response)
-      @source_identifier = response['sourceIdentifier']
-      @parent_name_usage_id = response['parentNameUsageID']
-      @taxon_concept_id = response['taxonConceptID']
-      @scientific_name = response['scientificName']
-      @source = response['source']
-      @name_according_to = response['nameAccordingTo']
-      @vernacular_names = response['vernacularNames']
-      @synonyms = response['synonyms']
-      @ancestors = response['ancestors']
-      @children = response['children']
+      @source_identifier = response[:sourceIdentifier]
+      @parent_name_usage_id = response[:parentNameUsageID]
+      @taxon_concept_id = response[:taxonConceptID]
+      @scientific_name = response[:scientificName]
+      @source = response[:source]
+      @name_according_to = response[:nameAccordingTo]
+      @vernacular_names = response[:vernacularNames]
+      @synonyms = response[:synonyms]
+      @ancestors = response[:ancestors]
+      @children = response[:children]
     end
   end
 end

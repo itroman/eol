@@ -7,8 +7,8 @@ module Eolife
     attr_accessor :label
 
     def initialize(response)
-      @id = response['id']
-      @label = response['label']
+      @id = response[:id]
+      @label = response[:label]
     end
   end
 end

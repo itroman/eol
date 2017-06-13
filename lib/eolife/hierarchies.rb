@@ -14,11 +14,11 @@ module Eolife
     attr_accessor :roots
 
     def initialize(response)
-      @title = response['title']
-      @contributor = response['contributor']
-      @date_submitted = response['dateSubmitted']
-      @source = response['source']
-      @roots = response['roots']
+      @title = response[:title]
+      @contributor = response[:contributor]
+      @date_submitted = response[:dateSubmitted]
+      @source = response[:source]
+      @roots = response[:roots]
     end
   end
 end
