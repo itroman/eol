@@ -11,10 +11,10 @@ module Eolife
     attr_accessor :content
 
     def initialize(response)
-      @id = response['id']
-      @title = response['title']
-      @link = response['link']
-      @content = response['content']
+      @id = response[:id]
+      @title = response[:title]
+      @link = response[:link]
+      @content = response[:content]
     end
   end
 end

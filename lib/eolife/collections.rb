@@ -19,14 +19,14 @@ module Eolife
     attr_accessor :collection_items
 
     def initialize(response)
-      @name = response['name']
-      @description = response['description']
-      @logo_url = response['logo_url']
-      @created = response['created']
-      @modified = response['modified']
-      @total_items = response['total_items']
-      @item_types = response['item_types']
-      @collection_items = response['collection_items']
+      @name = response[:name]
+      @description = response[:description]
+      @logo_url = response[:logo_url]
+      @created = response[:created]
+      @modified = response[:modified]
+      @total_items = response[:total_items]
+      @item_types = response[:item_types]
+      @collection_items = response[:collection_items]
     end
   end
 end
