@@ -9,14 +9,22 @@ describe Eolife::Ping do
     
   end
 
-  subject(:ping) { Eolife::Ping.new('message' => message) }
-  
-  context "A Ping object with nil values" do
+  context "A Ping object with nil value" do
     
-    let(:message) {nil}
+    subject(:ping) {Eolife::Ping.new(nil)}
     
     it { is_expected.to be_a(subject.class) }
+    it { is_expected.to have_attributes(:message => nil) }
     
+  end
+  
+  context "A Ping object with data" do
+    
+    subject(:ping) {Eolife::Ping.new('Success')}
+    
+    it {is_expected.to be_a(subject.class) }
+    it {is_expected.to have_attributes(:message => String) }
+  
   end
   
 end

@@ -5,7 +5,7 @@ module Eolife
     attr_accessor :message
 
     def initialize(response)
-      @message = response
+      self.message = response
     end
   end
 end
