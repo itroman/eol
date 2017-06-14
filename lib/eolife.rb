@@ -48,9 +48,9 @@ module Eolife
   # @option query_options [Integer] :cache_ttl the number of seconds you wish to
   #   have the response cached
   # @return [Array<Eolife::Search>]
-  def self.search(q, query_options = {})
-    response = get("/search/1.0/#{q}.json", query: query_options)
-    create(response['results'].map { |item| Eolife::Search.new(item) }, 
+  def self.search(query, query_options = {})
+    response = get("/search/1.0/#{query}.json", query: query_options)
+    create(response['results'].map { |item| Eolife::Search.new(item)}, 
            response)
   end
 
@@ -260,6 +260,10 @@ module Eolife
       bad_response(response)
     end
   end
+  
+  # def self.symbolize_keys
+    # map { |k, v| [k.to_sym, v] }.to_h
+  # end
 
   def self.bad_response(response)
     raise ResponseError, response if response.class == HTTParty::Response

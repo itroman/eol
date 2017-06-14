@@ -9,8 +9,7 @@ describe Eolife::Search do
     
   end
   
-  subject(:search) { Eolife::Search.new( {id: id, title: title, link: link, 
-                      content: content }) }
+  subject(:search) { Eolife::Search.new({'id' => id, 'title' => title, 'link' => link, 'content' => content })}
   
     context "A Search object with nil values" do
     
@@ -25,9 +24,9 @@ describe Eolife::Search do
   
   end
     
-    context "A Search object data values" do
+    context "A Search object with data values" do
   
-      let(:id) {1128718}
+      let(:id) {123}
       let(:title) {"Tolumnia bahamensis (Nash) Braem"}
       let(:link) {"http://eol.org/1128718?action=overview&controller=taxa"}
       let(:content) {"Tolumnia x adamsii Sauleda"}

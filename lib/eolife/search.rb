@@ -10,14 +10,14 @@ module Eolife
     attr_accessor :link
     # @return [String] classification content
     attr_accessor :content
-
+  
     def initialize(response)
-      self.id = response[:id]
-      self.title = response[:title]
-      self.link = response[:link]
-      self.content = response[:content]
+      self.id = response['id']
+      self.title = response['title']
+      self.link = response['link']
+      self.content = response['content']
     end
-    
+
     def each
       yield @id
       yield @title
