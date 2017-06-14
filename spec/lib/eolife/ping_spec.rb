@@ -1,19 +1,22 @@
 require 'spec_helper'
 
-describe "A Ping" do
-  VCR.use_cassette('ping/ping') do
-  results = Eolife.ping
+describe Eolife::Ping do
+  
+  describe "#initialize" do
+    subject {Eolife::Ping}
     
-    describe "#ping" do
-      
-      it "returns a Ping object" do
-        expect(results.class).to eq(Eolife::Ping)
-      end
-      
-      it "returns the state of the API" do
-        expect(results.message).to eq("Success")
-      end
-      
-    end
+    include_examples "argument errors"
+    
   end
+
+  subject(:ping) { Eolife::Ping.new('message' => message) }
+  
+  context "A Ping object with nil values" do
+    
+    let(:message) {nil}
+    
+    it { is_expected.to be_a(subject.class) }
+    
+  end
+  
 end

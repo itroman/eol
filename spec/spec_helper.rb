@@ -17,6 +17,12 @@ require 'vcr'
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/vcr'
+  c.hook_into :webmock
+  c.configure_rspec_metadata!
+end
+
 RSpec.configure do |config|
   Dir["./spec/support/**/*.rb"].sort.each { |f| require f }
   # rspec-expectations config goes here. You can use an alternate
@@ -106,10 +112,3 @@ WebMock.disable_net_connect!(allow_localhost: true)
 
 end
 
-# spec/support/vcr_setup.rb
-VCR.configure do |c|
-  #the directory where your cassettes will be saved
-  c.cassette_library_dir = 'spec/vcr'
-  # your HTTP request service. You can also use fakeweb, webmock, and more
-  c.hook_into :webmock
-end
