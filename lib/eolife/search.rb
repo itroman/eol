@@ -1,6 +1,7 @@
 module Eolife
   # Contains search results from the Encyclopedia of Life database.
   class Search
+    include Enumerable
     # @return [Integer] the id of the species
     attr_accessor :id
     # @return [String] title of the entry
@@ -11,10 +12,17 @@ module Eolife
     attr_accessor :content
 
     def initialize(response)
-      @id = response[:id]
-      @title = response[:title]
-      @link = response[:link]
-      @content = response[:content]
+      self.id = response[:id]
+      self.title = response[:title]
+      self.link = response[:link]
+      self.content = response[:content]
+    end
+    
+    def each
+      yield @id
+      yield @title
+      yield @link
+      yield @content
     end
   end
 end

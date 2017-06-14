@@ -3,35 +3,29 @@ require 'spec_helper'
 describe Eolife::Search do
   
   describe "#initialize" do
+    subject {Eolife::Search}
     
-    it "should raise an error when called with no arguments" do
-       expect { Eolife::Search.new}.to raise_error(ArgumentError)
-    end
+    include_examples "argument errors"
     
   end
   
   subject(:search) { Eolife::Search.new( {id: id, title: title, link: link, 
                       content: content }) }
   
-    context "An empty Search object" do
+    context "A Search object with nil values" do
     
       let(:id) {nil}
       let(:title) {nil}
       let(:link) {nil}
       let(:content) {nil}
   
-      it { is_expected.to be_a(Eolife::Search) }
+      it { is_expected.to be_a(subject.class) }
       
-      it "has attributes with nil values" do
-        expect(search.id).to eq(nil)
-        expect(search.title).to eq(nil)
-        expect(search.link).to eq(nil)
-        expect(search.content).to eq(nil)
-      end
-      
+      include_examples "empty object"
+  
   end
     
-    context "A non-empty Search object" do
+    context "A Search object data values" do
   
       let(:id) {1128718}
       let(:title) {"Tolumnia bahamensis (Nash) Braem"}
@@ -39,7 +33,6 @@ describe Eolife::Search do
       let(:content) {"Tolumnia x adamsii Sauleda"}
       
       it { is_expected.to be_a(Eolife::Search) }
-      
       
       it { is_expected.to have_attributes(:id => Integer) }
       it { is_expected.to have_attributes(:title => String) }
