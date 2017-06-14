@@ -40,5 +40,4 @@ describe Eolife::Search do
       it { is_expected.to have_attributes(:content => String) }
       
   end
-
 end

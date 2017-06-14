@@ -58,5 +58,4 @@ describe Eolife::Collections do
       it { is_expected.to have_attributes(:collection_items => Array) }
       
     end
-
 end

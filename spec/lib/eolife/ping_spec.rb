@@ -26,5 +26,4 @@ describe Eolife::Ping do
     it {is_expected.to have_attributes(:message => String) }
   
   end
-  
 end
