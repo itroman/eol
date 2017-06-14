@@ -9,7 +9,7 @@ describe Eolife::Search do
     
   end
   
-  subject(:search) { Eolife::Search.new({'id' => id, 'title' => title, 'link' => link, 'content' => content })}
+  subject(:search) { Eolife::Search.new({'id' => id, 'title' => title, 'link' => link, 'content' => content }) }
   
     context "A Search object with nil values" do
     
