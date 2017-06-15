@@ -30,7 +30,6 @@ describe "Eolife module methods" do
       end
         
     end 
-  
   end
   
   describe ".collections" do
@@ -42,7 +41,6 @@ describe "Eolife module methods" do
       end
     
     end
-  
   end
 
   describe ".ping" do
@@ -58,7 +56,6 @@ describe "Eolife module methods" do
       end
       
     end
-    
   end
 
   describe ".pages" do
@@ -72,17 +69,62 @@ describe "Eolife module methods" do
     end
   end
   
-   describe ".provider_hierarchies" do
-      VCR.use_cassette('provider_hierarchies/provider_hierarchies') do
-      results = Eolife.provider_hierarchies
+  describe ".provider_hierarchies" do
+    VCR.use_cassette('provider_hierarchies/provider_hierarchies') do
+    results = Eolife.provider_hierarchies
         
-        it "returns an array" do
-          expect(results.class).to eq(Array)
-        end
+      it "returns an array" do
+        expect(results.class).to eq(Array)
+      end
         
-        it "of ProviderHierarchies objects" do
+      it "of ProviderHierarchies objects" do
         expect(results[0].class).to eq(Eolife::ProviderHierarchies)
       end
+      
+    end
+  end
+  
+  describe ".data_objects" do
+    VCR.use_cassette('data_objects/data_objects') do
+    results = Eolife.data_objects('30073527')
+    
+      it "returns a DataObjects object" do
+        expect(results.class).to eq(Eolife::DataObjects)
+      end
+      
+    end
+  end
+  
+  describe ".hierarchies" do
+    VCR.use_cassette('hierarchies/hierarchies') do
+    results = Eolife.hierarchies('1188')
+    
+      it "returns a Hierarchies object" do
+        expect(results.class).to eq(Eolife::Hierarchies)
+      end
+      
+    end
+  end
+  
+  describe ".hierarchy_entries" do
+    VCR.use_cassette('hierarchy_entries/hierarchy_entries') do
+    results = Eolife.hierarchy_entries('30408282')
+      
+      it "returns a HierarchyEntries object" do
+        expect(results.class).to eq(Eolife::HierarchyEntries)
+      end
+      
+    end
+  end
+  
+  describe ".search_by_provider" do
+    VCR.use_cassette('search_by_provider/search_by_provider') do
+    results = Eolife.search_by_provider('180542', 903)
+    
+      it "returns a SearchByProvider object" do
+        expect(results[0].class).to eq(Eolife::SearchByProvider)
+      end
+    
     end
   end
 end

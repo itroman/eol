@@ -1,13 +1,50 @@
 require 'spec_helper'
 
-describe "Hierarchies" do
+describe Eolife::Hierarchies do
+  
+  describe "#initialize" do
+    subject {Eolife::Hierarchies}
     
-  describe "#hierarchies" do
-    it "returns a Hierarchies object" do
-      VCR.use_cassette('hierarchies/hierarchies') do
-        results = Eolife.hierarchies('1188')
-        expect(results.class).to eq(Eolife::Hierarchies)
-      end
-    end
+    include_examples "argument errors"
+    
+  end
+  
+    subject(:hierarchies) {Eolife::Hierarchies.new({'title' => title, 
+                                       'contributor' => contributor, 
+                                       'dateSubmitted' => date_submitted,
+                                       'source' => source, 'roots' => roots})}
+
+  context "A Hierarchies object with nil values" do
+
+    let(:title) {nil}
+    let(:contributor) {nil}
+    let(:date_submitted) {nil}
+    let(:source) {nil}
+    let(:roots) {nil}
+    
+    it { is_expected.to be_a(subject.class) }
+    it { is_expected.to have_attributes(:title => nil) }
+    it { is_expected.to have_attributes(:contributor => nil) }
+    it { is_expected.to have_attributes(:date_submitted => nil) }
+    it { is_expected.to have_attributes(:source => nil) }
+    it { is_expected.to have_attributes(:roots => nil) }
+    
+  end
+  
+  context "A Hierarchies object with data values" do
+    
+    let(:title) {"Species 2000 & ITIS Catalogue of Life: April 2013"}
+    let(:contributor) {"Catalogue of Life"}
+    let(:date_submitted) {"2013-03-30 19:53:45"}
+    let(:source) {""}
+    let(:roots) {[{"sourceIdentifier":"13021388","taxonID":51521761}]}
+    
+    it {is_expected.to be_a(subject.class) }
+    it {is_expected.to have_attributes(:title => String) }
+    it {is_expected.to have_attributes(:contributor => String) }
+    it {is_expected.to have_attributes(:date_submitted => String) }
+    it {is_expected.to have_attributes(:source => String) }
+    it {is_expected.to have_attributes(:roots => Array) }
+    
   end
 end
