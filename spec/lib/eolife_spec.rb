@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Eolife module methods" do
 
-  describe "#search" do
+  describe ".search" do
     VCR.use_cassette('search/search') do
     results = Eolife.search("tolumnia")
 
@@ -33,7 +33,7 @@ describe "Eolife module methods" do
   
   end
   
-  describe "#collections" do
+  describe ".collections" do
     VCR.use_cassette('collections/collections') do
     results = Eolife.collections('176')
     
@@ -45,7 +45,7 @@ describe "Eolife module methods" do
   
   end
 
-  describe "#ping" do
+  describe ".ping" do
     VCR.use_cassette('ping/ping') do
     results = Eolife.ping
         
@@ -61,4 +61,14 @@ describe "Eolife module methods" do
     
   end
 
+  describe ".pages" do
+    VCR.use_cassette('pages/pages') do
+    results = Eolife.pages('1045608')
+        
+      it "returns a Pages object" do
+        expect(results.class).to eq(Eolife::Pages)
+      end
+      
+    end
+  end
 end
