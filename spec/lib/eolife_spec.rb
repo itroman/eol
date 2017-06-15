@@ -127,4 +127,9 @@ describe "Eolife module methods" do
     
     end
   end
+  
+  describe ".bad_response" do
+ 
+  end
+  
 end
