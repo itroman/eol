@@ -8,10 +8,12 @@ describe Eolife::Ping do
     include_examples "argument errors"
     
   end
-
+  
   context "A Ping object with nil value" do
     
     subject(:ping) {Eolife::Ping.new(nil)}
+    
+    let(:message) {nil}
     
     it { is_expected.to be_a(subject.class) }
     it { is_expected.to have_attributes(:message => nil) }

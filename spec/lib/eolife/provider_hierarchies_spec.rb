@@ -1,13 +1,35 @@
 require 'spec_helper'
 
-describe "ProviderHierarchies" do
+describe Eolife::ProviderHierarchies do
+  
+  describe "#initialize" do
+    subject {Eolife::ProviderHierarchies}
     
-  describe "#provider_hierarchies" do
-    it "returns a ProviderHierarchies object" do
-      VCR.use_cassette('provider_hierarchies/provider_hierarchies') do
-        results = Eolife.provider_hierarchies
-        expect(results[0].class).to eq(Eolife::ProviderHierarchies) # should be returns an array of provider_hierarchies objects
-      end
-    end
+    include_examples "argument errors"
+    
+  end
+  
+  subject(:provider_hierarchies) {Eolife::ProviderHierarchies.new({'id' => id, 'label' => label})}
+
+  context "A ProviderHierarchies object with nil values" do
+    
+    let(:id) {nil}
+    let(:label) {nil}
+    
+    it { is_expected.to be_a(subject.class) }
+    it { is_expected.to have_attributes(:id => nil) }
+    it { is_expected.to have_attributes(:label => nil) }
+    
+  end
+  
+  context "A ProviderHierarchies object with data values" do
+    
+    let(:id) {121}
+    let(:label) {"AntWeb (Ant Species)"}
+    
+    it {is_expected.to be_a(subject.class) }
+    it {is_expected.to have_attributes(:id => Integer) }
+    it {is_expected.to have_attributes(:label => String) }
+  
   end
 end

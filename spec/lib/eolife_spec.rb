@@ -71,4 +71,18 @@ describe "Eolife module methods" do
       
     end
   end
+  
+   describe ".provider_hierarchies" do
+      VCR.use_cassette('provider_hierarchies/provider_hierarchies') do
+      results = Eolife.provider_hierarchies
+        
+        it "returns an array" do
+          expect(results.class).to eq(Array)
+        end
+        
+        it "of ProviderHierarchies objects" do
+        expect(results[0].class).to eq(Eolife::ProviderHierarchies)
+      end
+    end
+  end
 end
