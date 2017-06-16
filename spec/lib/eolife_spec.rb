@@ -128,15 +128,63 @@ describe "Eolife module methods" do
     
     end
   end
-  
-  vcr_options = { :cassette_name => 'error/wrong_search' }
-  describe ".create", :vcr => vcr_options do
-    
-      it "raises error code 406" do
-        expect{Eolife.search('1257.xml')}.to raise_error
-      end
-    end  
-  
-  
-
 end
+
+describe "Error handling" do
+  
+  vcr_options = { :cassette_name => 'error/bad_request' }
+  context "A search that returns a bad request", :vcr => vcr_options do
+    
+    it "raises error code 400: Bad Request" do
+      expect{Eolife.search('tolumnia/error')}.to raise_error(HTTParty::Error, 'Error code 400')
+    end
+    
+  end
+  
+  vcr_options = { :cassette_name => 'error/unauthorized' }
+  context "A search that returns unauthorized", :vcr => vcr_options do
+    
+    it "raises error code 401: Unauthorized" do
+      expect{Eolife.search('tolumnia/error')}.to raise_error(HTTParty::Error, 'Error code 401')
+    end
+    
+  end
+  
+  vcr_options = { :cassette_name => 'error/forbidden' }
+  context "A search that returns forbidden", :vcr => vcr_options do
+    
+    it "raises error code 403: Forbidden" do
+      expect{Eolife.search('tolumnia/error')}.to raise_error(HTTParty::Error, 'Error code 403')
+    end
+    
+  end
+  
+  
+  vcr_options = { :cassette_name => 'error/not_found' }
+  context "A search that returns not found", :vcr => vcr_options do
+    
+    it "raises error code 404: Not Found" do
+      expect{Eolife.search('1257.xml')}.to raise_error(HTTParty::Error, 'Error code 404')
+    end
+      
+  end  
+  
+  vcr_options = { :cassette_name => 'error/internal_server' }
+  context "A search that raises an internal server error ", :vcr => vcr_options do
+    
+    it "raises error code 500: Internal Server Error" do
+      expect{Eolife.search('tolumnia/error')}.to raise_error(HTTParty::Error, 'Error code 500')
+    end
+  
+  end
+
+  context "A search that returns an unknown error" do
+    
+    it "is expected to raise an Unknown Error" do
+      response = "hello world"
+      expect{Eolife.bad_response(response)}.to raise_error(StandardError, 'Unknown Error')
+    end
+      
+  end
+end
+

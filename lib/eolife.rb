@@ -254,20 +254,8 @@ module Eolife
       }.flatten
   end
   
-  #def self.create(response, instance)
-   # if response.code == 200
-    #  (instance)
-    #else
-    #  bad_response(response)
-    #end
-  #end
-  
-  # def self.symbolize_keys
-    # map { |k, v| [k.to_sym, v] }.to_h
-  # end
-
   def self.bad_response(response)
     raise Error, "Error code #{response.code}" if response.class == HTTParty::Response
-    raise StandardError, 'Unknown error'
+    raise StandardError, 'Unknown Error'
   end
 end
