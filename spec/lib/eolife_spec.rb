@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'httparty'
 
 describe "Eolife module methods" do
 
@@ -128,8 +129,14 @@ describe "Eolife module methods" do
     end
   end
   
-  describe ".bad_response" do
- 
-  end
+  vcr_options = { :cassette_name => 'error/wrong_search' }
+  describe ".create", :vcr => vcr_options do
+    
+      it "raises error code 406" do
+        expect{Eolife.search('1257.xml')}.to raise_error
+      end
+    end  
   
+  
+
 end
