@@ -132,6 +132,8 @@ end
 
 describe "Error handling" do
   
+  describe ".bad_response" do
+  
   vcr_options = { :cassette_name => 'error/bad_request' }
   context "A search that returns a bad request", :vcr => vcr_options do
     
@@ -187,4 +189,4 @@ describe "Error handling" do
       
   end
 end
-
+end
