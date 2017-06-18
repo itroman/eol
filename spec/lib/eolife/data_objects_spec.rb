@@ -16,25 +16,6 @@ describe Eolife::DataObjects do
                                                    'taxonConcepts' => taxon_concepts,
                                                    'dataObjects' => data_objects})}
 
-  context "A DataObjects object with nil values" do
-
-    let(:identifier) {nil}
-    let(:scientific_name) {nil}
-    let(:exemplar) {nil}
-    let(:richness_score) {nil}
-    let(:taxon_concepts) {nil}
-    let(:data_objects) {nil}
-    
-    it { is_expected.to be_a(subject.class) }
-    it { is_expected.to have_attributes(:identifier => nil) }
-    it { is_expected.to have_attributes(:scientific_name => nil) }
-    it { is_expected.to have_attributes(:exemplar => nil) }
-    it { is_expected.to have_attributes(:richness_score => nil) }
-    it { is_expected.to have_attributes(:taxon_concepts => nil) }
-    it { is_expected.to have_attributes(:data_objects => nil) }
-    
-  end
-  
   context "A DataObjects object with data values" do
     
     let(:identifier) {1045608}
@@ -47,12 +28,17 @@ describe Eolife::DataObjects do
                           "dataObjectVersionID":13451158}]}
     
     it {is_expected.to be_a(subject.class) }
+    
+    it_behaves_like "a class with attributes"
+    
     it {is_expected.to have_attributes(:identifier => Integer) }
     it {is_expected.to have_attributes(:scientific_name => String) }
     it {is_expected.to have_attributes(:exemplar => FalseClass) }
     it {is_expected.to have_attributes(:richness_score => Float) }
     it {is_expected.to have_attributes(:taxon_concepts => Array) }
     it {is_expected.to have_attributes(:data_objects => Array) }
+    
+    it_behaves_like "enumerable"
     
   end
 end

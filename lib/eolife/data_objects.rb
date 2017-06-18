@@ -2,6 +2,7 @@ module Eolife
   # Contains all metadata about the object as submitted to EOL by the 
   # contributing content partner. 
   class DataObjects
+    include Enumerable
     # @return [Integer]
     attr_accessor :identifier
     # @return [String] binomial nomenclature in zoology
@@ -20,12 +21,22 @@ module Eolife
     attr_accessor :data_objects
 
     def initialize(response)
-      @identifier = response['identifier']
-      @scientific_name = response['scientificName']
-      @exemplar = response['exemplar']
-      @richness_score = response['richness_score']
-      @taxon_concepts = response['taxonConcepts']
-      @data_objects = response['dataObjects']
+      self.identifier = response['identifier']
+      self.scientific_name = response['scientificName']
+      self.exemplar = response['exemplar']
+      self.richness_score = response['richness_score']
+      self.taxon_concepts = response['taxonConcepts']
+      self.data_objects = response['dataObjects']
     end
+    
+    def each
+      yield @identifier
+      yield @scientific_name
+      yield @exemplar
+      yield @richness_score
+      yield @taxon_concepts
+      yield @data_objects
+    end
+    
   end
 end

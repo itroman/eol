@@ -19,34 +19,7 @@ describe Eolife::HierarchyEntries do
                                        'synonyms' => synonyms,
                                        'ancestors' => ancestors,
                                        'children' => children})}
-
-  context "A HierarchyEntries object with nil values" do
-
-    let(:source_identifier) {nil}
-    let(:parent_name_usage_id) {nil}
-    let(:taxon_concept_id) {nil}
-    let(:scientific_name) {nil}
-    let(:source) {nil}
-    let(:name_according_to) {nil}
-    let(:vernacular_names) {nil}
-    let(:synonyms) {nil}
-    let(:ancestors) {nil}
-    let(:children) {nil}
-    
-    it { is_expected.to be_a(subject.class) }
-    it { is_expected.to have_attributes(:source_identifier => nil) }
-    it { is_expected.to have_attributes(:parent_name_usage_id => nil) }
-    it { is_expected.to have_attributes(:taxon_concept_id => nil) }
-    it { is_expected.to have_attributes(:scientific_name => nil) }
-    it { is_expected.to have_attributes(:source => nil) }
-    it { is_expected.to have_attributes(:name_according_to => nil) }
-    it { is_expected.to have_attributes(:vernacular_names => nil) }
-    it { is_expected.to have_attributes(:synonyms => nil) }
-    it { is_expected.to have_attributes(:ancestors => nil) }
-    it { is_expected.to have_attributes(:children => nil) }
-    
-  end
-  
+                                       
   context "A HierarchyEntries object with data values" do
     
     let(:source_identifier) {"taxon:142651"}
@@ -61,6 +34,9 @@ describe Eolife::HierarchyEntries do
     let(:children) {[]}
     
     it {is_expected.to be_a(subject.class) }
+    
+    it_behaves_like "a class with attributes"
+    
     it { is_expected.to have_attributes(:source_identifier => String) }
     it { is_expected.to have_attributes(:parent_name_usage_id => Integer) }
     it { is_expected.to have_attributes(:taxon_concept_id => Integer) }
@@ -71,6 +47,8 @@ describe Eolife::HierarchyEntries do
     it { is_expected.to have_attributes(:synonyms => Array) }
     it { is_expected.to have_attributes(:ancestors => Array) }
     it { is_expected.to have_attributes(:children => Array) }
+    
+    it_behaves_like "enumerable"
     
   end
 end

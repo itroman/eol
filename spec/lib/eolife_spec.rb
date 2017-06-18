@@ -33,6 +33,36 @@ describe "Eolife module methods" do
     end 
   end
   
+  describe ".search_all" do
+    VCR.use_cassette('search/search_all') do
+    results = Eolife.search_all("tolumnia")
+
+      it "returns an Array" do
+        expect(results.class).to eq(Array)
+      end
+      
+      it "contains Search objects" do
+        expect(results[0].class).to eq(Eolife::Search)
+      end
+      
+      it "has objects with four attributes" do
+        expect(results[0].id).to be_a(Integer)
+        expect(results[0].title).to be_a(String)
+        expect(results[0].link).to be_a(String)
+        expect(results[0].content).to be_a(String)
+      end
+      
+      it "title contains the search query" do
+        expect(results[0].title).to include "Tolumnia"
+      end
+      
+      it "links to a website" do
+        expect(results[0].link).to include "http:"
+      end
+        
+    end 
+  end
+  
   describe ".collections" do
     VCR.use_cassette('collections/collections') do
     results = Eolife.collections('176')
@@ -132,8 +162,6 @@ end
 
 describe "Error handling" do
   
-  describe ".bad_response" do
-  
   vcr_options = { :cassette_name => 'error/bad_request' }
   context "A search that returns a bad request", :vcr => vcr_options do
     
@@ -191,5 +219,5 @@ describe "Error handling" do
     #end
       
   #end
-end
+
 end

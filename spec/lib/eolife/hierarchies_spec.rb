@@ -14,23 +14,6 @@ describe Eolife::Hierarchies do
                                        'dateSubmitted' => date_submitted,
                                        'source' => source, 'roots' => roots})}
 
-  context "A Hierarchies object with nil values" do
-
-    let(:title) {nil}
-    let(:contributor) {nil}
-    let(:date_submitted) {nil}
-    let(:source) {nil}
-    let(:roots) {nil}
-    
-    it { is_expected.to be_a(subject.class) }
-    it { is_expected.to have_attributes(:title => nil) }
-    it { is_expected.to have_attributes(:contributor => nil) }
-    it { is_expected.to have_attributes(:date_submitted => nil) }
-    it { is_expected.to have_attributes(:source => nil) }
-    it { is_expected.to have_attributes(:roots => nil) }
-    
-  end
-  
   context "A Hierarchies object with data values" do
     
     let(:title) {"Species 2000 & ITIS Catalogue of Life: April 2013"}
@@ -40,11 +23,16 @@ describe Eolife::Hierarchies do
     let(:roots) {[{"sourceIdentifier":"13021388","taxonID":51521761}]}
     
     it {is_expected.to be_a(subject.class) }
+    
+    it_behaves_like "a class with attributes"
+    
     it {is_expected.to have_attributes(:title => String) }
     it {is_expected.to have_attributes(:contributor => String) }
     it {is_expected.to have_attributes(:date_submitted => String) }
     it {is_expected.to have_attributes(:source => String) }
     it {is_expected.to have_attributes(:roots => Array) }
+    
+    it_behaves_like "enumerable"
     
   end
 end

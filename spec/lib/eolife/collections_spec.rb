@@ -13,23 +13,6 @@ describe Eolife::Collections do
   'description' => description, 'logo_url' => logo_url, 'created' => created, 
   'modified' => modified, 'total_items' => total_items, 
   'item_types' => item_types, 'collection_items' => collection_items}) }
-  
-    context "A Collections object with nil values" do
-    
-      let(:name) {nil}
-      let(:description) {nil}
-      let(:logo_url) {nil}
-      let(:created) {nil}
-      let(:modified) {nil}
-      let(:total_items) {nil}
-      let(:item_types) {nil}
-      let(:collection_items) {nil}
-  
-      it { is_expected.to be_a(subject.class) }
-      
-     #  include_examples "empty object"
-  
-    end
     
     context "A Collections object with data values" do
   
@@ -47,6 +30,8 @@ describe Eolife::Collections do
       
       it { is_expected.to be_a(Eolife::Collections) }
       
+      it_behaves_like "a class with attributes"
+      
       it { is_expected.to have_attributes(:name => String) }
       it { is_expected.to have_attributes(:description => String) }
       it { is_expected.to have_attributes(:logo_url => 
@@ -57,7 +42,7 @@ describe Eolife::Collections do
       it { is_expected.to have_attributes(:item_types => Array) }
       it { is_expected.to have_attributes(:collection_items => Array) }
       
-       #include_examples "enumerable"
+      it_behaves_like "enumerable"
       
     end
 end

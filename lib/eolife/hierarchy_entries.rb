@@ -1,6 +1,7 @@
 module Eolife
   # Contains data on a single hierarchy and its internal relationships
   class HierarchyEntries
+    include Enumerable
     # @return [String]
     attr_accessor :source_identifier
     # @return [Integer]
@@ -23,16 +24,30 @@ module Eolife
     attr_accessor :children
 
     def initialize(response)
-      @source_identifier = response['sourceIdentifier']
-      @parent_name_usage_id = response['parentNameUsageID']
-      @taxon_concept_id = response['taxonConceptID']
-      @scientific_name = response['scientificName']
-      @source = response['source']
-      @name_according_to = response['nameAccordingTo']
-      @vernacular_names = response['vernacularNames']
-      @synonyms = response['synonyms']
-      @ancestors = response['ancestors']
-      @children = response['children']
+      self.source_identifier = response['sourceIdentifier']
+      self.parent_name_usage_id = response['parentNameUsageID']
+      self.taxon_concept_id = response['taxonConceptID']
+      self.scientific_name = response['scientificName']
+      self.source = response['source']
+      self.name_according_to = response['nameAccordingTo']
+      self.vernacular_names = response['vernacularNames']
+      self.synonyms = response['synonyms']
+      self.ancestors = response['ancestors']
+      self.children = response['children']
     end
+    
+    def each
+      yield @source_identifier
+      yield @parent_name_usage_id
+      yield @taxon_concept_id
+      yield @scientific_name
+      yield @source
+      yield @name_according_to
+      yield @vernacular_names
+      yield @synonyms
+      yield @ancestors
+      yield @children
+    end
+    
   end
 end

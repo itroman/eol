@@ -18,7 +18,7 @@ module Eolife
       self.content = response['content']
     end
 
-    def each(&block)
+    def each
       yield @id
       yield @title
       yield @link
