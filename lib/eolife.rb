@@ -23,8 +23,7 @@ module Eolife
   # @return [Eolife::Ping] Success or failure results
   def self.ping
     response = get('/ping/1.0.json')
-    response.code == 200 ? Eolife::Ping.new(response['response']['message']) :
-    bad_response(response)
+    response.code == 200 ? Eolife::Ping.new(response['response']['message']) : bad_response(response)
   end
 
   # Returns one page of results from the EOL API search
@@ -51,8 +50,7 @@ module Eolife
   # @return [Array<Eolife::Search>]
   def self.search(query, query_options = {})
     response = get("/search/1.0/#{query}.json", query: query_options)
-    response.code == 200 ? response['results'].map { |item| Eolife::Search.new(item)} :
-    bad_response(response)
+    response.code == 200 ? response['results'].map { |item| Eolife::Search.new(item) } : bad_response(response)
   end
 
   # Returns all results from an EOL API search
@@ -217,8 +215,7 @@ module Eolife
   # @return <Eolife::ProviderHierarchies>
   def self.provider_hierarchies
     response = get('/provider_hierarchies/1.0.json')
-    response.code == 200 ? response.map { |item| Eolife::ProviderHierarchies.new(item) } :
-    bad_response(response)
+    response.code == 200 ? response.map { |item| Eolife::ProviderHierarchies.new(item) } : bad_response(response)
   end
 
   # This method takes an integer or string which is the unique identifier for a
@@ -238,24 +235,23 @@ module Eolife
     response =
       get("/search_by_provider/1.0.json?id=#{id}&hierarchy_id=#{hierarchy_id}",
           query: query_options)
-    response.code == 200 ? response.map { |item| Eolife::SearchByProvider.new(item) } :
-    bad_response(response)
+    response.code == 200 ? response.map { |item| Eolife::SearchByProvider.new(item) } : bad_response(response)
   end
-  
-  private 
-  
+
   def self.all_pages(query, response)
-      @n = 0
-      total = (response['totalResults'] / 30.to_f).ceil
-      total.times.collect {
-        response = get("/search/1.0/#{query}.json",
-                       query: { 'page': "#{@n += 1}" })
-        response['results'].map { |item| Eolife::Search.new(item) }
-      }.flatten
+    @n = 0
+    total = (response['totalResults'] / 30.to_f).ceil
+    total.times.collect {
+      response = get("/search/1.0/#{query}.json",
+                     query: { 'page': (@n += 1) })
+      response['results'].map { |item| Eolife::Search.new(item) }
+    }.flatten
   end
-  
+
   def self.bad_response(response)
     raise Error, "Error code #{response.code}" if response.class == HTTParty::Response
-    raise StandardError, 'Unknown Error'
   end
+  
+  private_class_method :all_pages, :bad_response
+  
 end

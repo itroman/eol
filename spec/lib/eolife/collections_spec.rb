@@ -57,5 +57,7 @@ describe Eolife::Collections do
       it { is_expected.to have_attributes(:item_types => Array) }
       it { is_expected.to have_attributes(:collection_items => Array) }
       
+       #include_examples "enumerable"
+      
     end
 end

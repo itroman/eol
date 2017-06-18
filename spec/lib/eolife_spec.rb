@@ -180,13 +180,16 @@ describe "Error handling" do
   
   end
 
-  context "A search that returns an unknown error" do
+  #context "A search that returns an unknown error" do
     
-    it "is expected to raise an Unknown Error" do
-      response = "hello world"
-      expect{Eolife.bad_response(response)}.to raise_error(StandardError, 'Unknown Error')
-    end
+   # it "is expected to raise an Unknown Error" do
+    #  VCR.turn_off!
+    #    stub_request(:get, "http://eol.org/api/ping/1.0.json").
+     #    with(headers: {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}).to_timeout
+         
+      #expect{Eolife.ping}.to raise_error
+    #end
       
-  end
+  #end
 end
 end
