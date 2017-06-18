@@ -1,0 +1,200 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://eol.org/api/search/1.0/tolumnia.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 500
+      message: Internal Server Error
+    headers:
+      Server:
+      - nginx/1.12.0
+      Content-Type:
+      - application/json; charset=utf-8
+      Status:
+      - 500 Internal Server Error
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - '"48a49ac28ca8bf88c43f71d77c40bc63"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 24e5dbbf728edd28e9699fb83dae886a
+      X-Runtime:
+      - '0.243570'
+      X-Rack-Cache:
+      - miss
+      Vary:
+      - Origin
+      Content-Length:
+      - '12628'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Sun, 18 Jun 2017 09:42:32 GMT
+      X-Varnish:
+      - '1860943957'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"totalResults":80,"startIndex":1,"itemsPerPage":30,"results":[{"id":1128718,"title":"Tolumnia
+        bahamensis (Nash) Braem","link":"http://eol.org/1128718?action=overview&controller=taxa","content":"Tolumnia
+        x adamsii Sauleda"},{"id":1128718,"title":"Tolumnia bahamensis (Nash) Braem","link":"http://eol.org/1128718?action=overview&controller=taxa","content":"Tolumnia
+        bahamensis (Nash ex Britt. & Millsp.) G. J. Braem; Oncidium sasseri Moir;
+        Tolumnia bahamensis; Oncidium bahamense; Oncidium bahamense Nash ex Britton
+        & Millsp.; Tolumnia bahamensis (Nash ex Britton & Millsp.) Braem; Tolumnia
+        sasseri; Tolumnia bahamensis (Nash) Braem; Tolumnia bahamensis (Nash ex Britton
+        & Millspaugh) Braem; Tolumnia bahamensis (Nash ex Britton & Millsp.) G.J.
+        Braem; Tolumnia bahamensis Braem; Tolumnia sasseri Braem"},{"id":1128718,"title":"Tolumnia
+        bahamensis (Nash) Braem","link":"http://eol.org/1128718?action=overview&controller=taxa","content":"Oncidium
+        bahamense Nash ex Britt. & Millsp.; Oncidium sasseri Moir; Oncidium bahamense
+        Nash ex Britton & Millsp.; Tolumnia sasseri (Moir) Braem; Oncidium variegatum
+        subsp. bahamense; Oncidium bahamense Nash; Tolumnia adamsii Sauleda; Oncidium
+        variegatum subsp. bahamense (Nash ex Britton & Millsp.) Withner; Oncidium
+        variegatum var. bahamense"},{"id":1101922,"title":"Erycina pusilla (L.) N.H.
+        Williams & M.W. Chase","link":"http://eol.org/1101922?action=overview&controller=taxa","content":"Psygmorchis
+        pusilla; Psygmorchis pusilla (L.) Dodson & Dressler; Cymbidium pusillum (L.)
+        Sw.; Epidendrum pusillum L.; Oncidium iridifolium Kunth; Oncidium pusillum
+        (L.) Rchb. f.; Oncidium allemanii Barb. Rodr.; Epidendrum ventilabrum Vell.;
+        Tolumnia pusilla (L.) Hoehne; Psygmorchis allemanii (Barb. Rodr.) Garay &
+        Stacy; Oncidium pusillum var. megalanthum Schltr.; Erycina pussila; Psymorchis
+        pussila; Oncidium pusillum var. megalanthum"},{"id":1101923,"title":"Erycina
+        pumilio (Rchb. f.) N.H. Williams & M.W. Chase","link":"http://eol.org/1101923?action=overview&controller=taxa","content":"Psygmorchis
+        pumilio (Rchb. f.) Dodson & Dressler; Oncidium pumilio Rchb. f.; Oncidium
+        gnomus Kraenzl.; Oncidium titania Schltr.; Oncidium oberonia Schltr.; Psygmorchis
+        gnoma (Kraenzl.) Dodson & Dressler; Psygmorchis hondurensis (Ames) Garay &
+        Stacy; Oncidium hondurense Ames; Tolumnia pumilio (Rchb. f.) Hoehne; Psygmorchis
+        gnomus (Kraenzl.) Dodson & Dressler; Oncidium gnoma Kraenzl., 1922; Oncidium
+        hondurense Ames, 1933; Oncidium oberonia Schltr., 1924; Oncidium pumilio Rchb.
+        f., 1852; Oncidium titania Schltr., 1923; Psygmorchis gnoma (Kraenzl.) Dodson
+        &Dressler, 1972; Psygmorchis pumilio (Rchb. f.) Dodson &Dressler, 1972; Tolumnia
+        pumilio (Rchb. f.) Hoehne, 1949"},{"id":1128699,"title":"Tolumnia variegata
+        (Sw.) Braem","link":"http://eol.org/1128699?action=overview&controller=taxa","content":"Epidendrum
+        haseltonianum A.D. Hawkes; Oncidium leiboldii auct. non Rchb. f.; Tolumnia
+        leiboldii auct. non (Rchb. f.) Braem"},{"id":1128699,"title":"Tolumnia variegata
+        (Sw.) Braem","link":"http://eol.org/1128699?action=overview&controller=taxa","content":"Tolumnia
+        variegata (Sw.) G. J. Braem; Tolumnia variegata; Oncidium variegatum; Oncidium
+        variegatum Sw.; Tolumnia variegata (Sw.) Braem; Tolumnia variegata (Sw.) Braem
+        (1986); Cymbidium variegatum Sw.; Oncidium leiboldii Rchb. f., 1863; Oncidium
+        variegatum sensu Stehle, 1939 p.p.; Tolumnia variegata (Sw.) Braem, 1986;
+        Tolumnia variegata Braem"},{"id":1128699,"title":"Tolumnia variegata (Sw.)
+        Braem","link":"http://eol.org/1128699?action=overview&controller=taxa","content":"Oncidium
+        variegatum (Sw.) Sw.; Tolumnia borinquinensis Sauleda & Ragan; Cymbidium variegatum
+        (Sw.) Sw.; Tolumnia variegata (Sw.) Braem; Epidendrum variegatum Sw.; Oncidium
+        leiboldii var. album; Oncidium leiboldii var. majus; Oncidium variegatum var.
+        purpureum; Oncidium variegatum var. roseum; Oncidium variegatum f. furcyense;
+        Oncidium variegatum f. roseum; Oncidium variegatum f. varvelum; Epidendrum
+        carinatum Vahl; Oncidium varvelum Moir; Oncidium furcyense Moir"},{"id":1128708,"title":"Tolumnia
+        prionochila (Kraenzl.) Braem","link":"http://eol.org/1128708?action=overview&controller=taxa","content":"Tolumnia
+        prionochila (Kraenzlin) G. J. Braem; Tolumnia prionochila; Oncidium prionochilum;
+        Oncidium prionochilum Kraenzl.; Tolumnia prionochila (Kraenzl.) Braem; Tolumnia
+        prionochila Braem"},{"id":1128708,"title":"Tolumnia prionochila (Kraenzl.)
+        Braem","link":"http://eol.org/1128708?action=overview&controller=taxa","content":"Oncidium
+        prionochilum Kraenzlin; Oncidium prionochilum Kraenzl.; Tolumnia prionochila
+        (Kraenzl.) Braem"},{"id":1128714,"title":"Tolumnia guianensis (Aubl.) Braem","link":"http://eol.org/1128714?action=overview&controller=taxa","content":"Oncidium
+        lemonianum Lindl.; Oncidium lemonianum; Tolumnia guianensis; Oncidium desertorum
+        Nash ex Withner; Ophrys aloidea Poir.; Ophrys guianensis Aubl.; Tolumnia guianensis
+        (Aubl.) Braem; Tolumnia intermedia; Oncidium lemonianum Lindl. [excluded];
+        Tolumnia guianensis (Aubl.) Braem (1986); Tolumnia guianensis (Hayata) Schltr.;
+        Oncidium intermedium sensu Stehle, 1826; Tolumnia guianensis Braem; Tolumnia
+        intermedia H. Dietr."},{"id":1128714,"title":"Tolumnia guianensis (Aubl.)
+        Braem","link":"http://eol.org/1128714?action=overview&controller=taxa","content":"Oncidium
+        lemonianum Lindl.; Oncidium intermedium Bertero; Oncidium desertorum Nash
+        ex Withner; Ophrys aloidea Poir.; Ophrys guianensis Aubl.; Tolumnia guianensis
+        (Aubl.) Braem; Tolumnia lemoniana (Lindl.) Braem; Oncidium guianense subsp.
+        alborubrum; Oncidium desertorum var. alborubrum; Oncidium desertorum var.
+        album; Oncidium desertorum var. aureorubrum; Oncidium guianense var. alborubrum;
+        Oncidium guianense var. album; Oncidium guianense var. aureorubrum; Oncidium
+        guttatum var. intermedium; Oncidium intermedium var. alborubrum; Oncidium
+        intermedium var. album; Oncidium luridum var. intermedium; Oncidium guianense
+        f. album; Oncidium guianense f. aureorubrum; Tolumnia intermedia (Bertero
+        ex Spreng.) H.Dietr.; Oncidium guianense (Aubl.) Garay; Oncidium intermedium
+        Bertero ex Spreng."},{"id":1128716,"title":"Tolumnia compressicaulis (Withner)
+        Braem","link":"http://eol.org/1128716?action=overview&controller=taxa","content":"Oncidium
+        compressicaule Withner; Tolumnia compressicaulis; Tolumnia compressicaulis
+        (Withner) Braem; Tolumnia compressicaulis Braem"},{"id":1128716,"title":"Tolumnia
+        compressicaulis (Withner) Braem","link":"http://eol.org/1128716?action=overview&controller=taxa","content":"Oncidium
+        compressicaule Withner; Tolumnia compressicaulis (Withner) Braem"},{"id":1128717,"title":"Tolumnia
+        calochila (Cogn.) Braem","link":"http://eol.org/1128717?action=overview&controller=taxa","content":"Oncidium
+        calochilum Cogn.; Tolumnia calochila; Tolumnia calochila (Cogn.) Braem; Tolumnia
+        calochila Braem"},{"id":1128717,"title":"Tolumnia calochila (Cogn.) Braem","link":"http://eol.org/1128717?action=overview&controller=taxa","content":"Oncidium
+        calochilum Cogn.; Tolumnia calochila (Cogn.) Braem"},{"id":1128713,"title":"Tolumnia
+        guibertiana (A. Rich.) Braem","link":"http://eol.org/1128713?action=overview&controller=taxa","content":"Oncidium
+        guibertianum A. Rich.; Tolumnia guibertiana (A. Rich.) Braem"},{"id":1128713,"title":"Tolumnia
+        guibertiana (A. Rich.) Braem","link":"http://eol.org/1128713?action=overview&controller=taxa","content":"Tolumnia
+        guibertiana; Oncidium lyratum Withner; Oncidium moirianum Osment; Tolumnia
+        guibertiana Braem; Tolumnia lyrata Braem; Tolumnia moiriana Braem"},{"id":1128713,"title":"Tolumnia
+        guibertiana (A. Rich.) Braem","link":"http://eol.org/1128713?action=overview&controller=taxa","content":"Oncidium
+        lyratum Withner; Oncidium moirianum Osment; Tolumnia lyrata (Withner) Braem;
+        Tolumnia moiriana (Osment) Braem; Tolumnia lemoniana subsp. guibertiana"},{"id":30181,"title":"Tolumnia","link":"http://eol.org/30181?action=overview&controller=taxa","content":"Tolumnia
+        G. J. Braem; Tolumnia; Tolumnia Rafinesque, 1837; Tolumnia Raf.; Tolumnia
+        Braem"},{"id":30181,"title":"Tolumnia","link":"http://eol.org/30181?action=overview&controller=taxa","content":"Tolumnia
+        Raf., 1837"},{"id":1128712,"title":"Tolumnia guttata (L.) Nir","link":"http://eol.org/1128712?action=overview&controller=taxa","content":"Oncidium
+        quadripetalum Sw.; Epidendrum tetrapetalum Jacq.; Oncidium apiculatum Moir;
+        Oncidium berenyce Rchb. f.; Oncidium boydii hort. ex Lindl.; Oncidium cuneilabium
+        Moir; Oncidium intermedium Bert ex Spreng.; Oncidium pauciflorum Lindl.; Oncidium
+        tricolor Hook.; Tolumnia tetrapetala; Xaritonia elegans Raf.; Tolumnia guttata
+        (L.) Nir; Tolumnia guttata (L.) Nir (1994); Cymbidium tetrapetalum Sw.; Oncidium
+        tetrapetalum Willd.; Tolumnia apiculata Braem; Tolumnia berenyce Braem; Tolumnia
+        cuneilabia Braem; Tolumnia tetrapetala Braem; Cymbidium guttatum Willd."},{"id":1128712,"title":"Tolumnia
+        guttata (L.) Nir","link":"http://eol.org/1128712?action=overview&controller=taxa","content":"Oncidium
+        quadripetalum Sw.; Oncidium tetrapetalum (Jacq.) Willd.; Oncidium cuneatum
+        Lindl.; Oncidium intermedium Knowles & Westc.; Oncidium guttatum (L.) Rchb.
+        f.; Cymbidium tetrapetalum (Jacq.) Sw.; Epidendrum tetrapetalum Jacq.; Oncidium
+        apiculatum Moir; Oncidium berenyce Rchb. f.; Oncidium cuneilabium Moir; Oncidium
+        pauciflorum Lindl.; Oncidium tricolor Hook.; Tolumnia apiculata (Moir) Braem;
+        Tolumnia berenyce (Rchb. f.) Braem; Tolumnia cuneilabia (Moir) Braem; Tolumnia
+        tetrapetala (Jacq.) Braem; Xaritonia elegans Raf.; Cymbidium guttatum (L.)
+        Willd.; Epidendrum guttatum L.; Epidendrum acinaciforme Pav. ex Lindl.; Oncidium
+        guttatum var. auriculatum; Oncidium luridum var. guttatum; Oncidium pulchellum
+        f. apiculatum; Oncidium pulchellum f. berenyce; Oncidium pulchellum f. cuneilabium;
+        Oncidium boydii Lindl.; Oncidium guttatum var. dodgsonii"},{"id":1128707,"title":"Tolumnia
+        pulchella (Hook.) Raf.","link":"http://eol.org/1128707?action=overview&controller=taxa","content":"Oncidium
+        pulchellum Hook.; Tolumnia pulchella; Oncidium concavum Moir; Tolumnia pulchella
+        (Hook.) Raf.; Oncidium jamaicense Moir & A. D. Hawkes; Oncidium sanctae-anae
+        Moir & A. D. Hawkes; Oncidium hartii Moir; Tolumnia pulchella (Hook.) Raf.
+        (1837); Oncidium pulchellum subsp. concavum Braem; Tolumnia concava Braem;
+        Tolumnia pulchella Raf."},{"id":1128707,"title":"Tolumnia pulchella (Hook.)
+        Raf.","link":"http://eol.org/1128707?action=overview&controller=taxa","content":"Oncidium
+        pulchellum Hook.; Oncidium pulchellum; Oncidium concavum Moir; Tolumnia concava
+        (Moir) Braem; Tolumnia pulchella (Hook.) Raf.; Baptistonia pulchella; Oncidium
+        pulchellum subsp. concavum; Oncidium pulchellum f. concavum; Oncidium pulchellum
+        f. hartii; Oncidium pulchellum f. jamaicense; Oncidium pulchellum f. sanctae-anae;
+        Oncidium pulchellum f. withneranum; Oncidium withneranum Moir; Oncidium jamaicense
+        Moir & A.D.Hawkes; Oncidium hartii Moir; Oncidium sanctae-anae Moir & A.D.Hawkes;
+        Baptistonia pulchella (Regel) Chiron & V.P.Castro; Oncidium pulchella"},{"id":1138373,"title":"Tolumnia
+        gundlachii (C.Wright ex Griseb.) N.H.Williams & Ackerman","link":"http://eol.org/1138373?action=overview&controller=taxa","content":"Oncidium
+        gundlachii C.H. Wright ex Griseb.; Rodrigueziopsis antillensis Withner; Tolumnia
+        gundlachii; Antillanorchis gundlachii Garay & Stacy"},{"id":1138373,"title":"Tolumnia
+        gundlachii (C.Wright ex Griseb.) N.H.Williams & Ackerman","link":"http://eol.org/1138373?action=overview&controller=taxa","content":"Tolumnia
+        gundlachii (C.H.Wright ex Griseb.) N.H.Williams & Ackerman; Tolumnia gundlachii
+        (C.Wright ex Griseb.) N.H.Williams & Ackerman"},{"id":1128704,"title":"Tolumnia
+        sylvestris (Lindl.) Braem","link":"http://eol.org/1128704?action=overview&controller=taxa","content":"Oncidium
+        sylvestre Lindl.; Tolumnia sylvestris; Tolumnia sylvestris (Lindl.) Braem;
+        Tolumnia sylvestris Braem"},{"id":1128704,"title":"Tolumnia sylvestris (Lindl.)
+        Braem","link":"http://eol.org/1128704?action=overview&controller=taxa","content":"Oncidium
+        sylvestre Lindl.; Tolumnia sylvestris (Lindl.) Braem; Oncidium variegatum
+        subsp. sylvestre"},{"id":1128703,"title":"Tolumnia triquetra (Sw.) Nir","link":"http://eol.org/1128703?action=overview&controller=taxa","content":"Tolumnia
+        triquetra; Oncidium triquetrum; Epidendrum triquetrum Sw.; Tolumnia triquetra
+        (Sw.) Nir; Tolumnia triquetra (Sw.) Nir (1994); Cymbidium triquetrum Sw.;
+        Jamaiciella triquetra Braem; Olgasis triquetra Raf."}],"first":"http://eol.org/api/search/tolumnia.json?page=1","self":"http://eol.org/api/search/tolumnia.json?page=1","next":"http://eol.org/api/search/tolumnia.json?page=2","last":"http://eol.org/api/search/tolumnia.json?page=3"}'
+    http_version: 
+  recorded_at: Sun, 18 Jun 2017 09:42:32 GMT
+recorded_with: VCR 3.0.3

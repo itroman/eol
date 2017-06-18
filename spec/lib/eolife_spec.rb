@@ -207,7 +207,15 @@ describe "Error handling" do
     end
   
   end
-
+  
+   # include_examples "error message", search('tolumnia')
+  
+    it "tests for errors" do
+      stub_request(:get, "http://eol.org/api/search/1.0/tolumnia.json").
+        with(headers: {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}).
+        to_return(status: 500, body: "[]", headers: {})
+     expect{Eolife.search("tolumnia")}.to raise_error(HTTParty::Error, 'Error code 500')
+  end
   #context "A search that returns an unknown error" do
     
    # it "is expected to raise an Unknown Error" do
