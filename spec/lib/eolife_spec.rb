@@ -16,6 +16,17 @@ describe "Eolife module methods" do
       
     end 
     
+    context "A search with query options" do
+    VCR.use_cassette('search/searchoptions') do
+    results = Eolife.search("Tolumnia bahamensis", exact: true, cache_ttl: 30)
+    
+      it "returns an Array" do
+        expect(results.class).to eq(Array)
+      end
+    
+    end
+    end
+    
     context "Error Handling" do
       subject { Eolife }
       it_behaves_like "a bad response", :search, 'tolumnia'

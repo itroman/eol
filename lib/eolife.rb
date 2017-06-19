@@ -52,7 +52,7 @@ module Eolife
   # @example
   #   Eolife.search("dendrophylax", 'exact':true) ==> [#<Eolife::Search:0x000000023e0a10 @id=37413, @title="Dendrophylax", @link= ...>]
   # @return [Array<Eolife::Search>]
-  def self.search(query, query_options = {})
+  def self.search(query, query_options={})
     response = get("/search/1.0.json", query: {q: query, query_options: query_options})
     response.code == 200 ? response['results'].map { |item| Eolife::Search.new(item) } : bad_response(response)
   end

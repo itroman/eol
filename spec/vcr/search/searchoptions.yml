@@ -1,0 +1,67 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://eol.org/api/search/1.0.json?q=Tolumnia%20bahamensis&query_options%5Bcache_ttl%5D=30&query_options%5Bexact%5D=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.12.0
+      Content-Type:
+      - application/json; charset=utf-8
+      Status:
+      - 200 OK
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - '"e3f8fb33a3a35bfa4e7d364599c0b01e"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 2c2f4c2a632d28ce5dbf029e75f6d97e
+      X-Runtime:
+      - '0.173853'
+      X-Rack-Cache:
+      - miss
+      Vary:
+      - Origin
+      Content-Length:
+      - '850'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Mon, 19 Jun 2017 10:27:22 GMT
+      X-Varnish:
+      - '1863761901'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"totalResults":1,"startIndex":1,"itemsPerPage":30,"results":[{"id":1128718,"title":"Tolumnia
+        bahamensis (Nash) Braem","link":"http://eol.org/1128718?action=overview&controller=taxa","content":"Tolumnia
+        bahamensis (Nash ex Britt. & Millsp.) G. J. Braem; Oncidium sasseri Moir;
+        Tolumnia bahamensis; Oncidium bahamense; Oncidium bahamense Nash ex Britton
+        & Millsp.; Tolumnia bahamensis (Nash ex Britton & Millsp.) Braem; Tolumnia
+        sasseri; Tolumnia bahamensis (Nash) Braem; Tolumnia bahamensis (Nash ex Britton
+        & Millspaugh) Braem; Tolumnia bahamensis (Nash ex Britton & Millsp.) G.J.
+        Braem; Tolumnia bahamensis Braem; Tolumnia sasseri Braem"}],"first":"http://eol.org/api/search/Tolumnia%20bahamensis.json?page=1","self":"http://eol.org/api/search/Tolumnia%20bahamensis.json?page=1","last":"http://eol.org/api/search/Tolumnia%20bahamensis.json?page=1"}'
+    http_version: 
+  recorded_at: Mon, 19 Jun 2017 10:27:22 GMT
+recorded_with: VCR 3.0.3
