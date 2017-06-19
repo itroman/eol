@@ -232,9 +232,7 @@ module Eolife
   #   have the response cached
   # @return <Eolife::SearchByProvider>
   def self.search_by_provider(id, hierarchy_id, query_options = {})
-    response =
-      get("/search_by_provider/1.0.json?id=#{id}&hierarchy_id=#{hierarchy_id}",
-          query: query_options)
+    response = get("/search_by_provider/1.0.json?id=#{id}&hierarchy_id=#{hierarchy_id}", query: query_options)
     response.code == 200 ? response.map { |item| Eolife::SearchByProvider.new(item) } : bad_response(response)
   end
 
