@@ -15,21 +15,6 @@ describe "Eolife module methods" do
         expect(results[0].class).to eq(Eolife::Search)
       end
       
-      it "has objects with four attributes" do
-        expect(results[0].id).to be_a(Integer)
-        expect(results[0].title).to be_a(String)
-        expect(results[0].link).to be_a(String)
-        expect(results[0].content).to be_a(String)
-      end
-      
-      it "title contains the search query" do
-        expect(results[0].title).to include "Tolumnia"
-      end
-      
-      it "links to a website" do
-        expect(results[0].link).to include "http:"
-      end
-        
     end 
     
     context "Error Handling" do
@@ -50,23 +35,13 @@ describe "Eolife module methods" do
       it "contains Search objects" do
         expect(results[0].class).to eq(Eolife::Search)
       end
-      
-      it "has objects with four attributes" do
-        expect(results[0].id).to be_a(Integer)
-        expect(results[0].title).to be_a(String)
-        expect(results[0].link).to be_a(String)
-        expect(results[0].content).to be_a(String)
-      end
-      
-      it "title contains the search query" do
-        expect(results[0].title).to include "Tolumnia"
-      end
-      
-      it "links to a website" do
-        expect(results[0].link).to include "http:"
-      end
-        
+    
     end 
+    
+    context "Error Handling" do
+      subject { Eolife }
+      it_behaves_like "a bad response", :search_all, 'tolumnia'
+    end
     
   end
   
@@ -95,11 +70,13 @@ describe "Eolife module methods" do
         expect(results.class).to eq(Eolife::Ping)
       end
       
-      it "returns the state of the API" do
-        expect(results.message).to eq("Success")
-      end
-      
     end
+    
+    context "Error Handling" do
+      subject { Eolife }
+      it_behaves_like "a bad response", :ping
+    end
+    
   end
 
   describe ".pages" do
@@ -111,6 +88,12 @@ describe "Eolife module methods" do
       end
       
     end
+    
+    context "Error Handling" do
+      subject { Eolife }
+      it_behaves_like "a bad response", :pages, '1045608'
+    end
+    
   end
   
   describe ".provider_hierarchies" do
@@ -126,6 +109,12 @@ describe "Eolife module methods" do
       end
       
     end
+    
+    context "Error Handling" do
+      subject { Eolife }
+      it_behaves_like "a bad response", :provider_hierarchies
+    end
+  
   end
   
   describe ".data_objects" do
@@ -137,6 +126,13 @@ describe "Eolife module methods" do
       end
       
     end
+    
+    context "Error Handling" do
+      subject { Eolife }
+      it_behaves_like "a bad response", :data_objects, '30074527'
+    end
+    
+    
   end
   
   describe ".hierarchies" do
@@ -148,6 +144,13 @@ describe "Eolife module methods" do
       end
       
     end
+    
+    context "Error Handling" do
+      subject { Eolife }
+      it_behaves_like "a bad response", :hierarchies, '1188'
+    end
+    
+    
   end
   
   describe ".hierarchy_entries" do
@@ -159,6 +162,12 @@ describe "Eolife module methods" do
       end
       
     end
+    
+    context "Error Handling" do
+      subject { Eolife }
+      it_behaves_like "a bad response", :hierarchy_entries, '30408282'
+    end
+    
   end
   
   describe ".search_by_provider" do
@@ -170,73 +179,11 @@ describe "Eolife module methods" do
       end
     
     end
-  end
-end
-
-describe "Error handling" do
-  
-  vcr_options = { :cassette_name => 'error/bad_request' }
-  context "A search that returns a bad request", :vcr => vcr_options do
     
-    it "raises error code 400: Bad Request" do
-      expect{Eolife.search('tolumnia/error')}.to raise_error(HTTParty::Error, 'Error code 400')
+    context "Error Handling" do
+      subject { Eolife }
+      it_behaves_like "a bad response", :hierarchy_entries, '180542', 903
     end
     
   end
-  
-  vcr_options = { :cassette_name => 'error/unauthorized' }
-  context "A search that returns unauthorized", :vcr => vcr_options do
-    
-    it "raises error code 401: Unauthorized" do
-      expect{Eolife.search('tolumnia/error')}.to raise_error(HTTParty::Error, 'Error code 401')
-    end
-    
-  end
-  
-  vcr_options = { :cassette_name => 'error/forbidden' }
-  context "A search that returns forbidden", :vcr => vcr_options do
-    
-    it "raises error code 403: Forbidden" do
-      expect{Eolife.search('tolumnia/error')}.to raise_error(HTTParty::Error, 'Error code 403')
-    end
-    
-  end
-  
-  
-  vcr_options = { :cassette_name => 'error/not_found' }
-  context "A search that returns not found", :vcr => vcr_options do
-    
-    it "raises error code 404: Not Found" do
-      expect{Eolife.search('1257.xml')}.to raise_error(HTTParty::Error, 'Error code 404')
-    end
-      
-  end  
-  
-  vcr_options = { :cassette_name => 'error/internal_server' }
-  context "A search that raises an internal server error ", :vcr => vcr_options do
-    
-    it "raises error code 500: Internal Server Error" do
-      expect{Eolife.search('tolumnia/error')}.to raise_error(HTTParty::Error, 'Error code 500')
-    end
-  
-  end
-  
-    it "tests for errors" do
-      stub_request(:get, "http://eol.org/api/search/1.0/tolumnia.json").
-        with(headers: {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}).
-        to_return(status: 500, body: "[]", headers: {})
-     expect{Eolife.search("tolumnia")}.to raise_error(HTTParty::Error, 'Error code 500')
-  end
-  #context "A search that returns an unknown error" do
-    
-   # it "is expected to raise an Unknown Error" do
-    #  VCR.turn_off!
-    #    stub_request(:get, "http://eol.org/api/ping/1.0.json").
-     #    with(headers: {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}).to_timeout
-         
-      #expect{Eolife.ping}.to raise_error
-    #end
-      
-  #end
-
 end
