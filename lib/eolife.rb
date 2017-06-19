@@ -250,7 +250,7 @@ module Eolife
 
   def self.bad_response(response)
     raise Error, "Error code #{response.code}" if response.class == HTTParty::Response
-   # raise StandardError, "Unknown Error"
+    raise StandardError, "Unknown Error"
   end
   
   private_class_method :all_pages, :bad_response

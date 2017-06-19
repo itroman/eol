@@ -186,4 +186,13 @@ describe "Eolife module methods" do
     end
     
   end
+  
+  describe "response isn't an HTTParty::Response" do
+    subject { Eolife }
+  
+  it "returns a StandardError, Unknown Error" do
+    response = 'badjuju'
+    expect{subject.send(:bad_response, response)}.to raise_error(StandardError, 'Unknown Error')
+  end
+end
 end
