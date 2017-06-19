@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://eol.org/api/hierarchies/1.0/1188.json
+    uri: http://eol.org/api/hierarchies/1.0.json?id=1188
     body:
       encoding: US-ASCII
       string: ''
@@ -31,9 +31,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 1f8b1c460bbb312ac0e21076c9b596c4
+      - 984cfcb67bb7d70af68ffe00b8a7a261
       X-Runtime:
-      - '0.069748'
+      - '0.125896'
       X-Rack-Cache:
       - miss
       Vary:
@@ -43,9 +43,9 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Sun, 11 Jun 2017 09:21:27 GMT
+      - Mon, 19 Jun 2017 08:47:12 GMT
       X-Varnish:
-      - '1836098854'
+      - '1863528741'
       Age:
       - '0'
       Via:
@@ -57,5 +57,5 @@ http_interactions:
       string: '{"title":"Species 2000 & ITIS Catalogue of Life: April 2013","contributor":"Catalogue
         of Life","dateSubmitted":"2013-03-30 19:53:45","source":"","roots":[{"sourceIdentifier":"13021388","taxonID":51521761,"parentNameUsageID":0,"taxonConceptID":1,"scientificName":"Animalia","taxonRank":"kingdom"},{"sourceIdentifier":"13021511","taxonID":52744048,"parentNameUsageID":0,"taxonConceptID":5559,"scientificName":"Fungi","taxonRank":"kingdom"},{"sourceIdentifier":"13021533","taxonID":52800975,"parentNameUsageID":0,"taxonConceptID":281,"scientificName":"Plantae","taxonRank":"kingdom"},{"sourceIdentifier":"13021538","taxonID":53103686,"parentNameUsageID":0,"taxonConceptID":288,"scientificName":"Bacteria","taxonRank":"kingdom"},{"sourceIdentifier":"13021719","taxonID":53112249,"parentNameUsageID":0,"taxonConceptID":3352,"scientificName":"Chromista","taxonRank":"kingdom"},{"sourceIdentifier":"13023715","taxonID":53114002,"parentNameUsageID":0,"taxonConceptID":5006,"scientificName":"Viruses","taxonRank":"kingdom"},{"sourceIdentifier":"13023992","taxonID":53116999,"parentNameUsageID":0,"taxonConceptID":4651,"scientificName":"Protozoa","taxonRank":"kingdom"},{"sourceIdentifier":"13025806","taxonID":53131235,"parentNameUsageID":0,"taxonConceptID":7920,"scientificName":"Archaea","taxonRank":"kingdom"}]}'
     http_version: 
-  recorded_at: Sun, 11 Jun 2017 09:21:28 GMT
+  recorded_at: Mon, 19 Jun 2017 08:47:12 GMT
 recorded_with: VCR 3.0.3

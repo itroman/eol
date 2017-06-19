@@ -1,8 +1,7 @@
 require 'spec_helper'
-require 'httparty'
 
 describe "Eolife module methods" do
-
+  
   describe ".search" do
     VCR.use_cassette('search/search') do
     results = Eolife.search("tolumnia")
@@ -28,9 +27,9 @@ describe "Eolife module methods" do
     VCR.use_cassette('search/search_all') do
     results = Eolife.search_all("tolumnia")
 
-      it "returns an Array" do
-        expect(results.class).to eq(Array)
-      end
+     it "returns an Array" do
+       expect(results.class).to eq(Array)
+     end
       
       it "contains Search objects" do
         expect(results[0].class).to eq(Eolife::Search)
@@ -38,9 +37,9 @@ describe "Eolife module methods" do
     
     end 
     
-    context "Error Handling" do
-      subject { Eolife }
-      it_behaves_like "a bad response", :search_all, 'tolumnia'
+   context "Error Handling" do
+     subject { Eolife }
+     it_behaves_like "a bad response", :search_all, 'tolumnia'
     end
     
   end

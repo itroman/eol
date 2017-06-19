@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://eol.org/api/hierarchy_entries/1.0/30408282.json
+    uri: http://eol.org/api/hierarchy_entries/1.0.json?id=30408282
     body:
       encoding: US-ASCII
       string: ''
@@ -31,9 +31,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d62758d8e40716521063f5a6303bf6b6
+      - b7bce45737c968b4cae7dc93f2db940d
       X-Runtime:
-      - '0.149257'
+      - '1.027024'
       X-Rack-Cache:
       - miss
       Vary:
@@ -43,9 +43,9 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Sun, 11 Jun 2017 09:21:28 GMT
+      - Mon, 19 Jun 2017 08:43:35 GMT
       X-Varnish:
-      - '1836098864'
+      - '1863521591'
       Age:
       - '0'
       Via:
@@ -58,5 +58,5 @@ http_interactions:
         alba (L.) Mill.","source":"http://eol.org/pages/46698412/hierarchy_entries/30408282/overview","nameAccordingTo":["Initial
         BioLib.cz Import"],"vernacularNames":[],"synonyms":[],"ancestors":[{"taxonID":27889936,"parentNameUsageID":0,"taxonConceptID":4377,"scientificName":"Ranunculaceae","taxonRank":"family","source":"http://eol.org/pages/4377/hierarchy_entries/27889936/overview"},{"taxonID":27889944,"parentNameUsageID":27889936,"taxonConceptID":62014,"scientificName":"Actaea","taxonRank":"genus","source":"http://eol.org/pages/62014/hierarchy_entries/27889944/overview"}],"children":[]}'
     http_version: 
-  recorded_at: Sun, 11 Jun 2017 09:21:28 GMT
+  recorded_at: Mon, 19 Jun 2017 08:43:35 GMT
 recorded_with: VCR 3.0.3
