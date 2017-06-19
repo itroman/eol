@@ -31,6 +31,12 @@ describe "Eolife module methods" do
       end
         
     end 
+    
+    context "Error Handling" do
+      subject { Eolife }
+      it_behaves_like "a bad response", :search, 'tolumnia'
+    end
+    
   end
   
   describe ".search_all" do
@@ -61,6 +67,7 @@ describe "Eolife module methods" do
       end
         
     end 
+    
   end
   
   describe ".collections" do
@@ -72,6 +79,12 @@ describe "Eolife module methods" do
       end
     
     end
+    
+    context "Error Handling" do
+      subject { Eolife }
+      it_behaves_like "a bad response", :collections, '176'
+    end
+    
   end
 
   describe ".ping" do
@@ -207,8 +220,6 @@ describe "Error handling" do
     end
   
   end
-  
-   # include_examples "error message", search('tolumnia')
   
     it "tests for errors" do
       stub_request(:get, "http://eol.org/api/search/1.0/tolumnia.json").
