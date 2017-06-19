@@ -8,24 +8,25 @@ end
 
 shared_examples "a bad response"  do |method, param|
   
+  header = {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}
   codes = [400, 401, 403, 404, 500]
   parameter = param
   
   codes.each do |num|
     it "returns error code #{num}" do 
       WebMock.stub_request(:get, "http://eol.org/api/#{method}/1.0/#{param}.json").
-        with(headers: {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}).
+        with(headers: header).
         to_return(status: num, body: "[]", headers: {})
       if parameter != nil && method != :search_all
         expect {subject.send(method, param)}.to raise_error(HTTParty::Error, "Error code #{num}")
       elsif parameter == nil
         WebMock.stub_request(:get, "http://eol.org/api/#{method}/1.0.json").
-          with(headers: {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}).
+          with(headers: header).
           to_return(status: num, body: "[]", headers: {})
         expect {subject.send(method)}.to raise_error(HTTParty::Error, "Error code #{num}")
       else
         WebMock.stub_request(:get, "http://eol.org/api/search/1.0/#{param}.json").
-          with(headers: {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}).
+          with(headers: header).
           to_return(status: num, body: "[]", headers: {})
         expect {subject.send(method, param)}.to raise_error(HTTParty::Error, "Error code #{num}")
       end
