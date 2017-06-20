@@ -1,8 +1,8 @@
-# Eolife
+# Encyclopedia of Life API Wrapper
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/eolife`. To experiment with that code, run `bin/console` for an interactive prompt.
+## Description
 
-TODO: Delete this and the text above, and describe your gem
+A wrapper for the Encyclopedia of Life API.  It provides simple methods to call all of the available EOL API endpoints.
 
 ## Installation
 
@@ -20,7 +20,7 @@ Or install it yourself as:
 
     $ gem install eolife
 
-## Usage
+## Examples
 
 TODO: Write usage instructions here
 

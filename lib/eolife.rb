@@ -260,7 +260,7 @@ module Eolife
   #   have the response cached
   # @example
   #   Eolife.search_by_provider('180542', 903) ==> [#<Eolife::SearchByProvider:0x000000022bf3c0 @eol_page_id=328580>, #<Eolife::SearchByProvider:0x000000022bf398...>]
-  # @return <Eolife::SearchByProvider>
+  # @return [Array<Eolife::SearchByProvider>]
   def self.search_by_provider(id, hierarchy_id, query_options = {})
     @query = { id: id, hierarchy_id: hierarchy_id }.merge!(query_options)
     response = get('/search_by_provider/1.0.json?', query: @query)
