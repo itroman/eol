@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Eolife
   # Contains returns the scientific name for that page, and optionally contains
   # information about common names, media (text, images and videos),

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Eolife
   # Contains data on a single hierarchy and its internal relationships
   class HierarchyEntries

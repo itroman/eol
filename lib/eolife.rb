@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'eolife/version'
 require_relative 'eolife/search'
 require_relative 'eolife/ping'

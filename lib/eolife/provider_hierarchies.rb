@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Eolife
   # Contains references to all hierarchies supplied by EOL Content Partners.
   class ProviderHierarchies

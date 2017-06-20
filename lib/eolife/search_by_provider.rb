@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Eolife
   # Contains the EOL page ID and link for taxon queried.
   class SearchByProvider

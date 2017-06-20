@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Eolife
   # Contains all metadata about the object as submitted to EOL by the
   # contributing content partner.

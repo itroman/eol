@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Eolife
   # Contains response message indicating API status
   class Ping

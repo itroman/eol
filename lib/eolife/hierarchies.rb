@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Eolife
   # Contains metadata about a hierarchy such as the provider name and source URL,
   # as well as lists all the taxa which are the root taxa of the taxonomic tree

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Eolife
   # Contains metadata about the collection and the items it contains
   class Collections

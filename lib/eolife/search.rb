@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Eolife
   # Contains search results from the Encyclopedia of Life database.
   class Search
