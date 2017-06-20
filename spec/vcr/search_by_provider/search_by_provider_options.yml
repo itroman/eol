@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://eol.org/api/search_by_provider/1.0.json?batch=true&cache_ttl=30&hierarchy_id=903&id=180542
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.12.0
+      Content-Type:
+      - application/json; charset=utf-8
+      Status:
+      - 200 OK
+      Cache-Control:
+      - max-age=30, public
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - '"b3032987035bad673c546391772cf53a"'
+      X-Request-Id:
+      - 254fafa034a69fed55b0717e7e765e21
+      X-Runtime:
+      - '0.542975'
+      X-Content-Digest:
+      - 15b84592919eaafeabae25731cfec27a841bcf71
+      X-Rack-Cache:
+      - miss, store
+      Vary:
+      - Origin
+      Content-Length:
+      - '78'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Tue, 20 Jun 2017 03:19:23 GMT
+      X-Varnish:
+      - '1866589558'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '[{"180542":[{"eol_page_id":328580},{"eol_page_link":"eol.org/pages/328580"}]}]'
+    http_version: 
+  recorded_at: Tue, 20 Jun 2017 03:19:23 GMT
+recorded_with: VCR 3.0.3

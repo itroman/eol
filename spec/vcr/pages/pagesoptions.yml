@@ -1,0 +1,79 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://eol.org/api/pages/1.0.json?cache_ttl=30&id=1045608&images_per_page=10&videos_per_page=10
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.12.0
+      Content-Type:
+      - application/json; charset=utf-8
+      Status:
+      - 200 OK
+      Cache-Control:
+      - max-age=30, public
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - '"a0d1500fd716fedf5425d4e64c8fcada"'
+      X-Request-Id:
+      - 93e361fe20f1f93079d2227642884d85
+      X-Runtime:
+      - '2.677941'
+      X-Content-Digest:
+      - b12b369d75da3014dcec620cf0ecb6ccc94b115b
+      X-Rack-Cache:
+      - miss, store
+      Vary:
+      - Origin
+      Content-Length:
+      - '7613'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Tue, 20 Jun 2017 03:05:28 GMT
+      X-Varnish:
+      - '1866551981'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"identifier":1045608,"scientificName":"Apis mellifera Linnaeus 1758","richness_score":400.0,"taxonConcepts":[{"identifier":52191458,"scientificName":"Apis
+        mellifera Linnaeus 1758","nameAccordingTo":"Species 2000 & ITIS Catalogue
+        of Life: April 2013","canonicalForm":"Apis mellifera","sourceIdentifier":"6845885","taxonRank":"Species"},{"identifier":59534038,"scientificName":"Apis
+        (Apis) mellifera Linnaeus 1758","nameAccordingTo":"Paleobiology Database","canonicalForm":"Apis
+        mellifera","sourceIdentifier":"235173","taxonRank":"Species"},{"identifier":49121298,"scientificName":"Apis
+        (Apis) mellifera Linnaeus 1758","nameAccordingTo":"Paleobiology Database","canonicalForm":"Apis
+        mellifera","sourceIdentifier":"urn:paleodb:tn235173","taxonRank":"Species"},{"identifier":49379619,"scientificName":"Apis
+        (Apis) mellifera Linnaeus 1758","nameAccordingTo":"Paleobiology Database","canonicalForm":"Apis
+        mellifera","sourceIdentifier":"urn:paleodb:tn235173","taxonRank":"Species"},{"identifier":55789671,"scientificName":"Apis
+        mellifera Linnaeus 1758","nameAccordingTo":"Integrated Taxonomic Information
+        System (ITIS)","canonicalForm":"Apis mellifera","sourceIdentifier":"154396","taxonRank":"Species"},{"identifier":59631096,"scientificName":"Apis
+        mellifera Linnaeus 1758","nameAccordingTo":"Paleobiology Database","canonicalForm":"Apis
+        mellifera","sourceIdentifier":"283625","taxonRank":"Species"},{"identifier":50293009,"scientificName":"Apis
+        mellifera","nameAccordingTo":"Taxonomic Hierarchy of COL-China 2012","canonicalForm":"Apis
+        mellifera","sourceIdentifier":"44bde209-1a83-48bc-bacf-877b39463c35","taxonRank":"Species"},{"identifier":51183343,"scientificName":"Apis
+        mellifera","nameAccordingTo":"NCBI Taxonomy","canonicalForm":"Apis mellifera","sourceIdentifier":"7460","taxonRank":"Species"},{"identifier":46497385,"scientificName":"Apis
+        mellifera Linnaeus 1758","nameAccordingTo":"Integrated Taxonomic Information
+        System (ITIS)","canonicalForm":"Apis mellifera","sourceIdentifier":"154396","taxonRank":"Species"}],"dataObjects":[{"identifier":"715fac20e20b012e4c4f1e6699c0ad5e","dataObjectVersionID":13451158,"dataType":"http://purl.org/dc/dcmitype/Text","dataSubtype":"","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":0,"4":3,"5":3},"dataRating":4.5,"subject":"http://rs.tdwg.org/ontology/voc/SPMInfoItems#TaxonBiology"},{"identifier":"bdffbd8b1e34d1c41282689eccf89261","dataObjectVersionID":31920917,"dataType":"http://purl.org/dc/dcmitype/StillImage","dataSubtype":"","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":3,"4":3,"5":7},"dataRating":4.30769},{"identifier":"d72801627bf4adf1a38d9c5f10cc767f","dataObjectVersionID":30073527,"dataType":"http://purl.org/dc/dcmitype/StillImage","dataSubtype":"","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":4,"4":0,"5":6},"dataRating":4.2},{"identifier":"d7c57c6dd644a74556b202edd0f5c9f2","dataObjectVersionID":30100518,"dataType":"http://purl.org/dc/dcmitype/StillImage","dataSubtype":"","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":3,"4":5,"5":5},"dataRating":4.15385},{"identifier":"3329faf90b45adedfb1917323b2bf8b1","dataObjectVersionID":5830203,"dataType":"http://purl.org/dc/dcmitype/StillImage","dataSubtype":"","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":0,"4":1,"5":0},"dataRating":4.0},{"identifier":"2c331d77d869ca6054e221dca04c241c","dataObjectVersionID":29203494,"dataType":"http://purl.org/dc/dcmitype/StillImage","dataSubtype":"","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":0,"4":1,"5":0},"dataRating":4.0},{"identifier":"f3dc07b2571a0f8e98a4a717300f170a","dataObjectVersionID":26779607,"dataType":"http://purl.org/dc/dcmitype/StillImage","dataSubtype":"","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":0,"4":5,"5":0},"dataRating":4.0},{"identifier":"6fe2634761bc6620061fc7c65d1388cf","dataObjectVersionID":26781232,"dataType":"http://purl.org/dc/dcmitype/StillImage","dataSubtype":"","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":0,"4":1,"5":0},"dataRating":4.0},{"identifier":"d37cbf263d6f479d129626f55421edc2","dataObjectVersionID":30110260,"dataType":"http://purl.org/dc/dcmitype/StillImage","dataSubtype":"","vettedStatus":"Trusted","dataRatings":{"1":1,"2":0,"3":0,"4":0,"5":3},"dataRating":4.0},{"identifier":"2c331d77d869ca6054e221dca04c241c","dataObjectVersionID":32536907,"dataType":"http://purl.org/dc/dcmitype/StillImage","dataSubtype":"","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":0,"4":1,"5":0},"dataRating":4.0},{"identifier":"f4d8ab30a22fcd8d8b7c2cd7569c5fe7","dataObjectVersionID":29938801,"dataType":"http://purl.org/dc/dcmitype/StillImage","dataSubtype":"","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":0,"4":3,"5":0},"dataRating":4.0},{"identifier":"e70cb321fd2933d4db48b6c41271068b","dataObjectVersionID":30108960,"dataType":"http://purl.org/dc/dcmitype/MovingImage","dataSubtype":"","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":7,"4":3,"5":0},"dataRating":3.3},{"identifier":"e70cb321fd2933d4db48b6c41271068b","dataObjectVersionID":32590283,"dataType":"http://purl.org/dc/dcmitype/MovingImage","dataSubtype":"","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":7,"4":3,"5":0},"dataRating":3.3},{"identifier":"1d9d467e7e37a95db2c7e28493045edd","dataObjectVersionID":31332625,"dataType":"http://purl.org/dc/dcmitype/MovingImage","dataSubtype":"","vettedStatus":"Unreviewed","dataRatings":{"1":0,"2":0,"3":0,"4":0,"5":0},"dataRating":2.5},{"identifier":"c3e6c822ede4a11de508d6032ae633ee","dataObjectVersionID":27782767,"dataType":"http://purl.org/dc/dcmitype/MovingImage","dataSubtype":"","vettedStatus":"Unreviewed","dataRatings":{"1":0,"2":0,"3":0,"4":0,"5":0},"dataRating":2.5},{"identifier":"77361206f6728782ac5e3dee0337932d","dataObjectVersionID":27782794,"dataType":"http://purl.org/dc/dcmitype/MovingImage","dataSubtype":"","vettedStatus":"Unreviewed","dataRatings":{"1":0,"2":0,"3":0,"4":0,"5":0},"dataRating":2.5},{"identifier":"33f7dcd695fd7ee34aef87186617764c","dataObjectVersionID":27782795,"dataType":"http://purl.org/dc/dcmitype/MovingImage","dataSubtype":"","vettedStatus":"Unreviewed","dataRatings":{"1":0,"2":0,"3":0,"4":0,"5":0},"dataRating":2.5},{"identifier":"5108f4ee7fc3e9a2399aecd3c678b01e","dataObjectVersionID":27783725,"dataType":"http://purl.org/dc/dcmitype/MovingImage","dataSubtype":"","vettedStatus":"Unreviewed","dataRatings":{"1":0,"2":0,"3":0,"4":0,"5":0},"dataRating":2.5},{"identifier":"d78285c8886632f2dfb36451db6d5e6e","dataObjectVersionID":27783726,"dataType":"http://purl.org/dc/dcmitype/MovingImage","dataSubtype":"","vettedStatus":"Unreviewed","dataRatings":{"1":0,"2":0,"3":0,"4":0,"5":0},"dataRating":2.5},{"identifier":"a3eeaa13c1a9f3ce05404d72251e1d78","dataObjectVersionID":27783727,"dataType":"http://purl.org/dc/dcmitype/MovingImage","dataSubtype":"","vettedStatus":"Unreviewed","dataRatings":{"1":0,"2":0,"3":0,"4":0,"5":0},"dataRating":2.5},{"identifier":"f1a220bf9e55fac8c3f37145679f19eb","dataObjectVersionID":27783728,"dataType":"http://purl.org/dc/dcmitype/MovingImage","dataSubtype":"","vettedStatus":"Unreviewed","dataRatings":{"1":0,"2":0,"3":0,"4":0,"5":0},"dataRating":2.5},{"identifier":"8787bca9f242f06fada02c341ab577d7","dataObjectVersionID":31506435,"dataType":"http://purl.org/dc/dcmitype/Sound","dataSubtype":"","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":0,"4":0,"5":0},"dataRating":2.5},{"identifier":"cad9dcc72cd30bdb185416e5a35fbc01","dataObjectVersionID":21108489,"dataType":"http://purl.org/dc/dcmitype/StillImage","dataSubtype":"Map","vettedStatus":"Trusted","dataRatings":{"1":0,"2":0,"3":0,"4":3,"5":0},"dataRating":4.0}]}'
+    http_version: 
+  recorded_at: Tue, 20 Jun 2017 03:05:28 GMT
+recorded_with: VCR 3.0.3

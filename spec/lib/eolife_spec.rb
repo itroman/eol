@@ -17,14 +17,14 @@ describe "Eolife module methods" do
     end 
     
     context "A search with query options" do
-    VCR.use_cassette('search/searchoptions') do
-    results = Eolife.search("Tolumnia bahamensis", exact: true, cache_ttl: 30)
+      VCR.use_cassette('search/searchoptions') do
+      results = Eolife.search("Tolumnia bahamensis", exact: true, cache_ttl: 30)
     
-      it "returns an Array" do
-        expect(results.class).to eq(Array)
+        it "returns an Array" do
+          expect(results.class).to eq(Array)
+        end
+    
       end
-    
-    end
     end
     
     context "Error Handling" do
@@ -65,6 +65,18 @@ describe "Eolife module methods" do
     
     end
     
+    context ".collections with query options" do
+      VCR.use_cassette('collections/collectionsoptions') do
+      results = Eolife.collections('176', sort_by: 'oldest', cache_ttl: 30)
+    
+        it "returns a Collections object" do
+          expect(results.class).to eq(Eolife::Collections)
+        end
+    
+      end
+    end
+    
+    
     context "Error Handling" do
       subject { Eolife }
       it_behaves_like "a bad response", :collections, '176'
@@ -98,6 +110,18 @@ describe "Eolife module methods" do
       end
       
     end
+    
+     context ".pages with query options" do
+      VCR.use_cassette('pages/pagesoptions') do
+      results = Eolife.pages('1045608', images_per_page: 10, videos_per_page: 10, cache_ttl: 30)
+    
+        it "returns a Pages object" do
+          expect(results.class).to eq(Eolife::Pages)
+        end
+    
+      end
+    end
+    
     
     context "Error Handling" do
       subject { Eolife }
@@ -137,6 +161,18 @@ describe "Eolife module methods" do
       
     end
     
+    context ".data_objects with query options" do
+      VCR.use_cassette('data_objects/data_objectsoptions') do
+      results = Eolife.data_objects('30073527', language: 'it', cache_ttl: 30)
+    
+        it "returns a DataObjects object" do
+          expect(results.class).to eq(Eolife::DataObjects)
+        end
+    
+      end
+    end
+    
+    
     context "Error Handling" do
       subject { Eolife }
       it_behaves_like "a bad response", :data_objects, '30074527'
@@ -154,6 +190,18 @@ describe "Eolife module methods" do
       end
       
     end
+    
+    context ".hierarchies with query options" do
+      VCR.use_cassette('hierarchies/hierarchies_options') do
+      results = Eolife.hierarchies('1188', language: 'de', cache_ttl: 30)
+    
+        it "returns a Hierarchies object" do
+          expect(results.class).to eq(Eolife::Hierarchies)
+        end
+    
+      end
+    end
+    
     
     context "Error Handling" do
       subject { Eolife }
@@ -173,6 +221,17 @@ describe "Eolife module methods" do
       
     end
     
+    context ".hierarchy_entries with query options" do
+      VCR.use_cassette('hierarchy_entries/hierarchy_entries_options') do
+      results = Eolife.hierarchy_entries('30408282', common_names: true, synonyms: true, cache_ttl: 30)
+    
+        it "returns a HierarchyEntries object" do
+          expect(results.class).to eq(Eolife::HierarchyEntries)
+        end
+    
+      end
+    end
+    
     context "Error Handling" do
       subject { Eolife }
       it_behaves_like "a bad response", :hierarchy_entries, '30408282'
@@ -189,6 +248,18 @@ describe "Eolife module methods" do
       end
     
     end
+    
+    context ".search_by_provider with query options" do
+      VCR.use_cassette('search_by_provider/search_by_provider_options') do
+      results = Eolife.search_by_provider('180542', 903, batch: true, cache_ttl: 30)
+    
+        it "returns a SearchByProvider object" do
+          expect(results[0].class).to eq(Eolife::SearchByProvider)
+        end
+    
+      end
+    end
+    
     
     context "Error Handling" do
       subject { Eolife }

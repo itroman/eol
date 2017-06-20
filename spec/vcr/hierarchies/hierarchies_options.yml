@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://eol.org/api/hierarchies/1.0.json?cache_ttl=30&id=1188&language=de
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.12.0
+      Content-Type:
+      - application/json; charset=utf-8
+      Status:
+      - 200 OK
+      Cache-Control:
+      - max-age=30, public
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - '"a2117e56488211d7015d391025b2d84b"'
+      X-Request-Id:
+      - e3dd6b970a3f357b1533d98694a06d4a
+      X-Runtime:
+      - '0.110732'
+      X-Content-Digest:
+      - b12b4072b90b71cff3a6ab0c41e814ddd24063b3
+      X-Rack-Cache:
+      - miss, store
+      Vary:
+      - Origin
+      Content-Length:
+      - '1289'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Tue, 20 Jun 2017 03:12:59 GMT
+      X-Varnish:
+      - '1866572491'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"title":"Species 2000 & ITIS Catalogue of Life: April 2013","contributor":"Catalogue
+        of Life","dateSubmitted":"2013-03-30 19:53:45","source":"","roots":[{"sourceIdentifier":"13021388","taxonID":51521761,"parentNameUsageID":0,"taxonConceptID":1,"scientificName":"Animalia","taxonRank":"Reich"},{"sourceIdentifier":"13021511","taxonID":52744048,"parentNameUsageID":0,"taxonConceptID":5559,"scientificName":"Fungi","taxonRank":"Reich"},{"sourceIdentifier":"13021533","taxonID":52800975,"parentNameUsageID":0,"taxonConceptID":281,"scientificName":"Plantae","taxonRank":"Reich"},{"sourceIdentifier":"13021538","taxonID":53103686,"parentNameUsageID":0,"taxonConceptID":288,"scientificName":"Bacteria","taxonRank":"Reich"},{"sourceIdentifier":"13021719","taxonID":53112249,"parentNameUsageID":0,"taxonConceptID":3352,"scientificName":"Chromista","taxonRank":"Reich"},{"sourceIdentifier":"13023715","taxonID":53114002,"parentNameUsageID":0,"taxonConceptID":5006,"scientificName":"Viruses","taxonRank":"Reich"},{"sourceIdentifier":"13023992","taxonID":53116999,"parentNameUsageID":0,"taxonConceptID":4651,"scientificName":"Protozoa","taxonRank":"Reich"},{"sourceIdentifier":"13025806","taxonID":53131235,"parentNameUsageID":0,"taxonConceptID":7920,"scientificName":"Archaea","taxonRank":"Reich"}]}'
+    http_version: 
+  recorded_at: Tue, 20 Jun 2017 03:12:59 GMT
+recorded_with: VCR 3.0.3

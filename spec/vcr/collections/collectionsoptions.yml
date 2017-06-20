@@ -1,0 +1,116 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://eol.org/api/collections/1.0.json?cache_ttl=30&id=176&sort_by=oldest
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.12.0
+      Content-Type:
+      - application/json; charset=utf-8
+      Status:
+      - 200 OK
+      Cache-Control:
+      - max-age=30, public
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - '"f9b370016d13c585657e7eb12c771832"'
+      X-Request-Id:
+      - 4c9f608f5079f81def3fc154d27a03af
+      X-Runtime:
+      - '1.499353'
+      X-Content-Digest:
+      - 2489176b0bef8a23e85b4f10033827dc0503e327
+      X-Rack-Cache:
+      - miss, store
+      Vary:
+      - Origin
+      Content-Length:
+      - '19114'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Tue, 20 Jun 2017 03:01:07 GMT
+      X-Varnish:
+      - '1866540499'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"name":"EOL Group on Flickr","description":"This group allows anyone
+        to provide images and videos for the Encyclopedia of Life web site. Contributors
+        tag their images for EOL use and select a creative commons license that allows
+        reuse at least for non-commercial purpose. The EOL harvester checks the group
+        every couple of days, imports new photos and updates records if any of the
+        data (tags, descriptions, licenses) have changed. Last indexed May 20, 2015","logo_url":"http://media.eol.org/content/2011/08/30/11/95200_130_130.jpg","created":"2013-03-01T01:18:12Z","modified":"2016-03-29T14:20:01Z","total_items":200049,"item_types":[{"item_type":"TaxonConcept","item_count":49},{"item_type":"Text","item_count":0},{"item_type":"Video","item_count":1730},{"item_type":"Image","item_count":198270},{"item_type":"Sound","item_count":0},{"item_type":"Community","item_count":0},{"item_type":"User","item_count":0},{"item_type":"Collection","item_count":0}],"collection_items":[{"name":"Common
+        Crow","object_type":"Image","object_id":29865944,"title":"Image","created":"2014-07-08T22:30:31Z","updated":"2014-07-08T22:30:31Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"5d219143a4da38db17458bcf80c11118","source":"http://media.eol.org/content/2014/07/08/22/40373_orig.jpg"},{"name":"IMG_0788","object_type":"Image","object_id":29865947,"title":"Image","created":"2014-07-08T22:30:40Z","updated":"2014-07-08T22:30:40Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"b9155ab5fb9ae08f86fa552b7b5cbdb3","source":"http://media.eol.org/content/2014/07/08/22/56285_orig.jpg"},{"name":"Spider
+        wasp--lateral/dorsal","object_type":"Image","object_id":29865948,"title":"Image","created":"2014-07-08T22:30:41Z","updated":"2014-07-08T22:30:41Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"36a24f64ff4ee52ddea6c03db78a9e3e","source":"http://media.eol.org/content/2014/07/08/22/00317_orig.jpg"},{"name":"Gray-cheeked
+        Salamander (Plethodon montanus)","object_type":"Image","object_id":29865949,"title":"Image","created":"2014-07-08T22:30:42Z","updated":"2014-07-08T22:30:42Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"d2d3893905a6edd02e0f99a5fea29a7e","source":"http://media.eol.org/content/2014/07/08/22/41007_orig.jpg"},{"name":"Gray-cheeked
+        Salamander (Plethodon montanus)","object_type":"Image","object_id":29865950,"title":"Image","created":"2014-07-08T22:30:42Z","updated":"2014-07-08T22:30:42Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"586e867888dba397fb1f67e8d067357b","source":"http://media.eol.org/content/2014/07/08/22/21348_orig.jpg"},{"name":"Gray-cheeked
+        Salamander (Plethodon montanus)","object_type":"Image","object_id":29865951,"title":"Image","created":"2014-07-08T22:30:43Z","updated":"2014-07-08T22:30:43Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"a18edc74e91067b3d16d11b222e15315","source":"http://media.eol.org/content/2014/07/08/22/07200_orig.jpg"},{"name":"Gray-cheeked
+        Salamander (Plethodon montanus)","object_type":"Image","object_id":29865952,"title":"Image","created":"2014-07-08T22:30:44Z","updated":"2014-07-08T22:30:44Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"0283568014200fe1006d3fab1f33ecfd","source":"http://media.eol.org/content/2014/07/08/22/95096_orig.jpg"},{"name":"Gray-cheeked
+        Salamander (Plethodon montanus)","object_type":"Image","object_id":29865953,"title":"Image","created":"2014-07-08T22:30:45Z","updated":"2014-07-08T22:30:45Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"6db7c952140338b6d4aa68ba05c627db","source":"http://media.eol.org/content/2014/07/08/22/46681_orig.jpg"},{"name":"Drosophila
+        immigrans","object_type":"Image","object_id":29865955,"title":"Image","created":"2014-07-08T22:30:49Z","updated":"2014-07-08T22:30:49Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"1a9d874571e88a82a361ec34d1659609","source":"http://media.eol.org/content/2014/07/08/22/37340_orig.jpg"},{"name":"Drosophila
+        immigrans side on","object_type":"Image","object_id":29865956,"title":"Image","created":"2014-07-08T22:30:52Z","updated":"2014-07-08T22:30:52Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"4e2ee1793079ca222f39254b8345c213","source":"http://media.eol.org/content/2014/07/08/22/88967_orig.jpg"},{"name":"Drosophilid
+        bum","object_type":"Image","object_id":29865957,"title":"Image","created":"2014-07-08T22:30:54Z","updated":"2014-07-08T22:30:54Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"74b6cc2131f2447006c0d244944ea764","source":"http://media.eol.org/content/2014/07/08/22/40558_orig.jpg"},{"name":"Drosophilid
+        dorsal","object_type":"Image","object_id":29865959,"title":"Image","created":"2014-07-08T22:30:59Z","updated":"2014-07-08T22:30:59Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"d43addbdaf688691ab6210605d09e29e","source":"http://media.eol.org/content/2014/07/08/22/61323_orig.jpg"},{"name":"Yellow
+        Honeyeater 6154","object_type":"Image","object_id":29865960,"title":"Image","created":"2014-07-08T22:31:00Z","updated":"2014-07-08T22:31:00Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"3846e2bef73bee08ba500cf11a9e1160","source":"http://media.eol.org/content/2014/07/08/22/42517_orig.jpg"},{"name":"?
+        Gymnopilus eucalyptorum","object_type":"Image","object_id":29865961,"title":"Image","created":"2014-07-08T22:31:02Z","updated":"2014-07-08T22:31:02Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"55927131559e3ea5b9c1cebb39bd56d9","source":"http://media.eol.org/content/2014/07/08/22/41963_orig.jpg"},{"name":"?
+        Gymnopilus eucalyptorum","object_type":"Image","object_id":29865962,"title":"Image","created":"2014-07-08T22:31:07Z","updated":"2014-07-08T22:31:07Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"55c7700d1e8445c75a95134173f8c867","source":"http://media.eol.org/content/2014/07/08/22/57679_orig.jpg"},{"name":"?
+        Gymnopilus eucalyptorum","object_type":"Image","object_id":29865963,"title":"Image","created":"2014-07-08T22:31:08Z","updated":"2014-07-08T22:31:08Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"ddb772611b8ca33f8cc81da9c9902b4c","source":"http://media.eol.org/content/2014/07/08/22/58295_orig.jpg"},{"name":"Calocera
+        guepinioides","object_type":"Image","object_id":29865964,"title":"Image","created":"2014-07-08T22:31:13Z","updated":"2014-07-08T22:31:13Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"39ac7c0117dfe02429200afcfe252f06","source":"http://media.eol.org/content/2014/07/08/22/17726_orig.jpg"},{"name":"Calocera
+        guepinioides (Yellow Jelly)","object_type":"Image","object_id":29865965,"title":"Image","created":"2014-07-08T22:31:17Z","updated":"2014-07-08T22:31:17Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"1f4a2aa9881ad5c34ee12eb0c3b20b07","source":"http://media.eol.org/content/2014/07/08/22/20401_orig.jpg"},{"name":"Calocera
+        guepinioides","object_type":"Image","object_id":29865966,"title":"Image","created":"2014-07-08T22:31:21Z","updated":"2014-07-08T22:31:21Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"2d46770bc1cd0e3dde19ac12f6ea64ca","source":"http://media.eol.org/content/2014/07/08/22/29312_orig.jpg"},{"name":"From
+        above - toadfish","object_type":"Image","object_id":29865973,"title":"Image","created":"2014-07-08T22:31:37Z","updated":"2014-07-08T22:31:37Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"7230b7e59de91a145866917003549ac1","source":"http://media.eol.org/content/2014/07/08/22/49841_orig.jpg"},{"name":"Lichenomphalia
+        sp. aff. umbellifera (Heath Naval)","object_type":"Image","object_id":29865978,"title":"Image","created":"2014-07-08T22:32:16Z","updated":"2014-07-08T22:32:16Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"384ed489f37babf867ecb0058a6c11be","source":"http://media.eol.org/content/2014/07/08/22/90290_orig.jpg"},{"name":"Lichenomphalia
+        sp. aff. umbellifera (Heath Naval)","object_type":"Image","object_id":29865979,"title":"Image","created":"2014-07-08T22:32:19Z","updated":"2014-07-08T22:32:19Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"73ef450e7dde9e3a55842a67255dbdfb","source":"http://media.eol.org/content/2014/07/08/22/51393_orig.jpg"},{"name":"Lichenomphalia
+        sp. aff. umbellifera (Heath Naval)","object_type":"Image","object_id":29865980,"title":"Image","created":"2014-07-08T22:32:23Z","updated":"2014-07-08T22:32:23Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"6a4f9894d58a27e20f760275ef67091a","source":"http://media.eol.org/content/2014/07/08/22/19324_orig.jpg"},{"name":"Lichenomphalia
+        sp. aff. umbellifera (Heath Naval)","object_type":"Image","object_id":29865981,"title":"Image","created":"2014-07-08T22:32:26Z","updated":"2014-07-08T22:32:26Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"abfecf62bf271c0fab85bb794ec80700","source":"http://media.eol.org/content/2014/07/08/22/80840_orig.jpg"},{"name":"Lichenomphalia
+        sp. aff. umbellifera (Heath Naval)","object_type":"Image","object_id":29865982,"title":"Image","created":"2014-07-08T22:32:28Z","updated":"2014-07-08T22:32:28Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"2601e0dd0fdfe156121a68d7388dd1e9","source":"http://media.eol.org/content/2014/07/08/22/19945_orig.jpg"},{"name":"Resupinatus
+        sp. aff. applicatus (Grey Oysterling)","object_type":"Image","object_id":29865983,"title":"Image","created":"2014-07-08T22:32:29Z","updated":"2014-07-08T22:32:29Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"fd8df4a399de9337b17934daaa535fb3","source":"http://media.eol.org/content/2014/07/08/22/82561_orig.jpg"},{"name":"Resupinatus
+        sp. aff. applicatus (Grey Oysterling)","object_type":"Image","object_id":29865984,"title":"Image","created":"2014-07-08T22:32:31Z","updated":"2014-07-08T22:32:31Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"48c5c2145299cc98e1fa8d92613ba8f9","source":"http://media.eol.org/content/2014/07/08/22/74948_orig.jpg"},{"name":"Resupinatus
+        sp. aff. applicatus (Grey Oysterling)","object_type":"Image","object_id":29865985,"title":"Image","created":"2014-07-08T22:32:35Z","updated":"2014-07-08T22:32:35Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"6ff477cf02aced04b7d825aa371c0466","source":"http://media.eol.org/content/2014/07/08/22/55101_orig.jpg"},{"name":"H20120712-5285--Lupinus
+        milo-bakeri--RPBG","object_type":"Image","object_id":29865986,"title":"Image","created":"2014-07-08T22:32:43Z","updated":"2014-07-08T22:32:43Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"c10a5afd9a73013de028528ac17682b3","source":"http://media.eol.org/content/2014/07/08/22/52461_orig.jpg"},{"name":"Caminheiro-de-espora
+        (Anthus correndera correndera)","object_type":"Image","object_id":29865987,"title":"Image","created":"2014-07-08T22:32:44Z","updated":"2014-07-08T22:32:44Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"92a2c4f335a317fbfcec6ea61bacef7b","source":"http://media.eol.org/content/2014/07/08/22/89172_orig.jpg"},{"name":"Batu\u00edra-de-coleira-dupla
+        (Charadrius falklandicus)","object_type":"Image","object_id":29865988,"title":"Image","created":"2014-07-08T22:32:45Z","updated":"2014-07-08T22:32:45Z","annotation":"","sort_field":null,"references":[],"data_rating":3.0,"object_guid":"5a7e85c56e80a228ea9fa53a63a1bc98","source":"http://media.eol.org/content/2015/05/06/17/98346_orig.jpg"},{"name":"Amanda
+        s Pennant (Celithemis amanda)","object_type":"Image","object_id":29865994,"title":"Image","created":"2014-07-08T22:32:51Z","updated":"2014-07-08T22:32:51Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"8cb3e119215a9715e13d3c10dd8cd913","source":"http://media.eol.org/content/2014/07/08/22/03847_orig.jpg"},{"name":"Whorled
+        Milkweed (Asclepias verticillata)","object_type":"Image","object_id":29865995,"title":"Image","created":"2014-07-08T22:32:53Z","updated":"2014-07-08T22:32:53Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"9caf02115e7cb2866e40fd8990836560","source":"http://media.eol.org/content/2014/07/08/22/93601_orig.jpg"},{"name":"Whorled
+        Milkweed (Asclepias verticillata)","object_type":"Image","object_id":29865997,"title":"Image","created":"2014-07-08T22:32:56Z","updated":"2014-07-08T22:32:56Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"7d731708a26cc9e9a045c555165224be","source":"http://media.eol.org/content/2014/07/08/22/52076_orig.jpg"},{"name":"Pinewoods
+        Milkweed (Asclepias humistrata) with Aphids on fruit","object_type":"Image","object_id":29865998,"title":"Image","created":"2014-07-08T22:32:58Z","updated":"2014-07-08T22:32:58Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"c569ec7d17cc2e907dfcf1c2e89b2fe2","source":"http://media.eol.org/content/2014/07/08/22/40396_orig.jpg"},{"name":"Oblongleaf
+        Twinflower (Dyschoriste oblongifolia)","object_type":"Image","object_id":29865999,"title":"Image","created":"2014-07-08T22:33:00Z","updated":"2014-07-08T22:33:00Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"066f0531754b203ede86f89caca70530","source":"http://media.eol.org/content/2014/07/08/22/45554_orig.jpg"},{"name":"Dogtongue
+        Wild Buckwheat (Eriogonum tomentosum)","object_type":"Image","object_id":29866000,"title":"Image","created":"2014-07-08T22:33:02Z","updated":"2014-07-08T22:33:02Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"0a8983ebcb432e9c2c56cf5dc9223287","source":"http://media.eol.org/content/2014/07/08/22/26910_orig.jpg"},{"name":"Florida
+        Alicia (Chapmannia floridana)","object_type":"Image","object_id":29866001,"title":"Image","created":"2014-07-08T22:33:04Z","updated":"2014-07-08T22:33:04Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"969ec96f645faf1e9350ff313c9f3986","source":"http://media.eol.org/content/2014/07/08/22/90580_orig.jpg"},{"name":"Coastalplain
+        Dawnflower (Stylisima patens)","object_type":"Image","object_id":29866002,"title":"Image","created":"2014-07-08T22:33:06Z","updated":"2014-07-08T22:33:06Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"6ca8c418815a55145be4806eab4e927e","source":"http://media.eol.org/content/2014/07/08/22/37893_orig.jpg"},{"name":"Netleaf
+        Leather-flower (Clematis reticulata)","object_type":"Image","object_id":29866003,"title":"Image","created":"2014-07-08T22:33:08Z","updated":"2014-07-08T22:33:08Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"8e61ffbe6d2269dc663aaae62fe1cc7d","source":"http://media.eol.org/content/2014/07/08/22/48115_orig.jpg"},{"name":"Giant
+        Ironweed (Vernonia gigantea)","object_type":"Image","object_id":29866004,"title":"Image","created":"2014-07-08T22:33:09Z","updated":"2014-07-08T22:33:09Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"988dbab71a50cfca041957a87b20db8d","source":"http://media.eol.org/content/2014/07/08/22/85569_orig.jpg"},{"name":"Golden-winged
+        Skimmer (Libellula auripennis)","object_type":"Image","object_id":29866005,"title":"Image","created":"2014-07-08T22:33:11Z","updated":"2014-07-08T22:33:11Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"98d9576de3f9e46aa6261b3b779d3399","source":"http://media.eol.org/content/2014/07/08/22/31902_orig.jpg"},{"name":"Golden-winged
+        Skimmer (Libellula auripennis)","object_type":"Image","object_id":29866006,"title":"Image","created":"2014-07-08T22:33:12Z","updated":"2014-07-08T22:33:12Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"cfb64c7291ffdbf23c00c4d8edef84ce","source":"http://media.eol.org/content/2014/07/08/22/07410_orig.jpg"},{"name":"Amanda
+        s Pennant (Celithemis amanda)","object_type":"Image","object_id":29866007,"title":"Image","created":"2014-07-08T22:33:13Z","updated":"2014-07-08T22:33:13Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"d04bf0b1a622bb60afb65e3a0729ebc8","source":"http://media.eol.org/content/2014/07/08/22/79982_orig.jpg"},{"name":"Eastern
+        Mermiria Grasshopper (Mermiria intertexta)","object_type":"Image","object_id":29866008,"title":"Image","created":"2014-07-08T22:33:15Z","updated":"2014-07-08T22:33:15Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"2f3288c2978490527af97f73a10af9b1","source":"http://media.eol.org/content/2014/07/08/22/63947_orig.jpg"},{"name":"Spurthroat
+        Grasshopper (Melanoplus sp.) on Florida False Sunflower (Phoebanthus grandiflorus)","object_type":"Image","object_id":29866009,"title":"Image","created":"2014-07-08T22:33:17Z","updated":"2014-07-08T22:33:17Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"35eaeb2d56c87d4c49a3eddbd30f819f","source":"http://media.eol.org/content/2014/07/08/22/50858_orig.jpg"},{"name":"Southern
+        Two-striped Walkingstick (Anisomorpha buprestoides)","object_type":"Image","object_id":29866010,"title":"Image","created":"2014-07-08T22:33:19Z","updated":"2014-07-08T22:33:19Z","annotation":"","sort_field":null,"references":[],"data_rating":3.0,"object_guid":"49ca6a9c9f54460e04b078d3feff2fb6","source":"http://media.eol.org/content/2014/12/11/09/07305_orig.jpg"},{"name":"Gulf
+        Fritillary (Agraulis vanillae) on Purple Passionflower (Passiflora incarnata)","object_type":"Image","object_id":29866012,"title":"Image","created":"2014-07-08T22:33:22Z","updated":"2014-07-08T22:33:22Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"93cab2325efb9983960b0bc909cc1bd2","source":"http://media.eol.org/content/2014/07/08/22/17444_orig.jpg"},{"name":"Gray
+        Hairstreak (Strymon melinus)","object_type":"Image","object_id":29866014,"title":"Image","created":"2014-07-08T22:33:25Z","updated":"2014-07-08T22:33:25Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"880489b96e0115be2d8fbb83e6cd4afc","source":"http://media.eol.org/content/2014/07/08/22/30918_orig.jpg"},{"name":"Eufala
+        Skipper (Lerodea eufala)","object_type":"Image","object_id":29866016,"title":"Image","created":"2014-07-08T22:33:27Z","updated":"2014-07-08T22:33:27Z","annotation":"","sort_field":null,"references":[],"data_rating":2.5,"object_guid":"a3036bded018d78ba7dd57387006ef31","source":"http://media.eol.org/content/2014/07/08/22/32793_orig.jpg"}]}'
+    http_version: 
+  recorded_at: Tue, 20 Jun 2017 03:01:07 GMT
+recorded_with: VCR 3.0.3

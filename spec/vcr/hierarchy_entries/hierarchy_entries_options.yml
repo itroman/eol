@@ -1,0 +1,64 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://eol.org/api/hierarchy_entries/1.0.json?cache_ttl=30&common_names=true&id=30408282&synonyms=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.12.0
+      Content-Type:
+      - application/json; charset=utf-8
+      Status:
+      - 200 OK
+      Cache-Control:
+      - max-age=30, public
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - '"cee5b8cb8391c3349468a6fbc43e2e52"'
+      X-Request-Id:
+      - 43ef83ef4a81d79418264f8102f21b14
+      X-Runtime:
+      - '0.321049'
+      X-Content-Digest:
+      - 4ea1e9499d3b9393fb32d61618816fb8cce861c3
+      X-Rack-Cache:
+      - miss, store
+      Vary:
+      - Origin
+      Content-Length:
+      - '723'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Tue, 20 Jun 2017 03:15:34 GMT
+      X-Varnish:
+      - '1866579959'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"sourceIdentifier":"taxon:142651","taxonID":30408282,"parentNameUsageID":27889944,"taxonConceptID":46698412,"scientificName":"Actaea
+        alba (L.) Mill.","source":"http://eol.org/pages/46698412/hierarchy_entries/30408282/overview","nameAccordingTo":["Initial
+        BioLib.cz Import"],"vernacularNames":[],"synonyms":[],"ancestors":[{"taxonID":27889936,"parentNameUsageID":0,"taxonConceptID":4377,"scientificName":"Ranunculaceae","taxonRank":"family","source":"http://eol.org/pages/4377/hierarchy_entries/27889936/overview"},{"taxonID":27889944,"parentNameUsageID":27889936,"taxonConceptID":62014,"scientificName":"Actaea","taxonRank":"genus","source":"http://eol.org/pages/62014/hierarchy_entries/27889944/overview"}],"children":[]}'
+    http_version: 
+  recorded_at: Tue, 20 Jun 2017 03:15:34 GMT
+recorded_with: VCR 3.0.3
