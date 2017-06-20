@@ -63,11 +63,14 @@ module Eolife
   # Returns all results from an EOL API search
   #
   # @see http://www.eol.org/api/docs/search
-  # @param (see search)
-  # @option (see search)
+  # @param [String] query The species you're looking for.
+  # @note this method does not accept query options, for a more customized search
+  #   use Eolife.search
+  # @example
+  #   Eolife.search_all("dendrophylax") ==> [#<Eolife::Search:0x000000023e0a10 @id=37413, @title="Dendrophylax", @link= ...>]
   # @return (see search)
-  def self.search_all(query, query_options = {})
-    @query = { q: query }.merge!(query_options)
+  def self.search_all(query)
+    @query = { q: query }
     response = get('/search/1.0.json', query: @query)
     response.code == 200 ? all_pages(query, response) : bad_response(response)
   end
@@ -123,6 +126,8 @@ module Eolife
   # @option query_options [ms, de, en, es, fr, gl, it, nl, nb, oc, pt-BR, sv,
   #   tl, mk, sr, uk, ar, zh-Hans, zh-Hant, ko] :language (en) provides the
   #   results in the specified language.
+  # @example
+  #   Eolife.pages('1045608', images_per_page: 10, cache_ttl: 30) ==> #<Eolife::Pages:0x00000001024058 @scientific_name="Apis mellifera Linnaeus 1758"...>
   # @return <Eolife::Pages>
   def self.pages(id, query_options = {})
     @query = { id: id }.merge!(query_options)
@@ -151,6 +156,8 @@ module Eolife
   # @option query_options [ms, de, en, es, fr, gl, it, nl, nb, oc, pt-BR, sv,
   #   tl, mk, sr, uk, ar, zh-Hans, zh-Hant, ko] :language (en) provides the
   #   results in the specified language.
+  # @example
+  #   Eolife.collections('176', sort_by: 'oldest', cache_ttl: 30) ==> #<Eolife::Collections:0x0000000147d078 @name="EOL Group on Flickr", @description="This group...>
   # @return <Eolife::Collections>
   def self.collections(id, query_options = {})
     @query = { id: id }.merge!(query_options)
@@ -174,6 +181,8 @@ module Eolife
   # @opation query_options [ms, de, en, es, fr, gl, it, nl, nb, oc, pt-BR, sv,
   #   tl, mk, sr, uk, ar, zh-Hans, zh-Hant, ko] :language	(en) provides the
   #   results in the specified language
+  # @example
+  #   Eolife.data_objects('30073527', language: 'it', cache_ttl: 30) ==> #<Eolife::DataObjects:0x00000000fc75b0 @identifier=1045608...>
   # @return <Eolife::DataObjects>
   def self.data_objects(id, query_options = {})
     @query = { id: id }.merge!(query_options)
@@ -195,6 +204,8 @@ module Eolife
   # @option query_options [ms, de, en, es, fr, gl, it, nl, nb, oc, pt-BR, sv,
   #   tl, mk, sr, uk, ar, zh-Hans, zh-Hant, ko] :language (en) provides the
   #   results in the specified language
+  # @example
+  #   Eolife.hierarchy_entries('30408282', common_names: true) ==> #<Eolife::HierarchyEntries:0x000000015b8c08 @source_identifier="taxon:142651"...>
   # @return <Eolife::HierarchyEntries>
   def self.hierarchy_entries(id, query_options = {})
     @query = { id: id }.merge!(query_options)
@@ -213,6 +224,8 @@ module Eolife
   # @option query_options [ms, de, en, es, fr, gl, it, nl, nb, oc, pt-BR, sv,
   #   tl, mk, sr, uk, ar, zh-Hans, zh-Hant, ko] :language (en) provides the
   #   results in the specified language
+  # @example
+  #   Eolife.hierarchies('1188', language: 'de', cache_ttl: 30) ==> #<Eolife::Hierarchies:0x000000015e7a08 @title="Species 2000 & ITIS Catalogue of Life: April 2013"...>
   # @return <Eolife::Hierarchies>
   def self.hierarchies(id, query_options = {})
     @query = { id: id }.merge!(query_options)
@@ -225,7 +238,9 @@ module Eolife
   # the EOL unique ID representing the hierarchy
   #
   # @see http://eol.org/api/docs/provider_hierarchies
-  # @return <Eolife::ProviderHierarchies>
+  # @example
+  #   Eolife.provider_hierarchies ==> [#<Eolife::ProviderHierarchies:0x000000016080f0 @id=121, @label="AntWeb (Ant Species)">...]
+  # @return [Array<Eolife::ProviderHierarchies>]
   def self.provider_hierarchies
     response = get('/provider_hierarchies/1.0.json')
     response.code == 200 ? response.map { |item| Eolife::ProviderHierarchies.new(item) } : bad_response(response)
@@ -243,6 +258,8 @@ module Eolife
   # @option query_options [Boolean] :batch (false) returns either a batch or not
   # @option query_options [Integer] :cache_ttl the number of seconds you wish to
   #   have the response cached
+  # @example
+  #   Eolife.search_by_provider('180542', 903) ==> [#<Eolife::SearchByProvider:0x000000022bf3c0 @eol_page_id=328580>, #<Eolife::SearchByProvider:0x000000022bf398...>]
   # @return <Eolife::SearchByProvider>
   def self.search_by_provider(id, hierarchy_id, query_options = {})
     @query = { id: id, hierarchy_id: hierarchy_id }.merge!(query_options)

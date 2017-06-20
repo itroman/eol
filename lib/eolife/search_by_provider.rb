@@ -10,8 +10,8 @@ module Eolife
     attr_accessor :eol_page_link
 
     def initialize(response)
-      self.eol_page_id = response['eol_page_id']
-      self.eol_page_link = response['eol_page_link']
+      self.eol_page_id = response['eol_page_id'] if response['eol_page_id'] != nil
+      self.eol_page_link = response['eol_page_link'] if response['eol_page_link'] != nil
     end
 
     def each
