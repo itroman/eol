@@ -21,7 +21,7 @@ module Eolife
       self.source = response['source']
       self.roots = response['roots']
     end
-    
+
     def each
       yield @title
       yield @contributor
@@ -29,6 +29,5 @@ module Eolife
       yield @source
       yield @roots
     end
-    
   end
 end

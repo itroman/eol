@@ -1,6 +1,6 @@
 module Eolife
-  # Contains all metadata about the object as submitted to EOL by the 
-  # contributing content partner. 
+  # Contains all metadata about the object as submitted to EOL by the
+  # contributing content partner.
   class DataObjects
     include Enumerable
     # @return [Integer]
@@ -9,9 +9,9 @@ module Eolife
     attr_accessor :scientific_name
     # @return [Boolean]
     attr_accessor :exemplar
-    # @return [Integer] 
-    # EOL has developed a 'Richness Score' for taxon pages which provides a 
-    # simple summary number for comparing the amount of information available 
+    # @return [Integer]
+    # EOL has developed a 'Richness Score' for taxon pages which provides a
+    # simple summary number for comparing the amount of information available
     # for different pages.
     # @see http://eol.org/info/521
     attr_accessor :richness_score
@@ -28,7 +28,7 @@ module Eolife
       self.taxon_concepts = response['taxonConcepts']
       self.data_objects = response['dataObjects']
     end
-    
+
     def each
       yield @identifier
       yield @scientific_name
@@ -37,6 +37,5 @@ module Eolife
       yield @taxon_concepts
       yield @data_objects
     end
-    
   end
 end

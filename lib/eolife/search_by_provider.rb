@@ -11,11 +11,10 @@ module Eolife
       self.eol_page_id = response['eol_page_id']
       self.eol_page_link = response['eol_page_link']
     end
-    
+
     def each
       yield @eol_page_id
       yield @eol_page_link
     end
-    
   end
 end

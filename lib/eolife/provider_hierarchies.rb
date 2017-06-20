@@ -3,7 +3,7 @@ module Eolife
   class ProviderHierarchies
     include Enumerable
     # @return [Integer]
-    attr_accessor :id 
+    attr_accessor :id
     # @return [String]
     attr_accessor :label
 
@@ -11,11 +11,10 @@ module Eolife
       self.id = response['id']
       self.label = response['label']
     end
-    
+
     def each
       yield @id
       yield @label
     end
-    
   end
 end

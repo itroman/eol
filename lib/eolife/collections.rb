@@ -29,7 +29,7 @@ module Eolife
       self.item_types = response['item_types']
       self.collection_items = response['collection_items']
     end
-    
+
     def each
       yield @name
       yield @description
@@ -40,6 +40,5 @@ module Eolife
       yield @item_types
       yield @collection_items
     end
-    
   end
 end

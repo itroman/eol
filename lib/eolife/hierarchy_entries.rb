@@ -35,7 +35,7 @@ module Eolife
       self.ancestors = response['ancestors']
       self.children = response['children']
     end
-    
+
     def each
       yield @source_identifier
       yield @parent_name_usage_id
@@ -48,6 +48,5 @@ module Eolife
       yield @ancestors
       yield @children
     end
-    
   end
 end
