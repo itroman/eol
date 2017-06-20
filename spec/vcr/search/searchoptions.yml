@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://eol.org/api/search/1.0.json?q=Tolumnia%20bahamensis&query_options%5Bcache_ttl%5D=30&query_options%5Bexact%5D=true
+    uri: http://eol.org/api/search/1.0.json?cache_ttl=30&exact=true&q=Tolumnia%20bahamensis
     body:
       encoding: US-ASCII
       string: ''
@@ -24,18 +24,20 @@ http_interactions:
       - application/json; charset=utf-8
       Status:
       - 200 OK
+      Cache-Control:
+      - max-age=30, public
       X-Ua-Compatible:
       - IE=Edge,chrome=1
       Etag:
       - '"e3f8fb33a3a35bfa4e7d364599c0b01e"'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2c2f4c2a632d28ce5dbf029e75f6d97e
+      - df379cbf21795c80a0214c856920b881
       X-Runtime:
-      - '0.173853'
+      - '0.186650'
+      X-Content-Digest:
+      - f5744d84f6262fd82b69aa761e34a52d99071907
       X-Rack-Cache:
-      - miss
+      - miss, store
       Vary:
       - Origin
       Content-Length:
@@ -43,9 +45,9 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Mon, 19 Jun 2017 10:27:22 GMT
+      - Tue, 20 Jun 2017 02:21:54 GMT
       X-Varnish:
-      - '1863761901'
+      - '1866438969'
       Age:
       - '0'
       Via:
@@ -63,5 +65,5 @@ http_interactions:
         & Millspaugh) Braem; Tolumnia bahamensis (Nash ex Britton & Millsp.) G.J.
         Braem; Tolumnia bahamensis Braem; Tolumnia sasseri Braem"}],"first":"http://eol.org/api/search/Tolumnia%20bahamensis.json?page=1","self":"http://eol.org/api/search/Tolumnia%20bahamensis.json?page=1","last":"http://eol.org/api/search/Tolumnia%20bahamensis.json?page=1"}'
     http_version: 
-  recorded_at: Mon, 19 Jun 2017 10:27:22 GMT
+  recorded_at: Tue, 20 Jun 2017 02:21:54 GMT
 recorded_with: VCR 3.0.3
