@@ -9,7 +9,7 @@ module Eol
     attr_accessor :identifier
     # @return [String] binomial nomenclature in zoology
     attr_accessor :scientific_name
-    # @return [Boolean]
+    # @return [FalseClass or TrueClass]
     attr_accessor :exemplar
     # @return [Integer]
     # EOL has developed a 'Richness Score' for taxon pages which provides a
