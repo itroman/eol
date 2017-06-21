@@ -22,7 +22,19 @@ Or install it yourself as:
 
 ## Examples
 
-TODO: Write usage instructions here
+#### Search for some orchids
+```ruby
+### create a search
+search = Eol.search("tolumnia")
+
+### decide to modify the search
+search = Eol.search("tolumnia", exact: true)
+
+### print links to your results
+search.each do |search|
+  puts search.link
+end
+```
 
 ## Development
 
