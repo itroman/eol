@@ -9,7 +9,7 @@ A wrapper for the Encyclopedia of Life API.  It provides simple methods to call 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'eolife'
+gem 'eol'
 ```
 
 And then execute:
