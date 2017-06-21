@@ -1,6 +1,6 @@
 # Encyclopedia of Life API Wrapper
 
-[![Build Status](https://travis-ci.org/itroman/eol.svg?branch=master)](https://travis-ci.org/itroman/eol)
+[![Build Status](https://travis-ci.org/itroman/eol.svg?branch=master)](https://travis-ci.org/itroman/eol) [![Gem Version](https://badge.fury.io/rb/eol.svg)](https://badge.fury.io/rb/eol)
 
 ## Description
 
