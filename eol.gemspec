@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "A comprehensive Encyclopedia of Life API wrapper"
   spec.description   = "A wrapper for the Encyclopedia of Life API.  It provides simple methods to call all of the available EOL API endpoints."
-  spec.homepage      = "http://github.com/itroman/eol-ruby"
+  spec.homepage      = "http://github.com/itroman/eol"
   spec.license       = "MIT"
   
   spec.required_ruby_version  = '>= 2.0.0'
@@ -30,5 +30,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "yard", "~> 0.9"
   spec.add_development_dependency "simplecov", "~> 0.10"
   
-  spec.add_dependency "httparty"
+  spec.add_dependency "httparty", "~> 0.15"
 end
