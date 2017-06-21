@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Eolife
+module Eol
   # Contains search results from the Encyclopedia of Life database.
   class Search
     include Enumerable

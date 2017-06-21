@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Eolife
+module Eol
   # Contains response message indicating API status
   class Ping
     # @return [String] success or failure message

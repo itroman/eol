@@ -1,30 +1,22 @@
 require 'spec_helper'
 
-describe Eolife::Ping do
+describe Eol::Ping do
   
   describe "#initialize" do
-    subject {Eolife::Ping}
+    subject {Eol::Ping}
     
     include_examples "argument errors"
     
   end
   
-  context "A Ping object with nil value" do
-    
-    subject(:ping) {Eolife::Ping.new(nil)}
-    
-    let(:message) {nil}
-    
-    it { is_expected.to be_a(subject.class) }
-    it { is_expected.to have_attributes(:message => nil) }
-    
-  end
-  
   context "A Ping object with data" do
     
-    subject(:ping) {Eolife::Ping.new('Success')}
+    subject(:ping) {Eol::Ping.new('Success')}
     
-    it {is_expected.to be_a(subject.class) }
+    it {is_expected.to be_a(Eol::Ping) }
+    
+    it_behaves_like "a class with attributes"
+    
     it {is_expected.to have_attributes(:message => String) }
   
   end

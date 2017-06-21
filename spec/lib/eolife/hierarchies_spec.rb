@@ -1,15 +1,15 @@
 require 'spec_helper'
 
-describe Eolife::Hierarchies do
+describe Eol::Hierarchies do
   
   describe "#initialize" do
-    subject {Eolife::Hierarchies}
+    subject {Eol::Hierarchies}
     
     include_examples "argument errors"
     
   end
   
-    subject(:hierarchies) {Eolife::Hierarchies.new({'title' => title, 
+    subject(:hierarchies) {Eol::Hierarchies.new({'title' => title, 
                                        'contributor' => contributor, 
                                        'dateSubmitted' => date_submitted,
                                        'source' => source, 'roots' => roots})}
@@ -22,7 +22,7 @@ describe Eolife::Hierarchies do
     let(:source) {""}
     let(:roots) {[{"sourceIdentifier":"13021388","taxonID":51521761}]}
     
-    it {is_expected.to be_a(subject.class) }
+    it {is_expected.to be_a(Eol::Hierarchies) }
     
     it_behaves_like "a class with attributes"
     

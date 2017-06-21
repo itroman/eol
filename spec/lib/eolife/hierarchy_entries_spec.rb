@@ -1,15 +1,15 @@
 require 'spec_helper'
 
-describe Eolife::HierarchyEntries do
+describe Eol::HierarchyEntries do
   
   describe "#initialize" do
-    subject {Eolife::HierarchyEntries}
+    subject {Eol::HierarchyEntries}
     
     include_examples "argument errors"
     
   end
   
-    subject(:pages) {Eolife::HierarchyEntries.new({'sourceIdentifier' => source_identifier, 
+    subject(:pages) {Eol::HierarchyEntries.new({'sourceIdentifier' => source_identifier, 
                                        'parentNameUsageID' => parent_name_usage_id, 
                                        'taxonConceptID' => taxon_concept_id,
                                        'scientificName' => scientific_name,
@@ -33,7 +33,7 @@ describe Eolife::HierarchyEntries do
     let(:ancestors) {[{"taxonID":27889936,"parentNameUsageID":0}]}
     let(:children) {[]}
     
-    it {is_expected.to be_a(subject.class) }
+    it {is_expected.to be_a(Eol::HierarchyEntries) }
     
     it_behaves_like "a class with attributes"
     

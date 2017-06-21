@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Eolife
+module Eol
   # Contains data on a single hierarchy and its internal relationships
   class HierarchyEntries
     include Enumerable

@@ -1,15 +1,15 @@
 require 'spec_helper'
 
-describe Eolife::Search do
+describe Eol::Search do
   
   describe "#initialize" do
-    subject {Eolife::Search}
+    subject {Eol::Search}
     
     include_examples "argument errors"
     
   end
   
-  subject(:search) { Eolife::Search.new({'id' => id, 'title' => title, 'link' => link, 'content' => content }) }
+  subject(:search) { Eol::Search.new({'id' => id, 'title' => title, 'link' => link, 'content' => content }) }
   
     context "A Search object with data values" do
       
@@ -18,7 +18,7 @@ describe Eolife::Search do
       let(:link) {"http://eol.org/1128718?action=overview&controller=taxa"}
       let(:content) {"Tolumnia x adamsii Sauleda"}
       
-      it { is_expected.to be_a(Eolife::Search) }
+      it { is_expected.to be_a(Eol::Search) }
       
       it_behaves_like "a class with attributes"
       

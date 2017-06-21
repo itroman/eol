@@ -1,15 +1,15 @@
 require 'spec_helper'
 
-describe Eolife::Pages do
+describe Eol::Pages do
   
   describe "#initialize" do
-    subject {Eolife::Pages}
+    subject {Eol::Pages}
     
     include_examples "argument errors"
     
   end
   
-    subject(:pages) {Eolife::Pages.new({'scientificName' => scientific_name, 
+    subject(:pages) {Eol::Pages.new({'scientificName' => scientific_name, 
                                        'richness_score' => richness_score, 
                                        'taxonConcepts' => taxon_concepts,
                                        'dataObjects' => data_objects})}
@@ -23,7 +23,7 @@ describe Eolife::Pages do
     let(:data_objects) {[{"identifier":"715fac20e20b012e4c4f1e6699c0ad5e",
                           "dataObjectVersionID":13451158}]}
     
-    it {is_expected.to be_a(subject.class) }
+    it {is_expected.to be_a(Eol::Pages) }
     
     it_behaves_like "a class with attributes"
     

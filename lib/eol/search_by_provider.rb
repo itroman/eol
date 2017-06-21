@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Eolife
+module Eol
   # Contains the EOL page ID and link for taxon queried.
   class SearchByProvider
     include Enumerable

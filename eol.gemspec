@@ -1,20 +1,20 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'eolife/version'
+require 'eol/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "eolife"
-  spec.version       = Eolife::VERSION
+  spec.version       = Eol::VERSION
   spec.authors       = ["Rob Roman"]
   spec.email         = ["rob@romancoding.com"]
 
   spec.summary       = %q{Write a short summary, because Rubygems requires one.}
   spec.description   = %q{Write a longer description or delete this line.}
-  spec.homepage      = "http://github.com/itroman/eolife"
+  spec.homepage      = "http://github.com/itroman/eol-ruby"
   spec.license       = "MIT"
   
-  spec.required_ruby_version     = '>= 2.0.0'
+  spec.required_ruby_version     = '~> 2.0.0'
   
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.

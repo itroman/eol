@@ -1,15 +1,15 @@
 require 'spec_helper'
 
-describe Eolife::Collections do
+describe Eol::Collections do
   
   describe "#initialize" do
-    subject {Eolife::Collections}
+    subject {Eol::Collections}
     
     include_examples "argument errors"
     
   end
   
-  subject(:collections) { Eolife::Collections.new({'name' => name, 
+  subject(:collections) { Eol::Collections.new({'name' => name, 
   'description' => description, 'logo_url' => logo_url, 'created' => created, 
   'modified' => modified, 'total_items' => total_items, 
   'item_types' => item_types, 'collection_items' => collection_items}) }
@@ -28,7 +28,7 @@ describe Eolife::Collections do
                                 "object_type":"TaxonConcept",
                                 "object_id":1264966}]}
       
-      it { is_expected.to be_a(Eolife::Collections) }
+      it { is_expected.to be_a(Eol::Collections) }
       
       it_behaves_like "a class with attributes"
       

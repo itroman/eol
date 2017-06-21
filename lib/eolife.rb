@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
-require_relative 'eolife/version'
-require_relative 'eolife/search'
-require_relative 'eolife/ping'
-require_relative 'eolife/pages'
-require_relative 'eolife/collections'
-require_relative 'eolife/data_objects'
-require_relative 'eolife/hierarchy_entries'
-require_relative 'eolife/hierarchies'
-require_relative 'eolife/provider_hierarchies'
-require_relative 'eolife/search_by_provider'
+require_relative 'eol/version'
+require_relative 'eol/search'
+require_relative 'eol/ping'
+require_relative 'eol/pages'
+require_relative 'eol/collections'
+require_relative 'eol/data_objects'
+require_relative 'eol/hierarchy_entries'
+require_relative 'eol/hierarchies'
+require_relative 'eol/provider_hierarchies'
+require_relative 'eol/search_by_provider'
 require 'httparty'
 
-# The eolife namespace holds all methods and classes that interact with the
+# The Eol namespace holds all methods and classes that interact with the
 # Encyclopedia of Life API.
-module Eolife
+module Eol
   include HTTParty
 
   base_uri 'eol.org/api'
@@ -23,11 +23,11 @@ module Eolife
   #
   # @see http://www.eol.org/api/docs/ping
   # @example
-  #   Eolife.ping ==> #<Eolife::Ping:0x000000027ffcb8 @message="Success">
-  # @return [Eolife::Ping] Success or failure results
+  #   Eol.ping ==> #<Eol::Ping:0x000000027ffcb8 @message="Success">
+  # @return [Eol::Ping] Success or failure results
   def self.ping
     response = get('/ping/1.0.json')
-    response.code == 200 ? Eolife::Ping.new(response['response']['message']) : bad_response(response)
+    response.code == 200 ? Eol::Ping.new(response['response']['message']) : bad_response(response)
   end
 
   # Returns one page of results from the EOL API search
@@ -52,12 +52,12 @@ module Eolife
   # @option query_options [Integer] :cache_ttl the number of seconds you wish to
   #   have the response cached
   # @example
-  #   Eolife.search("dendrophylax", 'exact':true) ==> [#<Eolife::Search:0x000000023e0a10 @id=37413, @title="Dendrophylax", @link= ...>]
-  # @return [Array<Eolife::Search>]
+  #   Eol.search("dendrophylax", 'exact':true) ==> [#<Eol::Search:0x000000023e0a10 @id=37413, @title="Dendrophylax", @link= ...>]
+  # @return [Array<Eol::Search>]
   def self.search(query, query_options = {})
     @query = { q: query }.merge!(query_options)
     response = get('/search/1.0.json', query: @query)
-    response.code == 200 ? response['results'].map { |item| Eolife::Search.new(item) } : bad_response(response)
+    response.code == 200 ? response['results'].map { |item| Eol::Search.new(item) } : bad_response(response)
   end
 
   # Returns all results from an EOL API search
@@ -65,9 +65,9 @@ module Eolife
   # @see http://www.eol.org/api/docs/search
   # @param [String] query The species you're looking for.
   # @note this method does not accept query options, for a more customized search
-  #   use Eolife.search
+  #   use Eol.search
   # @example
-  #   Eolife.search_all("dendrophylax") ==> [#<Eolife::Search:0x000000023e0a10 @id=37413, @title="Dendrophylax", @link= ...>]
+  #   Eol.search_all("dendrophylax") ==> [#<Eol::Search:0x000000023e0a10 @id=37413, @title="Dendrophylax", @link= ...>]
   # @return (see search)
   def self.search_all(query)
     @query = { q: query }
@@ -127,12 +127,12 @@ module Eolife
   #   tl, mk, sr, uk, ar, zh-Hans, zh-Hant, ko] :language (en) provides the
   #   results in the specified language.
   # @example
-  #   Eolife.pages('1045608', images_per_page: 10, cache_ttl: 30) ==> #<Eolife::Pages:0x00000001024058 @scientific_name="Apis mellifera Linnaeus 1758"...>
-  # @return <Eolife::Pages>
+  #   Eol.pages('1045608', images_per_page: 10, cache_ttl: 30) ==> #<Eol::Pages:0x00000001024058 @scientific_name="Apis mellifera Linnaeus 1758"...>
+  # @return <Eol::Pages>
   def self.pages(id, query_options = {})
     @query = { id: id }.merge!(query_options)
     response = get('/pages/1.0.json', query: @query)
-    response.code == 200 ? Eolife::Pages.new(response) : bad_response(response)
+    response.code == 200 ? Eol::Pages.new(response) : bad_response(response)
   end
 
   # Given the identifier for a collection this API will return all metadata
@@ -157,12 +157,12 @@ module Eolife
   #   tl, mk, sr, uk, ar, zh-Hans, zh-Hant, ko] :language (en) provides the
   #   results in the specified language.
   # @example
-  #   Eolife.collections('176', sort_by: 'oldest', cache_ttl: 30) ==> #<Eolife::Collections:0x0000000147d078 @name="EOL Group on Flickr", @description="This group...>
-  # @return <Eolife::Collections>
+  #   Eol.collections('176', sort_by: 'oldest', cache_ttl: 30) ==> #<Eol::Collections:0x0000000147d078 @name="EOL Group on Flickr", @description="This group...>
+  # @return <Eol::Collections>
   def self.collections(id, query_options = {})
     @query = { id: id }.merge!(query_options)
     response = get('/collections/1.0.json', query: @query)
-    response.code == 200 ? Eolife::Collections.new(response) : bad_response(response)
+    response.code == 200 ? Eol::Collections.new(response) : bad_response(response)
   end
 
   # Given the identifier for a data object this API will return all metadata
@@ -182,12 +182,12 @@ module Eolife
   #   tl, mk, sr, uk, ar, zh-Hans, zh-Hant, ko] :language	(en) provides the
   #   results in the specified language
   # @example
-  #   Eolife.data_objects('30073527', language: 'it', cache_ttl: 30) ==> #<Eolife::DataObjects:0x00000000fc75b0 @identifier=1045608...>
-  # @return <Eolife::DataObjects>
+  #   Eol.data_objects('30073527', language: 'it', cache_ttl: 30) ==> #<Eol::DataObjects:0x00000000fc75b0 @identifier=1045608...>
+  # @return <Eol::DataObjects>
   def self.data_objects(id, query_options = {})
     @query = { id: id }.merge!(query_options)
     response = get('/data_objects/1.0.json', query: @query)
-    response.code == 200 ? Eolife::DataObjects.new(response) : bad_response(response)
+    response.code == 200 ? Eol::DataObjects.new(response) : bad_response(response)
   end
 
   # Gives access to a single hierarchy and its internal relationships
@@ -205,12 +205,12 @@ module Eolife
   #   tl, mk, sr, uk, ar, zh-Hans, zh-Hant, ko] :language (en) provides the
   #   results in the specified language
   # @example
-  #   Eolife.hierarchy_entries('30408282', common_names: true) ==> #<Eolife::HierarchyEntries:0x000000015b8c08 @source_identifier="taxon:142651"...>
-  # @return <Eolife::HierarchyEntries>
+  #   Eol.hierarchy_entries('30408282', common_names: true) ==> #<Eol::HierarchyEntries:0x000000015b8c08 @source_identifier="taxon:142651"...>
+  # @return <Eol::HierarchyEntries>
   def self.hierarchy_entries(id, query_options = {})
     @query = { id: id }.merge!(query_options)
     response = get('/hierarchy_entries/1.0.json', query: @query)
-    response.code == 200 ? Eolife::HierarchyEntries.new(response) : bad_response(response)
+    response.code == 200 ? Eol::HierarchyEntries.new(response) : bad_response(response)
   end
 
   # Lists metadata about a hierarchy such as the provider name and source URL,
@@ -225,12 +225,12 @@ module Eolife
   #   tl, mk, sr, uk, ar, zh-Hans, zh-Hant, ko] :language (en) provides the
   #   results in the specified language
   # @example
-  #   Eolife.hierarchies('1188', language: 'de', cache_ttl: 30) ==> #<Eolife::Hierarchies:0x000000015e7a08 @title="Species 2000 & ITIS Catalogue of Life: April 2013"...>
-  # @return <Eolife::Hierarchies>
+  #   Eol.hierarchies('1188', language: 'de', cache_ttl: 30) ==> #<Eol::Hierarchies:0x000000015e7a08 @title="Species 2000 & ITIS Catalogue of Life: April 2013"...>
+  # @return <Eol::Hierarchies>
   def self.hierarchies(id, query_options = {})
     @query = { id: id }.merge!(query_options)
     response = get('/hierarchies/1.0.json', query: @query)
-    response.code == 200 ? Eolife::Hierarchies.new(response) : bad_response(response)
+    response.code == 200 ? Eol::Hierarchies.new(response) : bad_response(response)
   end
 
   # This method will return references to all hierarchies supplied by EOL
@@ -239,11 +239,11 @@ module Eolife
   #
   # @see http://eol.org/api/docs/provider_hierarchies
   # @example
-  #   Eolife.provider_hierarchies ==> [#<Eolife::ProviderHierarchies:0x000000016080f0 @id=121, @label="AntWeb (Ant Species)">...]
-  # @return [Array<Eolife::ProviderHierarchies>]
+  #   Eol.provider_hierarchies ==> [#<Eol::ProviderHierarchies:0x000000016080f0 @id=121, @label="AntWeb (Ant Species)">...]
+  # @return [Array<Eol::ProviderHierarchies>]
   def self.provider_hierarchies
     response = get('/provider_hierarchies/1.0.json')
-    response.code == 200 ? response.map { |item| Eolife::ProviderHierarchies.new(item) } : bad_response(response)
+    response.code == 200 ? response.map { |item| Eol::ProviderHierarchies.new(item) } : bad_response(response)
   end
 
   # This method takes an integer or string which is the unique identifier for a
@@ -259,12 +259,12 @@ module Eolife
   # @option query_options [Integer] :cache_ttl the number of seconds you wish to
   #   have the response cached
   # @example
-  #   Eolife.search_by_provider('180542', 903) ==> [#<Eolife::SearchByProvider:0x000000022bf3c0 @eol_page_id=328580>, #<Eolife::SearchByProvider:0x000000022bf398...>]
-  # @return [Array<Eolife::SearchByProvider>]
+  #   Eol.search_by_provider('180542', 903) ==> [#<Eol::SearchByProvider:0x000000022bf3c0 @eol_page_id=328580>, #<Eol::SearchByProvider:0x000000022bf398...>]
+  # @return [Array<Eol::SearchByProvider>]
   def self.search_by_provider(id, hierarchy_id, query_options = {})
     @query = { id: id, hierarchy_id: hierarchy_id }.merge!(query_options)
     response = get('/search_by_provider/1.0.json?', query: @query)
-    response.code == 200 ? response.map { |item| Eolife::SearchByProvider.new(item) } : bad_response(response)
+    response.code == 200 ? response.map { |item| Eol::SearchByProvider.new(item) } : bad_response(response)
   end
 
   def self.all_pages(query, response)
@@ -272,7 +272,7 @@ module Eolife
     total = (response['totalResults'] / 30.to_f).ceil
     total.times.collect {
       response = get('/search/1.0.json', query: { q: query, page: (@n += 1) })
-      response['results'].map { |item| Eolife::Search.new(item) }
+      response['results'].map { |item| Eol::Search.new(item) }
     }.flatten
   end
 

@@ -1,15 +1,15 @@
 require 'spec_helper'
 
-describe Eolife::DataObjects do
+describe Eol::DataObjects do
   
   describe "#initialize" do
-    subject {Eolife::DataObjects}
+    subject {Eol::DataObjects}
     
     include_examples "argument errors"
     
   end
   
-  subject(:data_objects) {Eolife::DataObjects.new({'identifier' => identifier,
+  subject(:data_objects) {Eol::DataObjects.new({'identifier' => identifier,
                                                    'scientificName' => scientific_name, 
                                                    'exemplar' => exemplar,
                                                    'richness_score' => richness_score, 
@@ -27,7 +27,7 @@ describe Eolife::DataObjects do
     let(:data_objects) {[{"identifier":"715fac20e20b012e4c4f1e6699c0ad5e",
                           "dataObjectVersionID":13451158}]}
     
-    it {is_expected.to be_a(subject.class) }
+    it {is_expected.to be_a(Eol::DataObjects) }
     
     it_behaves_like "a class with attributes"
     

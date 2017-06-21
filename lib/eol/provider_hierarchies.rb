@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Eolife
+module Eol
   # Contains references to all hierarchies supplied by EOL Content Partners.
   class ProviderHierarchies
     include Enumerable
