@@ -1,5 +1,7 @@
 # Encyclopedia of Life API Wrapper
 
+[![Build Status](https://travis-ci.org/itroman/eol.svg?branch=master)](https://travis-ci.org/itroman/eol)
+
 ## Description
 
 A wrapper for the Encyclopedia of Life API.  It provides simple methods to call all of the available EOL API endpoints.
