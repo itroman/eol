@@ -4,9 +4,9 @@ module Eol
   # Contains metadata about the collection and the items it contains
   class Collections
     include Enumerable
-    # @return [String]
+    # @return [String] collections name
     attr_accessor :name
-    # @return [String]
+    # @return [String] collections description
     attr_accessor :description
     # @return [String] a hyperlink to the logo
     attr_accessor :logo_url
@@ -14,11 +14,11 @@ module Eol
     attr_accessor :created
     # @return [String] modified timestamp
     attr_accessor :modified
-    # @return [Integer]
+    # @return [Integer] total collections items
     attr_accessor :total_items
-    # @return [Array] An Array of Hashes
+    # @return [Array] an Array of Hashes
     attr_accessor :item_types
-    # @return [Array] An Array of Hashes
+    # @return [Array] an Array of Hashes
     attr_accessor :collection_items
 
     def initialize(response)

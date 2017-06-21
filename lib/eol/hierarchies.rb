@@ -5,13 +5,13 @@ module Eol
   # as well as lists all the taxa which are the root taxa of the taxonomic tree
   class Hierarchies
     include Enumerable
-    # @return [String]
+    # @return [String] the Hierarchies title
     attr_accessor :title
-    # @return [String]
+    # @return [String] the name of the Hierarchies contributor
     attr_accessor :contributor
-    # @return [String]
+    # @return [String] date of submission
     attr_accessor :date_submitted
-    # @return [String]
+    # @return [String] the Hierarchies source
     attr_accessor :source
     # @return [Array] An Array of Hashes
     attr_accessor :roots

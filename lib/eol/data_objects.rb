@@ -5,11 +5,11 @@ module Eol
   # contributing content partner.
   class DataObjects
     include Enumerable
-    # @return [Integer]
+    # @return [Integer] an identifier number
     attr_accessor :identifier
-    # @return [String] binomial nomenclature in zoology
+    # @return [String]the  binomial nomenclature in zoology
     attr_accessor :scientific_name
-    # @return [FalseClass or TrueClass]
+    # @return [FalseClass or TrueClass] status of exemplar
     attr_accessor :exemplar
     # @return [Integer]
     # EOL has developed a 'Richness Score' for taxon pages which provides a
