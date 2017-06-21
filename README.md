@@ -24,27 +24,33 @@ Or install it yourself as:
 
 #### Search for some orchids
 ```ruby
-### create a search
+# create a search
 search = Eol.search("tolumnia")
 
-### decide to modify the search
+# decide to modify the search
 search = Eol.search("tolumnia", exact: true)
 
-### print links to your results
+# print links to your results
 search.each do |search|
   puts search.link
 end
 ```
+#### Make requests with or without options
+```ruby
+# get collections
+collections = Eol.collections("176")
+
+# get sorted and cached collections
+collections = Eol.collections('176', sort_by: 'oldest', cache_ttl: 30)
+```
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/Rob Roman/eolife. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/itroman/eol. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
