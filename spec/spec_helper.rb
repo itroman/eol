@@ -2,7 +2,7 @@ require 'simplecov'
 SimpleCov.start
 
 require 'rspec'
-require 'eolife'
+require 'eol'
 require 'webmock/rspec' 
 require 'vcr'
 require 'httparty'
